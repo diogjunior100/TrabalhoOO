@@ -1,4 +1,4 @@
-package principal;
+/*package view;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -50,4 +50,4 @@ public class TelaEscolhaMedicamento implements ActionListener {
 					+ "relacionadas a curso e a matr�cula", null, 
 					JOptionPane.INFORMATION_MESSAGE);
 	}
-}
+}*/

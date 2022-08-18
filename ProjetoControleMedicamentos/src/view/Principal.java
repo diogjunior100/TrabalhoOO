@@ -1,13 +1,22 @@
-package principal;
+package view;
 
 import java.util.Scanner;
 
 import objetos.*;
-import principal.*;
+import controle.*;
+import view.*;
 
 
 public class Principal {
-	
+	static Telefone t1;
+	static Telefone t2;
+	static Horario h1;
+	static Horario h2;
+	static Medicamento	m1;
+	static Medicamento m2;
+	static Paciente p1;
+	static Paciente p2;
+
 	public static void main(String[] args) {
 		ControlePaciente cad[] = new ControlePaciente[50];
 		
@@ -39,8 +48,8 @@ public class Principal {
 					
 				switch (opcao) {
 					case 1:
-						cad[1] = new Cadastro(p1);
-						cad[2] = new Cadastro(p2);
+						cad[1] = new ControlePaciente(p1);
+						cad[2] = new ControlePaciente(p2);
 						break;
 					case 2:
 						//deletarPaciente;
