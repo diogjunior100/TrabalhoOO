@@ -1,4 +1,4 @@
-package principal;
+package view;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -38,7 +38,7 @@ public class TelaEscolhaMedicamento implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
-		if(src == medicamento)
+		/*if(src == medicamento)
 			new TelaPessoa().mostrarDados(dados, 1);
 		
 		if(src == prof)
@@ -48,6 +48,6 @@ public class TelaEscolhaMedicamento implements ActionListener {
 			JOptionPane.showMessageDialog(null, 
 					"Ainda precisam ser implementadas as funcionalidades\n"
 					+ "relacionadas a curso e a matr�cula", null, 
-					JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.INFORMATION_MESSAGE);*/
 	}
 }

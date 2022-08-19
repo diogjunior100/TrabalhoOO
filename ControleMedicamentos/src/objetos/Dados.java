@@ -13,7 +13,29 @@ public class Dados {
     private int qtdLiquidos = 0;
     private Horario[] horarios = new Horario[50];
     private int qtdHorarios = 0;
-
+    
+    
+    public void qtdPacientes(Paciente p, int pos) {
+    	this.pacientes[pos] = p;
+    	if(pos == qtdPacientes) {
+    		qtdPacientes++;
+    	}
+    }
+    
+    public void qtdComprimidos(Comprimido c, int pos) {
+    	this.comprimidos[pos] = c;
+    	if(pos == qtdComprimidos) {
+    		qtdComprimidos++;
+    	}
+    }
+    
+    public void qtdLiquidos(Liquido l, int pos) {
+    	this.liquidos[pos] = p;
+    	if(pos == qtdLiquidos) {
+    		qtdLiquidos++;
+    	}
+    }
+    
     public Paciente[] getPacientes() {
         return pacientes;
     }
