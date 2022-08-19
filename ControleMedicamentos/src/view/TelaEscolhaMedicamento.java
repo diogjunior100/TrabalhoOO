@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import controle.*;
+import objetos.*;
 
 public class TelaEscolhaMedicamento implements ActionListener {
 	
@@ -38,16 +39,12 @@ public class TelaEscolhaMedicamento implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
-		/*if(src == medicamento)
-			new TelaPessoa().mostrarDados(dados, 1);
+		if(src == paciente){
+			new TelaPaciente().mostrarDados(dados, 1);
+		}
 		
-		if(src == prof)
-			new TelaPessoa().mostrarDados(dados, 2);
-		
-		if(src == curso)
-			JOptionPane.showMessageDialog(null, 
-					"Ainda precisam ser implementadas as funcionalidades\n"
-					+ "relacionadas a curso e a matr�cula", null, 
-					JOptionPane.INFORMATION_MESSAGE);*/
+		if(src == medicamento){
+			new TelaPaciente().mostrarDados(dados, 2);
+		}
 	}
 }

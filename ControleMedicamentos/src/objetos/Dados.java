@@ -30,12 +30,13 @@ public class Dados {
     }
     
     public void qtdLiquidos(Liquido l, int pos) {
-    	this.liquidos[pos] = p;
+    	this.liquidos[pos] = l;
     	if(pos == qtdLiquidos) {
     		qtdLiquidos++;
     	}
     }
     
+    //getters e setters
     public Paciente[] getPacientes() {
         return pacientes;
     }

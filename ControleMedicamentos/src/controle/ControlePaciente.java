@@ -3,7 +3,8 @@ package controle;
 import objetos.*;
 
 public class ControlePaciente {
-	private Paciente paciente;
+	private Paciente[] paciente;
+	private int qtdDeAlunos;	
 	
 	public ControlePaciente(Paciente p) {
 		paciente = p;
