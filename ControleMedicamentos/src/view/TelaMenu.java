@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import controle.*;
+import objetos.Dados;
 
 public class TelaMenu implements ActionListener {
 	
@@ -11,6 +12,7 @@ public class TelaMenu implements ActionListener {
 	private static JLabel titulo = new JLabel("Menu");
 	private static JButton medicamento = new JButton("Medicamentos");
 	private static JButton paciente = new JButton("Pacientes");
+	public static ControleDados dados = new ControleDados();
 	
 	
 	
@@ -19,6 +21,7 @@ public class TelaMenu implements ActionListener {
 		titulo.setBounds(150, 10, 150, 30);
 		medicamento.setBounds(220, 70, 140, 100);
 		paciente.setBounds(20, 70, 140, 100);
+		
 		janela.setLayout(null);
 		
 		janela.add(titulo);
@@ -42,9 +45,13 @@ public class TelaMenu implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
-		if(src == medicamento)
+		if(src == paciente){
+			new TelaPaciente();
+		}
+
+		if(src == medicamento){
 			new TelaEscolhaMedicamento();
-		
+		}
 		
 	}
 }

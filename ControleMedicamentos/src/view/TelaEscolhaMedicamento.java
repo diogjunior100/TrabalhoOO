@@ -19,8 +19,7 @@ public class TelaEscolhaMedicamento implements ActionListener {
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
 		titulo.setBounds(170, 10, 150, 30);
 		comprimido.setBounds(220, 70, 140, 100);
-		
-		liquido.setBounds(20, 70, 140, 100);
+		liquido.setBounds(220, 70, 140, 100);
 		
 		janela.setLayout(null);
 		
@@ -39,12 +38,6 @@ public class TelaEscolhaMedicamento implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
-		if(src == paciente){
-			new TelaPaciente().mostrarDados(dados, 1);
-		}
 		
-		if(src == medicamento){
-			new TelaPaciente().mostrarDados(dados, 2);
-		}
 	}
 }
