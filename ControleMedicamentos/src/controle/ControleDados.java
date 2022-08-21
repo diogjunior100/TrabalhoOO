@@ -6,6 +6,7 @@ public class ControleDados {
     private Dados d = new Dados();
 
     public ControleDados() {
+        
     }
 
     public Dados getDados() {
