@@ -3,7 +3,19 @@ package controle;
 import objetos.*;
 
 public class ControlePaciente {
-	private Paciente paciente;
+	private Paciente[] p;
+	private int qtdPacientes;
+
+	public String[] getNomePacinete() {
+		
+		String[] s = new String[qtdPacientes];
+		for(int i = 0; i < qtdPacientes; i++) {
+			s[i] = p[i].getNome();
+		}
+
+		return s;
+		
+	}
 	
 	public ControlePaciente(Paciente p) {
 		paciente = p;

@@ -12,6 +12,11 @@ public class Liquido extends Medicamento{
 		this.horario = h;
 	}
 
+	public Liquido(String nome, String marca, Float mlsT){
+		super(nome, marca);
+		this.mlsTotal = mlsT;
+	}
+
 	public double getGotasporDia() {
 		return gotasporDia;
 	}

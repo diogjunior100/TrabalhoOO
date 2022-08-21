@@ -11,6 +11,7 @@ public class TelaEscolhaMedicamento implements ActionListener {
 	private static JLabel titulo = new JLabel("Menu");
 	private static JButton comprimido = new JButton("Comprimido");
 	private static JButton liquido = new JButton("Líquido");
+	public static ControleDados dados = new ControleDados();
 	
 	
 	
@@ -31,6 +32,9 @@ public class TelaEscolhaMedicamento implements ActionListener {
 		janela.setSize(400, 250);
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		janela.setVisible(true);
+
+		comprimido.addActionListener(this);
+		liquido.addActionListener(this);
 	}
 	
 	
@@ -38,16 +42,10 @@ public class TelaEscolhaMedicamento implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
-		/*if(src == medicamento)
-			new TelaPessoa().mostrarDados(dados, 1);
+		if(src == comprimido)
+			new TelaLista().mostrarDados(dados, 1);
 		
-		if(src == prof)
-			new TelaPessoa().mostrarDados(dados, 2);
-		
-		if(src == curso)
-			JOptionPane.showMessageDialog(null, 
-					"Ainda precisam ser implementadas as funcionalidades\n"
-					+ "relacionadas a curso e a matr�cula", null, 
-					JOptionPane.INFORMATION_MESSAGE);*/
+		if(src == liquido);
+			new TelaLista().mostrarDados(dados, 2);
 	}
 }

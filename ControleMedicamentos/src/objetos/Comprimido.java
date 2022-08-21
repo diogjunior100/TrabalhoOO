@@ -13,6 +13,12 @@ public class Comprimido extends Medicamento{
 		this.horario = h;
 	
 	}
+
+	public Comprimido(String nome, String marca, int ct) {
+		super(nome, marca);
+		this.comprimidosTotal = ct;
+	}
+	
 	public int getComprimidosporDia() {
 		return comprimidosporDia;
 	}
