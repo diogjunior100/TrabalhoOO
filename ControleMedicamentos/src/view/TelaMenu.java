@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import controle.*;
-import objetos.Dados;
+import objetos.*;
 
 public class TelaMenu implements ActionListener {
 	

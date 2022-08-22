@@ -60,12 +60,9 @@ public class TelaListaMedicamento {
             janela.setVisible(true);
 			
 		break;
-        case 3://mostrar lista de pacientes cadastrados
-
-            break;
-
+        
 		default:
-			JOptionPane.showMessageDialog(null,"Op��o n�o encontrada!", null, 
+			JOptionPane.showMessageDialog(null,"Opcao nao encontrada!", null, 
 					JOptionPane.ERROR_MESSAGE);
 		}
 
