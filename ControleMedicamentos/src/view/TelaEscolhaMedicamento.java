@@ -42,10 +42,10 @@ public class TelaEscolhaMedicamento implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
-		if(src == comprimido)
+		if(src == comprimido) // chama tela lista de comprimidos
 			new TelaLista().mostrarDados(dados, 1);
 		
-		if(src == liquido);
+		if(src == liquido) // chama tela lista de liquidos
 			new TelaLista().mostrarDados(dados, 2);
 	}
 }
