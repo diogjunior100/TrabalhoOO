@@ -1,6 +1,6 @@
 package objetos;
 
-import java.util.*;
+
 
 public class Dados { // classe que amarzena todos arrays utilizados pelo sistema
     private Paciente[] pacientes = new Paciente[50];
