@@ -5,11 +5,16 @@ public class Liquido extends Medicamento{
 	private float mlsTotal;
 	private Horario horario;
 	
-	public Liquido(String nome, String marca, String frequencia, double gd, float mlsT, Horario h) {
+	public Liquido(String nome, String marca, String frequencia, double gd, float mlsT, Horario h) { // construtor para cadastrar liquido em um paciente
 		super(nome, marca, frequencia);
 		this.gotasporDia = gd;
 		this.mlsTotal = mlsT;
 		this.horario = h;
+	}
+
+	public Liquido(String nome, String marca, Float mlsT){ // construtor para cadastrar liquidos no sistema
+		super(nome, marca);
+		this.mlsTotal = mlsT;
 	}
 
 	public double getGotasporDia() {
@@ -45,6 +50,8 @@ public class Liquido extends Medicamento{
 				"Marca: " + getMarca() + "\n" +
 				"Frequencia: " + getFrequencia() + "\n";
 	}
+
+	
 
 		
 	

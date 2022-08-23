@@ -12,6 +12,12 @@ public abstract class Medicamento {
 		this.frequencia = frequencia;
 	}
 
+	public Medicamento(String nome, String marca) {
+		//super();
+		this.nome = nome;
+		this.marca = marca;
+	}
+
 	public String getNome() {
 		return nome;
 	}

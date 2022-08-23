@@ -6,7 +6,9 @@ public class ControleDados {
     private Dados d = new Dados();
 
     public ControleDados() {
-        
+
+        d.Preencherdados(); //construtor que começa com os dados ja pré cadastrados
+
     }
 
     public Dados getDados() {
@@ -32,5 +34,16 @@ public class ControleDados {
     public int getQtdLiquidos() {
         return d.getQtdLiquidos();
     }
+
+
+   /*  public boolean inserirEditarComprimido(String[] dados) { // Cadastro e edicao de comprimdos IMCOMPLETO
+        
+        Comprimido c = new Comprimido(dados[1], dados[2], Integer.parseInt(dados[3]));
+        d.inserirEditarComprimido(c, Integer.parseInt(dados[0]));
+
+        return true;
+        
+    } */
     
 }
+

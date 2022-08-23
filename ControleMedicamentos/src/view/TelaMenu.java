@@ -1,4 +1,4 @@
-package view;
+ package view;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -16,7 +16,7 @@ public class TelaMenu implements ActionListener {
 	
 	
 	
-	public TelaMenu() {
+	public TelaMenu() { // menu principal
 		titulo.setFont(new Font("Arial", Font.BOLD, 30));
 		titulo.setBounds(150, 10, 150, 30);
 		medicamento.setBounds(220, 70, 140, 100);
@@ -34,7 +34,7 @@ public class TelaMenu implements ActionListener {
 		janela.setVisible(true);
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) { // funcao main do sistema
 		TelaMenu menu = new TelaMenu();
 		
 		paciente.addActionListener(menu);
@@ -45,13 +45,9 @@ public class TelaMenu implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
-		if(src == paciente){
-			new TelaPaciente();
-		}
 
-		if(src == medicamento){
+		if(src == medicamento) // chama a tela de escolha do tipo de medicamentos
 			new TelaEscolhaMedicamento();
-		}
-		
 	}
+		
 }

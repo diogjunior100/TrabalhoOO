@@ -1,8 +1,8 @@
 package objetos;
 
-import java.util.*;
 
-public class Dados {
+
+public class Dados { // classe que amarzena todos arrays utilizados pelo sistema
     private Paciente[] pacientes = new Paciente[50];
 	private int qtdPacientes = 0;
     private Telefone[] telefones = new Telefone[50];
@@ -13,9 +13,30 @@ public class Dados {
     private int qtdLiquidos = 0;
     private Horario[] horarios = new Horario[50];
     private int qtdHorarios = 0;
+
+    public void Preencherdados(){ //funcao para pre cadastrar dados no sistema
+        comprimidos[0] = new Comprimido("Paracetamol", "Paracetamol", 10);
+        comprimidos[1] = new Comprimido("Paracetamol", "Paracetamol", 10);
+        liquidos[0] = new Liquido("Paracetamol", "Paracetamol", 10.0f);
+        liquidos[1] = new Liquido("Paracetamol", "Paracetamol", 10.0f);
+        
+        qtdComprimidos = 2;
+        qtdLiquidos = 2;
+    }
+
+    public void inserirEditarComprimido(Comprimido c, int pos){ // funcao de inserir comprimidos cadastrados por CotroleDados
+        this.comprimidos[pos] = c;
+        if(pos == qtdComprimidos)
+            qtdComprimidos++;
+    }
+
+    public void inserirEditarLiquido(Liquido l, int pos){ // funcao de inserir liquidos cadastrados por CotroleDados
+        this.liquidos[pos] = l;
+        if(pos == qtdLiquidos)
+            qtdLiquidos++;
+    }
     
-    
-    public void qtdPacientes(Paciente p, int pos) {
+    public void qtdPacientes(Paciente p, int pos) { 
     	this.pacientes[pos] = p;
     	if(pos == qtdPacientes) {
     		qtdPacientes++;
