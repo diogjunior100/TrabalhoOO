@@ -51,6 +51,8 @@ public class Liquido extends Medicamento{
 				"Frequencia: " + getFrequencia() + "\n";
 	}
 
+	
+
 		
 	
 }

@@ -14,11 +14,14 @@ public class Dados { // classe que amarzena todos arrays utilizados pelo sistema
     private Horario[] horarios = new Horario[50];
     private int qtdHorarios = 0;
 
-    public void PreencherComprimidos(){ //funcao para pre cadastrar comprimidos no sistema
+    public void Preencherdados(){ //funcao para pre cadastrar dados no sistema
         comprimidos[0] = new Comprimido("Paracetamol", "Paracetamol", 10);
         comprimidos[1] = new Comprimido("Paracetamol", "Paracetamol", 10);
+        liquidos[0] = new Liquido("Paracetamol", "Paracetamol", 10.0f);
+        liquidos[1] = new Liquido("Paracetamol", "Paracetamol", 10.0f);
         
         qtdComprimidos = 2;
+        qtdLiquidos = 2;
     }
 
     public void inserirEditarComprimido(Comprimido c, int pos){ // funcao de inserir comprimidos cadastrados por CotroleDados

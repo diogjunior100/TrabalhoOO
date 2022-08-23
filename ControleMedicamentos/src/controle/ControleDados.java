@@ -7,7 +7,7 @@ public class ControleDados {
 
     public ControleDados() {
 
-        d.PreencherComprimidos(); //construtor que começa com os dados ja pré cadastrados
+        d.Preencherdados(); //construtor que começa com os dados ja pré cadastrados
 
     }
 

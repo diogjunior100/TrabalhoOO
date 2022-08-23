@@ -28,5 +28,17 @@ public class ControleLiquido {
     public void setQtd(int qtd){
         this.qtdLiquidos = qtd;
     }
+
+    public String getNome(int i){
+        return l[i].getNome();
+    }
+
+    public String getMarca(int i){
+        return l[i].getMarca();
+    }
+
+    public String getComprimidosTotal(int i){
+        return Float.toString(l[i].getMlsTotal());
+    }
     
 }

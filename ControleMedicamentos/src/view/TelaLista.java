@@ -86,6 +86,18 @@ public class TelaLista implements ActionListener, ListSelectionListener {
     
 	}
 
+    @Override
+    public void valueChanged(ListSelectionEvent arg0) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent arg0) {
+        // TODO Auto-generated method stub
+        
+    }
+
    
 
 }

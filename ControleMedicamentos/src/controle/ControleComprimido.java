@@ -10,10 +10,8 @@ public class ControleComprimido {
         qtdComprimidos = d.getQtdComprimidos();
     }
 
-
     public String[] getNomeComprimido() { //funcao que listara o nome de comprimidos cadastrados 
 
-        
         String[] s = new String[qtdComprimidos];
         for(int i = 0; i < qtdComprimidos; i++) {
             s[i] = c[i].getNome();
