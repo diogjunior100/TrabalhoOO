@@ -54,6 +54,7 @@ public class Dados { // classe que amarzena todos arrays utilizados pelo sistema
     	}
     }
     
+    //getters e setters
     public Paciente[] getPacientes() {
         return pacientes;
     }

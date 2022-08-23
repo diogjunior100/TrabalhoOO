@@ -10,7 +10,9 @@ public class ControleComprimido {
         qtdComprimidos = d.getQtdComprimidos();
     }
 
+
     public String[] getNomeComprimido() { //funcao que listara o nome de comprimidos cadastrados 
+
         
         String[] s = new String[qtdComprimidos];
         for(int i = 0; i < qtdComprimidos; i++) {
@@ -29,6 +31,7 @@ public class ControleComprimido {
         this.qtdComprimidos = qtd;
     }
 
+
     public String getNome(int i){
         return c[i].getNome();
     }
@@ -41,3 +44,4 @@ public class ControleComprimido {
         return Integer.toString(c[i].getComprimidosTotal());
     }
 }
+

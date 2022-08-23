@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import controle.*;
+import objetos.Dados;
 
 public class TelaMenu implements ActionListener {
 	
@@ -11,6 +12,7 @@ public class TelaMenu implements ActionListener {
 	private static JLabel titulo = new JLabel("Menu");
 	private static JButton medicamento = new JButton("Medicamentos");
 	private static JButton paciente = new JButton("Pacientes");
+	public static ControleDados dados = new ControleDados();
 	
 	
 	
@@ -18,9 +20,8 @@ public class TelaMenu implements ActionListener {
 		titulo.setFont(new Font("Arial", Font.BOLD, 30));
 		titulo.setBounds(150, 10, 150, 30);
 		medicamento.setBounds(220, 70, 140, 100);
-		medicamento.setBackground(Color.GREEN);
 		paciente.setBounds(20, 70, 140, 100);
-		paciente.setBackground(Color.GREEN);
+		
 		janela.setLayout(null);
 		
 		janela.add(titulo);
@@ -29,7 +30,6 @@ public class TelaMenu implements ActionListener {
 		
 		
 		janela.setSize(400, 250);
-		janela.getContentPane().setBackground(Color.cyan);
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		janela.setVisible(true);
 	}
@@ -45,9 +45,11 @@ public class TelaMenu implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
+
 		if(src == medicamento) // chama a tela de escolha do tipo de medicamentos
+
 			new TelaEscolhaMedicamento();
-		
+		}
 		
 	}
 }

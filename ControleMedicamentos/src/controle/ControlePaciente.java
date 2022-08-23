@@ -1,24 +1,30 @@
 package controle;
 
 import objetos.*;
+import view.*;
+import controle.*;
 
 public class ControlePaciente {
+
 	private Paciente[] p;
+
 	private int qtdPacientes;
 
 	public String[] getNomePacinete() {
 		
 		String[] s = new String[qtdPacientes];
 		for(int i = 0; i < qtdPacientes; i++) {
+
 			s[i] = p[i].getNome();
+
 		}
 
 		return s;
 		
 	}
 	
-	public ControlePaciente(Paciente p) {
-		paciente = p;
+	public ControlePaciente(Paciente paciente) {
+		paciente = paciente;
 	}
 	
 	public boolean cadastrar() {
