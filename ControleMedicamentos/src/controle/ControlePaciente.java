@@ -8,6 +8,12 @@ public class ControlePaciente {
 	private Paciente[] paciente;
 	private int qtdPacientes;
 
+	public Paciente(ControleDados d){
+		paciente = d.getPaciente();
+
+
+
+	}
 	public String[] getNomePacinete() {
 		
 		String[] s = new String[qtdPacientes];

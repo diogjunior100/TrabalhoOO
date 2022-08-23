@@ -8,18 +8,16 @@ import objetos.*;
 
 public class TelaPaciente implements ActionListener {
 	
-	private static JFrame janela = new JFrame("Pacientes");
+	private static JFrame janelaPaciente = new JFrame("Pacientes");
 	private static JLabel titulo = new JLabel("Pacientes");
     private static JButton cadastroButton = new JButton("Cadastrar +");
     private static JButton refreshButton = new JButton("Atualizar Lista");
-    private static ControleComprimido dados;
+    private static ControlePaciente dados;
     private JList<String> listaPacientes;
     private String[] listaNomesPacientes = new String[50];
 	
 	public TelaPaciente() {
-        //parte de back
 
-        //parte de front
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
 		titulo.setBounds(150, 10, 150, 30);
         //cadastroButton.setFont(new Font("Arial", Font.BOLD, 20));
@@ -27,26 +25,33 @@ public class TelaPaciente implements ActionListener {
         //refreshButton.setFont(new Font("Arial", Font.BOLD, 20));
         refreshButton.setBounds(220, 70, 140, 100);
 
-		janela.setLayout(null);
+		janelaPaciente.setLayout(null);
 		
-		janela.add(titulo);
-        janela.add(cadastroButton);
-        janela.add(refreshButton);
+		janelaPaciente.add(titulo);
+        janelaPaciente.add(cadastroButton);
+        janelaPaciente.add(refreshButton);
 		
-		janela.setSize(400, 250);
-		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		janela.setVisible(true);
+		janelaPaciente.setSize(400, 250);
+		janelaPaciente.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		janelaPaciente.setVisible(true);
 	}
 
     public void mostrarDadosPacientes(ControleDados d, int op){
         listaNomesPacientes = new ControlePaciente(dados).getNomePacinete();
         listaPacientes = new JList<String>(listaNomesPacientes);
-        janela = new JFrame();
+        janelaPaciente = new JFrame();
         titulo = new JLabel();
 
         titulo.setFont(new Font("Arial", Font.BOLD, 20));
         titulo.setBounds(90,10,250,30);
-        listaPacientes.
+        listaPacientes.setBounds(20,50,350,120);
+        listaPacientes.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        listaPacientes.setVisibleRowCount(10);
+
+        janelaPaciente.setLayout(null);
+
+        janelaPaciente.add(titulo);
+        janelaPaciente.setVisible(true);
         }
 
 
