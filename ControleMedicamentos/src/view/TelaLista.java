@@ -86,13 +86,16 @@ public class TelaLista implements ActionListener, ListSelectionListener {
     
 	}
 
-    @Override
-    public void valueChanged(ListSelectionEvent arg0) {
-        // TODO Auto-generated method stub
+   
+    public void valueChanged(ListSelectionEvent e) {
+        Object obj = e.getSource();
+        
+        if(e.getValueIsAdjusting() && src == listaComprimidosCadastrados){
+            new TelaDetalhe().inserirEditar(2, dados, this, listaComprimidosCadastrados.getSelectedIndex());
+        }
         
     }
 
-    @Override
     public void actionPerformed(ActionEvent arg0) {
         // TODO Auto-generated method stub
         
