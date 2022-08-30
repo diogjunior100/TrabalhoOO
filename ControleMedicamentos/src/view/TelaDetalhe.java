@@ -31,30 +31,28 @@ public class TelaDetalhe  implements ActionListener{
         dados = d;
         posicao = pos;
         opcao = op;
+
+        if(op == 1) s = "Cadastro Comprimido";
+        if(op == 2) s = "Detalhe Comprimido";
        
-        if (op == 1) s ="Cadastro de Comprimido";
-        if (op == 2) s ="Detalhe de Comprimido";
-        if (op == 3) s ="Cadastro de Liquido";
-        if (op == 4) s ="Detalhe de Liquido";
-        if (op == 5) s ="Cadastro de Paciente";
-        if (op == 6) s ="Detalhe de Paciente";
-        
         janela = new JFrame(s);
 
-        if(op == 2){
+        if(op == 2){ //se for edicao, preenche os campos com os dados do comprimido
             
             valorNome = new JTextField(dados.getComprimidos()[pos].getNome(), 200);
             valorMarca = new JTextField(dados.getComprimidos()[pos].getMarca(), 200);
             valorCT = new JTextField(String.valueOf(dados.getComprimidos()[pos].getComprimidosTotal()), 200);
+
+            botaoSalvar.setBounds(120, 175, 115, 30);
+            botaoExcluir.setBounds(245, 175, 115, 30);
         
         } else{
-                
+            
             valorNome = new JTextField(200);
             valorMarca = new JTextField(200);
             valorCT = new JTextField(200);
 
-            botaoSalvar.setBounds(245, 175, 115, 30);
-            
+            botaoSalvar.setBounds(120, 175, 115, 30);
         }
 
         labelNome.setBounds(30, 20, 150, 25);
@@ -64,10 +62,6 @@ public class TelaDetalhe  implements ActionListener{
         labelCT.setBounds(30, 50, 180, 25);
         valorCT.setBounds(180, 50, 180, 25);
 
-        if(op == 2){
-            botaoSalvar.setBounds(120, 175, 115, 30);
-            botaoExcluir.setBounds(245, 175, 115, 30);
-        }
 
         this.janela.add(labelNome);
         this.janela.add(valorNome);
@@ -80,7 +74,7 @@ public class TelaDetalhe  implements ActionListener{
         this.janela.add(botaoExcluir);
 
         this.janela.setSize(400, 250);
-        this.janela.setLayout(null);
+        
         this.janela.setVisible(true);
 
         botaoSalvar.addActionListener(this);
@@ -88,10 +82,10 @@ public class TelaDetalhe  implements ActionListener{
 
     }
     
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) { //metodo que executa a acao do botao 
         Object src = e.getSource();
 
-        if(src == botaoSalvar){
+        if(src == botaoSalvar){ //se for salvar, salva os dados no comprimido
             try{
                 boolean resultado;
                 if(opcao == 1){
