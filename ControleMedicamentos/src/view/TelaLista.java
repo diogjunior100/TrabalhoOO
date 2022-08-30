@@ -86,17 +86,32 @@ public class TelaLista implements ActionListener, ListSelectionListener {
     
 	}
 
-    @Override
-    public void valueChanged(ListSelectionEvent arg0) {
-        // TODO Auto-generated method stub
+    public void actionPerformed(ActionEvent e) {
+        Object src = e.getSource();
+
+        if (src == cadastroComprimido) {
+            System.out.println("foi?");
+            new TelaDetalhe().inserirEditar(1, dados, this, 0);
+            System.out.println("entrou cadastro"); // testando se a função esta sendo chamada
+                                                //obs: não esta sendo chamada
+        }
+        
         
     }
 
-    @Override
-    public void actionPerformed(ActionEvent arg0) {
-        // TODO Auto-generated method stub
+   
+    public void valueChanged(ListSelectionEvent e) {
+        Object src = e.getSource();
+        
+        if(e.getValueIsAdjusting() && src == listaComprimidosCadastrados){
+            new TelaDetalhe().inserirEditar(2, dados, this, listaComprimidosCadastrados.getSelectedIndex());
+            System.out.println("entrou editar");// testando se a função esta sendo chamada
+                                                //obs: não esta sendo chamada
+        }
         
     }
+
+    
 
    
 

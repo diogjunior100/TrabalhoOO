@@ -36,14 +36,24 @@ public class ControleDados {
     }
 
 
-   /*  public boolean inserirEditarComprimido(String[] dados) { // Cadastro e edicao de comprimdos IMCOMPLETO
+    
+    public boolean inserirEditarComprimido(String[] dados) { // Cadastro e edicao de comprimdos IMCOMPLETO
         
         Comprimido c = new Comprimido(dados[1], dados[2], Integer.parseInt(dados[3]));
         d.inserirEditarComprimido(c, Integer.parseInt(dados[0]));
 
         return true;
         
-    } */
+    }
+
+    public boolean inserirEditarLiquido(String[] dados) { // Cadastro e edicao de liquidos IMCOMPLETO
+        
+        Liquido l = new Liquido(dados[1], dados[2], Float.parseFloat(dados[3]));
+        d.inserirEditarLiquido(l, Integer.parseInt(dados[0]));
+        
+        return true;
+        
+    }
     
 }
 
