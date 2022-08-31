@@ -17,6 +17,10 @@ public class ControleDados {
         this.d = d;
     }
 
+    public Paciente[] getPacientes(){
+        return d.getQtdPacientes();
+    }
+
     public Comprimido[] getComprimidos() {
         return d.getComprimidos();
     }
