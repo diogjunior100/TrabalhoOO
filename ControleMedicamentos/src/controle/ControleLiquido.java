@@ -11,12 +11,10 @@ public class ControleLiquido {
     }
     
     public String[] getNomeLiquido() {
-        
         String[] s = new String[qtdLiquidos];
         for(int i = 0; i < qtdLiquidos; i++) {
             s[i] = l[i].getNome();
-        }
-        
+        } 
         return s;
         
     }

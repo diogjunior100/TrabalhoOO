@@ -7,7 +7,8 @@ import javax.swing.event.*;
 
 import controle.*;
 
-public class TelaLista implements ActionListener, ListSelectionListener {
+//apresenta os medicamentos cadastrados
+public class TelaListaMedicamentos implements ActionListener, ListSelectionListener {
     private JFrame janela;
 	private JLabel titulo;
     private JButton cadastroComprimido;
@@ -91,7 +92,7 @@ public class TelaLista implements ActionListener, ListSelectionListener {
 
         if (src == cadastroComprimido) {
             System.out.println("foi?");
-            new TelaDetalhe().inserirEditar(1, dados, this, 0);
+            new TelaDetalheMedicamento().inserirEditar(1, dados, this, 0);
             System.out.println("entrou cadastro"); // testando se a função esta sendo chamada
                                                 //obs: não esta sendo chamada
         }
@@ -104,7 +105,7 @@ public class TelaLista implements ActionListener, ListSelectionListener {
         Object src = e.getSource();
         
         if(e.getValueIsAdjusting() && src == listaComprimidosCadastrados){
-            new TelaDetalhe().inserirEditar(2, dados, this, listaComprimidosCadastrados.getSelectedIndex());
+            new TelaDetalheMedicamento().inserirEditar(2, dados, this, listaComprimidosCadastrados.getSelectedIndex());
             System.out.println("entrou editar");// testando se a função esta sendo chamada
                                                 //obs: não esta sendo chamada
         }

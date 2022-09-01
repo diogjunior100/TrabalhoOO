@@ -11,14 +11,11 @@ public class ControleComprimido {
     }
 
     public String[] getNomeComprimido() { //funcao que listara o nome de comprimidos cadastrados 
-
         String[] s = new String[qtdComprimidos];
         for(int i = 0; i < qtdComprimidos; i++) {
             s[i] = c[i].getNome();
         }
-
-        return s;
-        
+        return s;  
     }
 
     public int getQtd(){

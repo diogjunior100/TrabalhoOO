@@ -10,7 +10,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import controle.*;
 
-public class TelaDetalhe  implements ActionListener{
+//cadastrar novos medicamentos;
+public class TelaDetalheMedicamento  implements ActionListener{
     private JFrame janela;
 	private JLabel labelNome = new JLabel("Nome do Remedio: ");
 	private JTextField valorNome;
@@ -26,7 +27,7 @@ public class TelaDetalhe  implements ActionListener{
     private int opcao;
     private String s;
 
-    public void inserirEditar(int op, ControleDados d, TelaLista l , int pos){
+    public void inserirEditar(int op, ControleDados d, TelaListaMedicamentos l , int pos){
 
         dados = d;
         posicao = pos;
