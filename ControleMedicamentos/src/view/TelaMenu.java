@@ -45,6 +45,9 @@ public class TelaMenu implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
+		if(src == paciente){
+			new TelaPaciente();
+		}
 
 		if(src == medicamento) // chama a tela de escolha do tipo de medicamentos
 			new TelaEscolhaMedicamento();
