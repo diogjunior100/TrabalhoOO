@@ -51,7 +51,6 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
 
             janela.setSize(400, 250);
             janela.setVisible(true);
-
         break;
 
 		case 2://mostrar lista de liquidos cadastrados
@@ -75,12 +74,9 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
             janela.setVisible(true);
 			
 		break;
-        case 3://mostrar lista de pacientes cadastrados
-
-            break;
 
 		default:
-			JOptionPane.showMessageDialog(null,"Op��o n�o encontrada!", null, 
+			JOptionPane.showMessageDialog(null,"Opcaoo nao encontrada!", null, 
 					JOptionPane.ERROR_MESSAGE);
 		}
 
