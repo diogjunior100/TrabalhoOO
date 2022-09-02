@@ -93,7 +93,7 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
         if (src == cadastroComprimido) {
             System.out.println("foi?");
             new TelaDetalheMedicamento().inserirEditar(1, dados, this, 0);
-            System.out.println("entrou cadastro"); // testando se a função esta sendo chamada
+            System.out.println("entrou cadastro!!"); // testando se a função esta sendo chamada
                                                 //obs: não esta sendo chamada
         }
         
