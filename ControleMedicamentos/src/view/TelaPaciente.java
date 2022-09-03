@@ -8,7 +8,7 @@ import javax.swing.event.ListSelectionListener;
 import controle.*;
 import objetos.*;
 
-public class TelaPaciente implements ActionListener, ListSelectionListener{
+public class TelaPaciente implements ActionListener {
 	
 	/*private static JFrame janela = new JFrame("Pacientes");
 	private static JLabel titulo = new JLabel("Pacientes");
@@ -55,9 +55,6 @@ public class TelaPaciente implements ActionListener, ListSelectionListener{
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
         
-        if (src == pacientes) {
-            new TelaPaciente();
-        }
 
 		
 	}
