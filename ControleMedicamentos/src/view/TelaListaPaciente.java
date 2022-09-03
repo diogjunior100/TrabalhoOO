@@ -8,12 +8,7 @@ import javax.swing.event.ListSelectionListener;
 import controle.*;
 import objetos.*;
 
-public class TelaPaciente implements ActionListener {
-	
-	/*private static JFrame janela = new JFrame("Pacientes");
-	private static JLabel titulo = new JLabel("Pacientes");
-	private static JButton cadastroButton = new JButton("Cadastrar Paciente");
-    private static JButton refreshButton = new JButton("Atualizar Lista");*/
+public class TelaListaPaciente implements ActionListener, ListSelectionListener {
 
     private JFrame janela;
     private JLabel titulo;
@@ -29,7 +24,7 @@ public class TelaPaciente implements ActionListener {
         //mostrar pacientes cadastrados
         listaPacientes = new ControlePaciente(dados).getNomePacinete();
         listaPacientesCadastrados = new JList<String>(listaPacientes);
-        janela = new JFrame("Contro de Pacientes");
+        janela = new JFrame("Controle de Pacientes");
         cadastroPaciente = new JButton("Cadastrar");
         refreshPaciente = new JButton("Atualizar");
 
@@ -54,6 +49,7 @@ public class TelaPaciente implements ActionListener {
 	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
+        
         
 
 		
