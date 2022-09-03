@@ -6,7 +6,6 @@ import controle.*;
 
 public class ControlePaciente {
 	private Paciente[] p;
-	private Telefone[] t;
 	private int qtdPacientes;
 
 	public ControlePaciente(ControleDados d){
@@ -15,11 +14,11 @@ public class ControlePaciente {
 	}
 
 	public String[] getNomePacinete() { //funcao que lista o nome dos pacientes
-		String[] s = new String[qtdPacientes];
+		String[] nomePacientes = new String[qtdPacientes];
 		for(int i = 0; i < qtdPacientes; i++) {
-			s[i] = p[i].getNome();
+			nomePacientes[i] = p[i].getNome();
 		}
-		return s;
+		return nomePacientes;
 		
 	}
 	
@@ -47,12 +46,8 @@ public class ControlePaciente {
 		return p[i].getEmail();
 	}
 
-	public int getDdd(int i){
-		return t[i].getDdd();
-	}
-
-	public String getDigitos(int i){
-		return t[i].getDigitos();
+	public Telefone getTelefone(int i){
+		return p[i].getTelefone();
 	}
 
 	public String getCor(int i){

@@ -3,19 +3,24 @@ package controle;
 import objetos.*;
 
 public class ControleDados {
-    private Dados d = new Dados();
+    private Dados d = new Dados(); //objetos.Dados
 
     public ControleDados() {
-        d.Preencherdados(); //construtor que começa com os dados ja pré cadastrados
-
+        d.Preencherdados(); //construtor que começa com os dados ja pré cadastrados;
     }
 
     public Dados getDados() {
         return d;
     }
-
     public void setDados(Dados d) {
         this.d = d;
+    }
+
+    public Horario[] getHorarios(){
+        return d.getHorarios();
+    }
+    public int getQtdHorarios(){
+        return d.getQtdHorarios();
     }
 
     public Paciente[] getPacientes(){
@@ -40,18 +45,32 @@ public class ControleDados {
     }
 
 
-    
-    public boolean inserirEditarComprimido(String[] dados) { // Cadastro e edicao de comprimdos IMCOMPLETO 
-        Comprimido c = new Comprimido(dados[1], dados[2], Integer.parseInt(dados[3]));
-        d.inserirEditarComprimido(c, Integer.parseInt(dados[0]));
+
+    public boolean inserirEditarComprimido(String[] dadosComprimidos) { 
+        Comprimido c = new Comprimido(dadosComprimidos[1], dadosComprimidos[2], Integer.parseInt(dadosComprimidos[3]));
+        d.inserirEditarComprimido(c, Integer.parseInt(dadosComprimidos[0])); //passa o objeto e a posicao dele no vetor
         return true;
     }
+    public boolean deletarComprimido(int i){
 
-    public boolean inserirEditarLiquido(String[] dados) { // Cadastro e edicao de liquidos IMCOMPLETO
-        Liquido l = new Liquido(dados[1], dados[2], Float.parseFloat(dados[3]));
-        d.inserirEditarLiquido(l, Integer.parseInt(dados[0]));
+    }
+
+    public boolean inserirEditarLiquido(String[] dadosLiquidos) { 
+        Liquido l = new Liquido(dadosLiquidos[1], dadosLiquidos[2], Float.parseFloat(dadosLiquidos[3]));
+        d.inserirEditarLiquido(l, Integer.parseInt(dadosLiquidos[0])); //passa o objeto e a posicao dele no vetor
         return true;
         
+    }
+    public boolean deletarLiquido(int i){
+
+    }
+
+    public boolean inserirEditarPaciente(String[] dadosPacientes){
+        Paciente p = new Paciente(dadosPacientes[1], dadosPacientes[2], dadosPacientes[3], dadosPacientes[4], new Telefone(Integer.parseInt(dadosPacientes[5]), dadosPacientes[6])), dadosPacientes[7]);
+        d.inserirEditarPaciente(p, Integer.parseInt(dadosPacientes[0]));
+    }
+    public boolean deletarPaciente(){
+
     }
     
 }
