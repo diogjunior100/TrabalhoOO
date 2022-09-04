@@ -3,8 +3,7 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.ListSelectionListener;
-
+import javax.swing.event.*;
 import controle.*;
 import objetos.*;
 
@@ -18,7 +17,7 @@ public class TelaListaPaciente implements ActionListener, ListSelectionListener 
     private JList<String> listaPacientesCadastrados;
     private String[] listaPacientes = new String[50];
 	
-	public void mostrarDados(ControleDados d, int op){
+	public void mostrarDados(ControleDados d){
         dados = d;
 
         //mostrar pacientes cadastrados
@@ -45,23 +44,23 @@ public class TelaListaPaciente implements ActionListener, ListSelectionListener 
 
     }
 	
-	
-	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
         
-        
+        if (src == cadastroPaciente) {
+            
+        }
+
+        if (src == refreshPaciente) {
+            
+        }
 
 		
 	}
+
+    @Override
+    public void valueChanged(ListSelectionEvent arg0) {
+        // TODO Auto-generated method stub
+        
+    }
 }
-
-/*public void mostrarPacientes(ControleDados d){
-        dados = d;
-
-        janela = new JFrame("Paciente");
-        titulo = new JLabel("Pacientes Cadastrados");
-        cadastroPaciente = new JButton("Cadastro Paciente");
-        refreshPaciente = new JButton("Atualizar lista de Pacientes");
-
-    }*/
