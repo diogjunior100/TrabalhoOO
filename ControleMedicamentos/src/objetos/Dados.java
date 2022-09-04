@@ -16,7 +16,7 @@ public class Dados { // classe que amarzena todos arrays utilizados pelo sistema
 
     public void Preencherdados(){ //funcao para pre cadastrar dados no sistema
         comprimidos[0] = new Comprimido("Concerta", "Pfizer", 10);
-        comprimidos[1] = new Comprimido("Paracetamol", "Paracetamol", 10);
+        comprimidos[1] = new Comprimido("Predisinolona", "EMS", 5);
         liquidos[0] = new Liquido("Paracetamol", "Paracetamol", 10.0f);
         liquidos[1] = new Liquido("Dipirona", "EMS", 10.0f);
         telefones[0] = new Telefone(86, "999108399");
@@ -36,24 +36,10 @@ public class Dados { // classe que amarzena todos arrays utilizados pelo sistema
             qtdComprimidos++;
     }
 
-    public void qtdComprimidos(Comprimido c, int pos) {
-    	this.comprimidos[pos] = c;
-    	if(pos == qtdComprimidos) {
-    		qtdComprimidos++;
-    	}
-    }
-
     public void inserirEditarLiquido(Liquido l, int pos){ // funcao de inserir liquidos cadastrados por ControleDados
         this.liquidos[pos] = l;
         if(pos == qtdLiquidos)
             qtdLiquidos++;
-    }
-
-    public void qtdLiquidos(Liquido l, int pos) {
-    	this.liquidos[pos] = l;
-    	if(pos == qtdLiquidos) {
-    		qtdLiquidos++;
-    	}
     }
 
     public void inserirEditarPaciente(Paciente p, int pos){ // funcao de inserir pacientes cadastrados por ControleDados
@@ -62,14 +48,13 @@ public class Dados { // classe que amarzena todos arrays utilizados pelo sistema
             qtdPacientes++;
         }
     }
-    
-    public void qtdPacientes(Paciente p, int pos) { 
-    	this.pacientes[pos] = p;
-    	if(pos == qtdPacientes) {
-    		qtdPacientes++;
-    	}
+
+    public void inserirEditarHorario(Horario h, int pos){
+        this.horarios[pos] = h;
+        if (pos == qtdHorarios) {
+            qtdHorarios++;
+        }
     }
-    
     
     //getters e setters
     public Paciente[] getPacientes() {
