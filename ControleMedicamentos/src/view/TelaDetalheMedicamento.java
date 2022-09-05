@@ -19,8 +19,10 @@ public class TelaDetalheMedicamento  implements ActionListener{
 	private JTextField valorMarca;
 	private JLabel labelCT = new JLabel("Comprimidos Totais: ");
 	private JTextField valorCT;
-	private JButton botaoExcluir = new JButton("Excluir");
-    private JButton botaoSalvar = new JButton("Salvar");
+    private JLabel labelLQ = new JLabel("Mls totais: ");
+    private JTextField valorLQ;
+	private JButton excluirButton = new JButton("Excluir");
+    private JButton salvarButton = new JButton("Salvar");
     private String[] novoDado = new String[10];
     private static ControleDados dados;
     private int posicao;
@@ -35,6 +37,9 @@ public class TelaDetalheMedicamento  implements ActionListener{
 
         if(op == 1) s = "Cadastro Comprimido";
         if(op == 2) s = "Detalhe Comprimido";
+        if(op == 3) s = "Cadastro Liquido";
+        if(op == 4) s = "Detalhe Liquido";
+            
        
         janela = new JFrame(s);
 
@@ -44,16 +49,25 @@ public class TelaDetalheMedicamento  implements ActionListener{
             valorMarca = new JTextField(dados.getComprimidos()[pos].getMarca(), 200);
             valorCT = new JTextField(String.valueOf(dados.getComprimidos()[pos].getComprimidosTotal()), 200);
 
-            botaoSalvar.setBounds(120, 175, 115, 30);
-            botaoExcluir.setBounds(245, 175, 115, 30);
+            salvarButton.setBounds(100, 180, 115, 30);
+            excluirButton.setBounds(225, 180, 115, 30);
         
-        } else{
-            
+        } 
+        else if(op == 4){
+
+            valorNome = new JTextField(dados.getLiquidos()[pos].getNome(), 200);
+            valorMarca = new JTextField(dados.getLiquidos()[pos].getMarca(), 200);
+            valorLQ = new JTextField(String.valueOf(dados.getLiquidos()[pos].getMlsTotal()), 200);
+
+            salvarButton.setBounds(100, 180, 115, 30);
+            excluirButton.setBounds(225, 180, 115, 30);
+        }
+
+        else{
             valorNome = new JTextField(200);
             valorMarca = new JTextField(200);
             valorCT = new JTextField(200);
-
-            botaoSalvar.setBounds(120, 175, 115, 30);
+            valorLQ = new JTextField(200);
         }
 
         labelNome.setBounds(30, 20, 150, 25);
@@ -62,6 +76,8 @@ public class TelaDetalheMedicamento  implements ActionListener{
         valorMarca.setBounds(180, 50, 180, 25);
         labelCT.setBounds(30, 50, 180, 25);
         valorCT.setBounds(180, 50, 180, 25);
+        labelLQ.setBounds(30, 50, 150, 25);
+        valorLQ.setBounds(180, 50, 180, 25);
 
 
         this.janela.add(labelNome);
@@ -70,23 +86,25 @@ public class TelaDetalheMedicamento  implements ActionListener{
         this.janela.add(valorMarca);
         this.janela.add(labelCT);
         this.janela.add(valorCT);
+        this.janela.add(labelCT);
+        this.janela.add(valorLQ);
         
-        this.janela.add(botaoSalvar);
-        this.janela.add(botaoExcluir);
+        this.janela.add(salvarButton);
+        this.janela.add(excluirButton);
 
         this.janela.setSize(400, 250);
         
         this.janela.setVisible(true);
 
-        botaoSalvar.addActionListener(this);
-        botaoExcluir.addActionListener(this);
+        salvarButton.addActionListener(this);
+        excluirButton.addActionListener(this);
 
     }
     
     public void actionPerformed(ActionEvent e) { //metodo que executa a acao do botao 
         Object src = e.getSource();
 
-        if(src == botaoSalvar){ //se for salvar, salva os dados no comprimido
+        /*if(src == botaoSalvar){ //se for salvar, salva os dados no comprimido
             try{
                 boolean resultado;
                 if(opcao == 1){
@@ -105,7 +123,7 @@ public class TelaDetalheMedicamento  implements ActionListener{
             }
 
             
-        }
+        }*/
         
     }
 

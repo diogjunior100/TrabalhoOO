@@ -13,20 +13,20 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
 	private JLabel titulo;
     private JButton cadastroComprimido;
     private JButton refreshComprimido;
-    private JButton cadastraLiquido;
+    private JButton cadastroLiquido;
     private JButton refreshLiquido;
 	private static ControleDados dados;
 	private JList<String> listaComprimidosCadastrados;
 	private JList<String> listaLiquidosCadastrados;
-	private String[] listaNomes = new String[50];
+	private String[] listaNomesMedicamentos = new String[50];
 
 	public void mostrarDados(ControleDados d, int op){
 		dados = d;
 
 		switch (op) {
 		case 1: //mostrar lista de comprimidos cadastrados
-            listaNomes = new ControleComprimido(dados).getNomeComprimido(); // chamando nomes de comprimidos cadastrados da controle
-            listaComprimidosCadastrados = new JList<String>(listaNomes);// criando a lista de nomes de comprimidos cadastrados
+            listaNomesMedicamentos = new ControleComprimido(dados).getNomeComprimido(); // chamando nomes de comprimidos cadastrados da controle
+            listaComprimidosCadastrados = new JList<String>(listaNomesMedicamentos);// criando a lista de nomes de comprimidos cadastrados
             janela = new JFrame("Controle de Medicamento");
             titulo = new JLabel("Comprimidos Cadastrados");
             cadastroComprimido = new JButton("Cadastrar");
@@ -43,7 +43,6 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
             
             janela.setLayout(null);
 
-
             janela.add(titulo);
             janela.add(listaComprimidosCadastrados);
             janela.add(cadastroComprimido);
@@ -51,11 +50,15 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
 
             janela.setSize(400, 250);
             janela.setVisible(true);
+
+            cadastroComprimido.addActionListener(this);
+            cadastroComprimido.addActionListener(this);
+            listaComprimidosCadastrados.addListSelectionListener(this);
         break;
 
 		case 2://mostrar lista de liquidos cadastrados
-            listaNomes = new ControleLiquido(dados).getNomeLiquido(); // chamando nomes de liquidos cadastrados da controle
-            listaLiquidosCadastrados = new JList<String>(listaNomes); // criando a lista de nomes de liquidos cadastrados
+            listaNomesMedicamentos = new ControleLiquido(dados).getNomeLiquido(); // chamando nomes de liquidos cadastrados da controle
+            listaLiquidosCadastrados = new JList<String>(listaNomesMedicamentos); // criando a lista de nomes de liquidos cadastrados
             janela = new JFrame("Controle de Medicamento");
             titulo = new JLabel("Liquidos Cadastrados");
             
@@ -69,9 +72,17 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
 
             janela.add(titulo);
             janela.add(listaLiquidosCadastrados);
+            janela.add(cadastroLiquido);
+            janela.add(refreshLiquido);
+        
 
             janela.setSize(400, 250);
             janela.setVisible(true);
+
+            cadastroLiquido.addActionListener(this);
+            refreshLiquido.addActionListener(this);
+            listaLiquidosCadastrados.addListSelectionListener(this);
+
 			
 		break;
 
@@ -87,23 +98,28 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
         Object src = e.getSource();
 
         if (src == cadastroComprimido) {
-            System.out.println("foi?");
-            new TelaDetalheMedicamento().inserirEditar(1, dados, this, 0);
-            System.out.println("entrou cadastro"); // testando se a função esta sendo chamada
-                                                //obs: não esta sendo chamada
+            new TelaDetalheMedicamento().inserirEditar(2, dados, this, 0);
+        }
+        if (src == refreshComprimido){
+        
+        }
+        if (src == cadastroLiquido) {
+            new TelaDetalheMedicamento().inserirEditar(4, dados, this, 0);
         }
         
         
     }
 
-   
+    @Override
     public void valueChanged(ListSelectionEvent e) {
         Object src = e.getSource();
         
         if(e.getValueIsAdjusting() && src == listaComprimidosCadastrados){
-            new TelaDetalheMedicamento().inserirEditar(2, dados, this, listaComprimidosCadastrados.getSelectedIndex());
-            System.out.println("entrou editar");// testando se a função esta sendo chamada
-                                                //obs: não esta sendo chamada
+            new TelaDetalheMedicamento().inserirEditar(1, dados, this, listaComprimidosCadastrados.getSelectedIndex());
+        }
+
+        if (e.getValueIsAdjusting() && src == listaLiquidosCadastrados) {
+            new TelaDetalheMedicamento().inserirEditar(2, dados, this, listaLiquidosCadastrados.getSelectedIndex());
         }
         
     }
