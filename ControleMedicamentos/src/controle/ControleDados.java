@@ -30,6 +30,13 @@ public class ControleDados {
         return d.getQtdPacientes();
     }
 
+    public Telefone[] getTelefones(){
+        return d.getTelefones();
+    }
+    public int getQtdTelefones(){
+        return d.getQtdTelefones();
+    }
+    
     public Comprimido[] getComprimidos() {
         return d.getComprimidos();
     }
@@ -51,9 +58,10 @@ public class ControleDados {
         d.inserirEditarComprimido(c, Integer.parseInt(dadosComprimidos[0])); //passa o objeto e a posicao dele no vetor
         return true;
     }
-    public boolean deletarComprimido(int i){
 
-    }
+    /*public boolean deletarComprimido(int i){
+
+    }*/
 
     public boolean inserirEditarLiquido(String[] dadosLiquidos) { 
         Liquido l = new Liquido(dadosLiquidos[1], dadosLiquidos[2], Float.parseFloat(dadosLiquidos[3]));
@@ -61,17 +69,20 @@ public class ControleDados {
         return true;
         
     }
-    public boolean deletarLiquido(int i){
+    /*public boolean deletarLiquido(int i){
 
-    }
+    }*/
 
     public boolean inserirEditarPaciente(String[] dadosPacientes){
-        Paciente p = new Paciente(dadosPacientes[1], dadosPacientes[2], dadosPacientes[3], dadosPacientes[4], new Telefone(Integer.parseInt(dadosPacientes[5]), dadosPacientes[6])), dadosPacientes[7]);
+        Paciente p = new Paciente(dadosPacientes[1], dadosPacientes[2], dadosPacientes[3], dadosPacientes[4], new Telefone(Integer.parseInt(dadosPacientes[5]), dadosPacientes[6]), 
+        new Liquido(dadosPacientes[7],dadosPacientes[8], Float.parseFloat(dadosPacientes[9])), dadosPacientes[10]);
         d.inserirEditarPaciente(p, Integer.parseInt(dadosPacientes[0]));
+        return true;
     }
-    public boolean deletarPaciente(){
 
-    }
+    /*public boolean deletarPaciente(){
+
+    }*/
     
 }
 

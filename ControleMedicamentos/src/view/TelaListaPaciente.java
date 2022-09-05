@@ -3,8 +3,7 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.ListSelectionListener;
-
+import javax.swing.event.*;
 import controle.*;
 import objetos.*;
 
@@ -18,13 +17,14 @@ public class TelaListaPaciente implements ActionListener, ListSelectionListener 
     private JList<String> listaPacientesCadastrados;
     private String[] listaPacientes = new String[50];
 	
-	public void mostrarDados(ControleDados d, int op){
+	public void mostrarDados(ControleDados d){
         dados = d;
 
         //mostrar pacientes cadastrados
         listaPacientes = new ControlePaciente(dados).getNomePacinete();
         listaPacientesCadastrados = new JList<String>(listaPacientes);
         janela = new JFrame("Controle de Pacientes");
+        titulo = new JLabel("Lista de Pacientes");
         cadastroPaciente = new JButton("Cadastrar");
         refreshPaciente = new JButton("Atualizar");
 
@@ -38,30 +38,41 @@ public class TelaListaPaciente implements ActionListener, ListSelectionListener 
 
         janela.add(titulo);
         janela.add(listaPacientesCadastrados);
+        janela.add(cadastroPaciente);
+        janela.add(refreshPaciente);
 
         janela.setSize(400, 250);
         janela.setVisible(true);
 
+        cadastroPaciente.addActionListener(this);
+        refreshPaciente.addActionListener(this);
+        listaPacientesCadastrados.addListSelectionListener(this);
 
     }
-	
-	
 	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
         
-        
+        if (src == cadastroPaciente) {
+            new TelaDetalhePaciente().inserirEditar(1, dados, this, 0);
+        }
+
+        if (src == refreshPaciente) {
+            listaPacientesCadastrados.setListData(new ControlePaciente(dados).getNomePacinete());			
+			listaPacientesCadastrados.updateUI();
+        }
 
 		
 	}
+
+    @Override
+    public void valueChanged(ListSelectionEvent e) {
+        Object src = e.getSource();
+
+        if (e.getValueIsAdjusting() && src == listaPacientesCadastrados) {
+            new TelaDetalhePaciente().inserirEditar(2, dados, this, listaPacientesCadastrados.getSelectedIndex());
+        }
+        
+    }
+
 }
-
-/*public void mostrarPacientes(ControleDados d){
-        dados = d;
-
-        janela = new JFrame("Paciente");
-        titulo = new JLabel("Pacientes Cadastrados");
-        cadastroPaciente = new JButton("Cadastro Paciente");
-        refreshPaciente = new JButton("Atualizar lista de Pacientes");
-
-    }*/
