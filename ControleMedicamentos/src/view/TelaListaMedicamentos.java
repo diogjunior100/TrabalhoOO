@@ -84,9 +84,9 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
 	}
 
     public void actionPerformed(ActionEvent e) {
-        Object src = e.getSource();
+        System.out.println("entrou editar");
 
-        if (src == cadastroComprimido) {
+        if (e.getSource() == cadastroComprimido) {
             System.out.println("foi?");
             new TelaDetalheMedicamento().inserirEditar(1, dados, this, 0);
             System.out.println("entrou cadastro!!"); // testando se a função esta sendo chamada
@@ -98,9 +98,8 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
 
    
     public void valueChanged(ListSelectionEvent e) {
-        Object src = e.getSource();
-        
-        if(e.getValueIsAdjusting() && src == listaComprimidosCadastrados){
+        System.out.println("entrou editar");
+        if(e.getValueIsAdjusting() && e.getSource() == listaComprimidosCadastrados){
             new TelaDetalheMedicamento().inserirEditar(2, dados, this, listaComprimidosCadastrados.getSelectedIndex());
             System.out.println("entrou editar");// testando se a função esta sendo chamada
                                                 //obs: não esta sendo chamada

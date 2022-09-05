@@ -45,8 +45,9 @@ public class TelaDetalheMedicamento  implements ActionListener{
             valorCT = new JTextField(String.valueOf(dados.getComprimidos()[pos].getComprimidosTotal()), 200);
 
             botaoSalvar.setBounds(120, 175, 115, 30);
-            botaoExcluir.setBounds(245, 175, 115, 30);
-        
+			botaoExcluir.setBounds(245, 175, 115, 30);
+
+            
         } else{
             
             valorNome = new JTextField(200);
