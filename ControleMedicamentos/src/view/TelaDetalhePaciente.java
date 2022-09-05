@@ -12,7 +12,7 @@ public class TelaDetalhePaciente implements ActionListener {
     private JTextField nomePaciente;
     private JLabel sexoJLabel = new JLabel("Sexo: ");
     private JTextField sexoPaciente;
-    private JLabel datadeNascimento = new JLabel("Data de Nascimento: ");
+    private JLabel datadeNascimento = new JLabel("Nascimento: ");
     private JTextField dataPaciente;
     private JLabel emailJLabel = new JLabel("Email: ");
     private JTextField emailPaciente;
@@ -60,17 +60,22 @@ public class TelaDetalhePaciente implements ActionListener {
 
         nomeJLabel.setBounds(30, 20, 150, 25);
 		nomePaciente.setBounds(180, 20, 180, 25);
+
 		sexoJLabel.setBounds(30, 50, 150, 25);
 		sexoPaciente.setBounds(180, 50, 180, 25);
-		datadeNascimento.setBounds(30, 50, 180, 25);
-		dataPaciente.setBounds(180, 50, 180, 25);		
-		emailJLabel.setBounds(30, 80, 150, 25);
-		emailPaciente.setBounds(180, 80, 180, 25);
-		corJLabel.setBounds(30, 110, 150, 25);
-		corPaciente.setBounds(180, 110, 180, 25);
-		telefoneJLabel.setBounds(30, 140, 150, 25);
-		dddPaciente.setBounds(180, 140, 28, 25);
-		digitosPaciente.setBounds(210, 140, 65, 25);
+
+		datadeNascimento.setBounds(30, 80, 150, 25);
+		dataPaciente.setBounds(180, 80, 180, 25);
+
+		emailJLabel.setBounds(30, 110, 150, 25);
+		emailPaciente.setBounds(180, 110, 180, 25);
+
+		corJLabel.setBounds(30, 140, 150, 25);
+		corPaciente.setBounds(180, 140, 180, 25);
+
+		telefoneJLabel.setBounds(30, 170, 150, 25);
+		dddPaciente.setBounds(180, 170, 28, 25);
+		digitosPaciente.setBounds(215, 170, 146, 25);
 
         this.janela.add(nomeJLabel);
         this.janela.add(nomePaciente);
@@ -89,7 +94,7 @@ public class TelaDetalhePaciente implements ActionListener {
 
         this.janela.setLayout(null);
 
-        this.janela.setSize(400, 250);
+        this.janela.setSize(600, 500);
 		this.janela.setVisible(true);
 
 		salvarButton.addActionListener(this);
