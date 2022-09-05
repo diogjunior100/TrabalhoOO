@@ -24,6 +24,7 @@ public class TelaListaPaciente implements ActionListener, ListSelectionListener 
         listaPacientes = new ControlePaciente(dados).getNomePacinete();
         listaPacientesCadastrados = new JList<String>(listaPacientes);
         janela = new JFrame("Controle de Pacientes");
+        titulo = new JLabel("Lista de Pacientes");
         cadastroPaciente = new JButton("Cadastrar");
         refreshPaciente = new JButton("Atualizar");
 
@@ -37,10 +38,15 @@ public class TelaListaPaciente implements ActionListener, ListSelectionListener 
 
         janela.add(titulo);
         janela.add(listaPacientesCadastrados);
+        janela.add(cadastroPaciente);
+        janela.add(refreshPaciente);
 
         janela.setSize(400, 250);
         janela.setVisible(true);
 
+        cadastroPaciente.addActionListener(this);
+        refreshPaciente.addActionListener(this);
+        listaPacientesCadastrados.addListSelectionListener(this);
 
     }
 	
@@ -48,19 +54,25 @@ public class TelaListaPaciente implements ActionListener, ListSelectionListener 
 		Object src = e.getSource();
         
         if (src == cadastroPaciente) {
-            
+            new TelaDetalhePaciente().inserirEditar(1, dados, this, 0);
         }
 
         if (src == refreshPaciente) {
-            
+            listaPacientesCadastrados.setListData(new ControlePaciente(dados).getNomePacinete());			
+			listaPacientesCadastrados.updateUI();
         }
 
 		
 	}
 
     @Override
-    public void valueChanged(ListSelectionEvent arg0) {
-        // TODO Auto-generated method stub
+    public void valueChanged(ListSelectionEvent e) {
+        Object src = e.getSource();
+
+        if (e.getValueIsAdjusting() && src == listaPacientesCadastrados) {
+            new TelaDetalhePaciente().inserirEditar(2, dados, this, listaPacientesCadastrados.getSelectedIndex());
+        }
         
     }
+
 }

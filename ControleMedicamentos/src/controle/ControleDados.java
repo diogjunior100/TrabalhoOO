@@ -30,6 +30,13 @@ public class ControleDados {
         return d.getQtdPacientes();
     }
 
+    public Telefone[] getTelefones(){
+        return d.getTelefones();
+    }
+    public int getQtdTelefones(){
+        return d.getQtdTelefones();
+    }
+    
     public Comprimido[] getComprimidos() {
         return d.getComprimidos();
     }
@@ -64,7 +71,7 @@ public class ControleDados {
     }
     /*public boolean deletarLiquido(int i){
 
-    }*
+    }*/
 
     public boolean inserirEditarPaciente(String[] dadosPacientes){
         Paciente p = new Paciente(dadosPacientes[1], dadosPacientes[2], dadosPacientes[3], dadosPacientes[4], new Telefone(Integer.parseInt(dadosPacientes[5]), dadosPacientes[6]), 
