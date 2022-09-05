@@ -1,13 +1,10 @@
 package view;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.*;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import controle.*;
 
 //cadastrar novos medicamentos;
@@ -40,7 +37,6 @@ public class TelaDetalheMedicamento  implements ActionListener{
         if(op == 3) s = "Cadastro Liquido";
         if(op == 4) s = "Detalhe Liquido";
             
-       
         janela = new JFrame(s);
 
         if(op == 2){ //se for edicao, preenche os campos com os dados do comprimido
@@ -53,8 +49,8 @@ public class TelaDetalheMedicamento  implements ActionListener{
             valorNome.setBounds(180, 20, 180, 25);
             labelMarca.setBounds(30, 50, 150, 25);
             valorMarca.setBounds(180, 50, 180, 25);
-            labelCT.setBounds(30, 50, 180, 25);
-            valorCT.setBounds(180, 50, 180, 25);
+            labelCT.setBounds(30, 80, 150, 25);
+            valorCT.setBounds(180, 80, 180, 25);
 
             salvarButton.setBounds(100, 180, 115, 30);
             excluirButton.setBounds(225, 180, 115, 30);
@@ -70,8 +66,8 @@ public class TelaDetalheMedicamento  implements ActionListener{
             valorNome.setBounds(180, 20, 180, 25);
             labelMarca.setBounds(30, 50, 150, 25);
             valorMarca.setBounds(180, 50, 180, 25);
-            labelLQ.setBounds(30, 50, 150, 25);
-            //valorLQ.setBounds(180, 50, 180, 25);
+            labelLQ.setBounds(30, 80, 150, 25);
+            valorLQ.setBounds(180, 80, 180, 25);
 
             salvarButton.setBounds(100, 180, 115, 30);
             excluirButton.setBounds(225, 180, 115, 30);
@@ -94,14 +90,14 @@ public class TelaDetalheMedicamento  implements ActionListener{
         valorLQ.setBounds(180, 50, 180, 25);
 
 
-        /*this.janela.add(labelNome);
+        this.janela.add(labelNome);
         this.janela.add(valorNome);
         this.janela.add(labelMarca);
         this.janela.add(valorMarca);
         this.janela.add(labelCT);
         this.janela.add(valorCT);
         this.janela.add(labelLQ);
-        this.janela.add(valorLQ);*/
+        this.janela.add(valorLQ);
         
         this.janela.add(salvarButton);
         this.janela.add(excluirButton);
