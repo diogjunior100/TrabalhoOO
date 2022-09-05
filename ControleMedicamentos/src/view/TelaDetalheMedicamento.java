@@ -49,6 +49,13 @@ public class TelaDetalheMedicamento  implements ActionListener{
             valorMarca = new JTextField(dados.getComprimidos()[pos].getMarca(), 200);
             valorCT = new JTextField(String.valueOf(dados.getComprimidos()[pos].getComprimidosTotal()), 200);
 
+            labelNome.setBounds(30, 20, 150, 25);
+            valorNome.setBounds(180, 20, 180, 25);
+            labelMarca.setBounds(30, 50, 150, 25);
+            valorMarca.setBounds(180, 50, 180, 25);
+            labelCT.setBounds(30, 50, 180, 25);
+            valorCT.setBounds(180, 50, 180, 25);
+
             salvarButton.setBounds(100, 180, 115, 30);
             excluirButton.setBounds(225, 180, 115, 30);
         
@@ -58,6 +65,13 @@ public class TelaDetalheMedicamento  implements ActionListener{
             valorNome = new JTextField(dados.getLiquidos()[pos].getNome(), 200);
             valorMarca = new JTextField(dados.getLiquidos()[pos].getMarca(), 200);
             valorLQ = new JTextField(String.valueOf(dados.getLiquidos()[pos].getMlsTotal()), 200);
+
+            labelNome.setBounds(30, 20, 150, 25);
+            valorNome.setBounds(180, 20, 180, 25);
+            labelMarca.setBounds(30, 50, 150, 25);
+            valorMarca.setBounds(180, 50, 180, 25);
+            labelLQ.setBounds(30, 50, 150, 25);
+            //valorLQ.setBounds(180, 50, 180, 25);
 
             salvarButton.setBounds(100, 180, 115, 30);
             excluirButton.setBounds(225, 180, 115, 30);
@@ -80,14 +94,14 @@ public class TelaDetalheMedicamento  implements ActionListener{
         valorLQ.setBounds(180, 50, 180, 25);
 
 
-        this.janela.add(labelNome);
+        /*this.janela.add(labelNome);
         this.janela.add(valorNome);
         this.janela.add(labelMarca);
         this.janela.add(valorMarca);
         this.janela.add(labelCT);
         this.janela.add(valorCT);
-        this.janela.add(labelCT);
-        this.janela.add(valorLQ);
+        this.janela.add(labelLQ);
+        this.janela.add(valorLQ);*/
         
         this.janela.add(salvarButton);
         this.janela.add(excluirButton);
@@ -127,7 +141,12 @@ public class TelaDetalheMedicamento  implements ActionListener{
         
     }
 
-    public void mensagemErroCadastro() {
-        JOptionPane.showMessageDialog(null, "Erro ao cadastrar o comprimido", "Erro", JOptionPane.ERROR_MESSAGE);
+    public void mensagemCadastroConcluido(){
+        JOptionPane.showMessageDialog(null, "Medicamento Cadastrado");
+        janela.dispose();
+    }
+    public void mensagemDeletarConcluido(){
+        JOptionPane.showMessageDialog(null, "Medicamento Excluido");
+        janela.dispose();
     }
 }

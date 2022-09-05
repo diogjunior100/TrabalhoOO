@@ -52,7 +52,7 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
             janela.setVisible(true);
 
             cadastroComprimido.addActionListener(this);
-            cadastroComprimido.addActionListener(this);
+            refreshComprimido.addActionListener(this);
             listaComprimidosCadastrados.addListSelectionListener(this);
         break;
 
@@ -87,7 +87,7 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
 		break;
 
 		default:
-			JOptionPane.showMessageDialog(null,"Opcaoo nao encontrada!", null, 
+			JOptionPane.showMessageDialog(null,"Opcao nao encontrada!", null, 
 					JOptionPane.ERROR_MESSAGE);
 		}
 
@@ -101,7 +101,7 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
             new TelaDetalheMedicamento().inserirEditar(2, dados, this, 0);
         }
         if (src == refreshComprimido){
-        
+            
         }
         if (src == cadastroLiquido) {
             new TelaDetalheMedicamento().inserirEditar(4, dados, this, 0);
@@ -115,11 +115,11 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
         Object src = e.getSource();
         
         if(e.getValueIsAdjusting() && src == listaComprimidosCadastrados){
-            new TelaDetalheMedicamento().inserirEditar(1, dados, this, listaComprimidosCadastrados.getSelectedIndex());
+            new TelaDetalheMedicamento().inserirEditar(2, dados, this, listaComprimidosCadastrados.getSelectedIndex());
         }
 
         if (e.getValueIsAdjusting() && src == listaLiquidosCadastrados) {
-            new TelaDetalheMedicamento().inserirEditar(2, dados, this, listaLiquidosCadastrados.getSelectedIndex());
+            new TelaDetalheMedicamento().inserirEditar(4, dados, this, listaLiquidosCadastrados.getSelectedIndex());
         }
         
     }
