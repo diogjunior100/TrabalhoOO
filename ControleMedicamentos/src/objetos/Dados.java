@@ -21,8 +21,8 @@ public class Dados { // classe que amarzena todos arrays utilizados pelo sistema
         liquidos[1] = new Liquido("Dipirona", "EMS", 10.0f);
         telefones[0] = new Telefone(86, "999108399");
         telefones[1] = new Telefone(61, "999469112");
-        pacientes[0] = new Paciente("03 de Agosto", "Masculino", "Diogenes Junior", "diogjunior10071@gmail.com", telefones[0], comprimidos[0], "Azul");
-        pacientes[1] = new Paciente("04 de Outubro", "Masculino", "Henrique Pucci", "henriquepucci@gmail.com", telefones[1], liquidos[1], "Vermelho");
+        pacientes[0] = new Paciente("03 de Agosto", "Masculino", "Diogenes Junior", "diogjunior10071@gmail.com", telefones[0], "Azul");
+        pacientes[1] = new Paciente("04 de Outubro", "Masculino", "Henrique Pucci", "henriquepucci@gmail.com", telefones[1], "Vermelho");
         
         qtdComprimidos = 2;
         qtdLiquidos = 2;

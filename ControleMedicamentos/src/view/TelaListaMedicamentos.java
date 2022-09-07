@@ -106,13 +106,18 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
         Object src = e.getSource();
 
         if (src == cadastroComprimido) {
-            new TelaDetalheMedicamento().inserirEditar(2, dados, this, 0);
+            new TelaDetalheMedicamento().inserirEditar(1, dados, this, 0);
         }
         if (src == refreshComprimido){
-            
+        	listaComprimidosCadastrados.setListData(new ControleComprimido(dados).getNomeComprimido());			
+			listaComprimidosCadastrados.updateUI();
         }
         if (src == cadastroLiquido) {
-            new TelaDetalheMedicamento().inserirEditar(4, dados, this, 0);
+            new TelaDetalheMedicamento().inserirEditar(3, dados, this, 0);
+        }
+        if (src == refreshLiquido){
+        	listaLiquidosCadastrados.setListData(new ControleLiquido(dados).getNomeLiquido());			
+			listaLiquidosCadastrados.updateUI();
         }
         
         

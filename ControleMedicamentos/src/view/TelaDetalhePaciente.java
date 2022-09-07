@@ -24,10 +24,9 @@ public class TelaDetalhePaciente implements ActionListener {
     private JButton excluirButton = new JButton("Excluir");
     private JButton salvarButton = new JButton("Salvar");
     private static ControleDados dados;
-    private  String[] dadosPaciente = new String[10];
+    private  String[] dadosPaciente = new String[17];
     private int posicao;
     private int opcao;
-    private String s;
 
     public void inserirEditar(int op, ControleDados d, TelaListaPaciente p, int pos){
         opcao = op;
@@ -45,9 +44,6 @@ public class TelaDetalhePaciente implements ActionListener {
             dddPaciente = new JTextField(String.valueOf(dados.getPacientes()[pos].getTelefone().getDdd()), 4);
             digitosPaciente = new JTextField(dados.getPacientes()[pos].getTelefone().getDigitos(), 200);
             corPaciente = new JTextField(dados.getPacientes()[pos].getCor(), 200);
-
-            salvarButton.setBounds(100, 180, 115, 30);
-            excluirButton.setBounds(225, 180, 115, 30);
         }
         else{
             nomePaciente = new JTextField(200);
@@ -77,6 +73,9 @@ public class TelaDetalhePaciente implements ActionListener {
 		telefoneJLabel.setBounds(30, 170, 150, 25);
 		dddPaciente.setBounds(180, 170, 28, 25);
 		digitosPaciente.setBounds(215, 170, 146, 25);
+		
+		salvarButton.setBounds(100, 200, 120, 30);
+		excluirButton.setBounds(230, 200, 120, 30);
 
         this.janela.add(nomeJLabel);
         this.janela.add(nomePaciente);
@@ -109,7 +108,6 @@ public class TelaDetalhePaciente implements ActionListener {
         Object src = e.getSource();
 
         if (src == salvarButton) {
-            try{
                 boolean res;
                 if (opcao == 2) {
                     dadosPaciente[0] = Integer.toString(dados.getQtdPacientes());
@@ -118,7 +116,17 @@ public class TelaDetalhePaciente implements ActionListener {
                 	dadosPaciente[0] = Integer.toString(posicao);
                 }
                 
-            }
+                dadosPaciente[1] = nomePaciente.getText();
+                dadosPaciente[2] = sexoPaciente.getText();
+                dadosPaciente[3] = datadeNascimento.getText();
+                dadosPaciente[4] = emailPaciente.getText();
+                dadosPaciente[5] = dddPaciente.getText();
+                dadosPaciente[6] = digitosPaciente.getText();
+                dadosPaciente[7] = corPaciente.getText();
+                
+                res = dados.inserirEditarPaciente(dadosPaciente);
+                mensagemCadastroConcluido();
+                
         }
     }
 

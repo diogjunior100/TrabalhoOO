@@ -9,14 +9,14 @@ public class Paciente {
 	private Medicamento medicamento;
 	private String cor;
 	
-	public Paciente(String datadeNascimento, String sexo, String nome, String email, Telefone telefone, Medicamento medicamento, String cor) {
+	public Paciente(String datadeNascimento, String sexo, String nome, String email, Telefone telefone, String cor) {
 		this.datadeNascimento = datadeNascimento;
 		this.sexo = sexo;
 		this.nome = nome;
 		this.email = email;
 		this.telefone = telefone;
-		this.medicamento = medicamento;
 		this.cor = cor;
+		//this.medicamento = medicamento;
 	}
 
 	
@@ -56,12 +56,12 @@ public class Paciente {
 	public void setTelefone(Telefone telefone) {
 		this.telefone = telefone;
 	}
-	public Medicamento getMedicamento() {
+	/*public Medicamento getMedicamento() {
 		return medicamento;
 	}
 	public void setMedicamento(Medicamento medicamento) {
 		this.medicamento = medicamento;
-	}
+	}*/
 
 
 	@Override
