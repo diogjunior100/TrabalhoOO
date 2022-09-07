@@ -24,6 +24,7 @@ public class TelaDetalhePaciente implements ActionListener {
     private JButton excluirButton = new JButton("Excluir");
     private JButton salvarButton = new JButton("Salvar");
     private static ControleDados dados;
+    private  String[] dadosPaciente = new String[10];
     private int posicao;
     private int opcao;
     private String s;
@@ -108,13 +109,18 @@ public class TelaDetalhePaciente implements ActionListener {
         Object src = e.getSource();
 
         if (src == salvarButton) {
-            /*try{
+            try{
                 boolean res;
                 if (opcao == 2) {
-                    
-                }*/
+                    dadosPaciente[0] = Integer.toString(dados.getQtdPacientes());
+                }
+                else {
+                	dadosPaciente[0] = Integer.toString(posicao);
+                }
+                
             }
         }
+    }
 
 
     public void mensagemCadastroConcluido(){
