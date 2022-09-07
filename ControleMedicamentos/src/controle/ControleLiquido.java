@@ -35,7 +35,7 @@ public class ControleLiquido {
         return l[i].getMarca();
     }
 
-    public String getComprimidosTotal(int i){
+    public String getLiquidosTotal(int i){
         return Float.toString(l[i].getMlsTotal());
     }
     

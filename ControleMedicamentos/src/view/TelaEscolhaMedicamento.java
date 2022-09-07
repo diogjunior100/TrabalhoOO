@@ -3,7 +3,9 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.event.*;
 import controle.*;
+import objetos.*;
 
 public class TelaEscolhaMedicamento implements ActionListener {
 	
@@ -14,12 +16,11 @@ public class TelaEscolhaMedicamento implements ActionListener {
 	public static ControleDados dados = new ControleDados();
 	
 	
-	
 	public TelaEscolhaMedicamento() {
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
 		titulo.setBounds(170, 10, 150, 30);
+
 		comprimido.setBounds(220, 70, 140, 100);
-		
 		liquido.setBounds(20, 70, 140, 100);
 		
 		janela.setLayout(null);
@@ -42,7 +43,6 @@ public class TelaEscolhaMedicamento implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
-
 		if(src == comprimido) // chama tela lista de comprimidos
 			new TelaListaMedicamentos().mostrarDados(dados, 1);
 		
