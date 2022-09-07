@@ -34,6 +34,9 @@ public class TelaListaPaciente implements ActionListener, ListSelectionListener 
         listaPacientesCadastrados.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         listaPacientesCadastrados.setVisibleRowCount(10);
 
+        cadastroPaciente.setBounds(120, 175, 115, 30);
+        refreshPaciente.setBounds(245, 175, 115, 30);
+        
         janela.setLayout(null);
 
         janela.add(titulo);
@@ -54,7 +57,7 @@ public class TelaListaPaciente implements ActionListener, ListSelectionListener 
 		Object src = e.getSource();
         
         if (src == cadastroPaciente) {
-            new TelaDetalhePaciente().inserirEditar(1, dados, this, 0);
+            new TelaDetalhePaciente().inserirEditar(2, dados, this, 0);
         }
 
         if (src == refreshPaciente) {
@@ -70,7 +73,7 @@ public class TelaListaPaciente implements ActionListener, ListSelectionListener 
         Object src = e.getSource();
 
         if (e.getValueIsAdjusting() && src == listaPacientesCadastrados) {
-            new TelaDetalhePaciente().inserirEditar(2, dados, this, listaPacientesCadastrados.getSelectedIndex());
+            new TelaDetalhePaciente().inserirEditar(1, dados, this, listaPacientesCadastrados.getSelectedIndex());
         }
         
     }
