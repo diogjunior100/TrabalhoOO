@@ -9,30 +9,22 @@ public class Dados { // classe que amarzena todos arrays utilizados pelo sistema
     private int qtdComprimidos = 0;
     private Liquido[] liquidos = new Liquido[50];
     private int qtdLiquidos = 0;
-    //private Comprimido[] comprimidosPaciente = new Comprimido[50];
-    //private int qtdComprimidosPaciente = 0;
-    //private Liquido[] liquidosPaciente = new Liquido[50];
-    //private int qtdLiquidosPaciente = 0;
     private Horario[] horarios = new Horario[50];
     private int qtdHorarios = 0;
 
     public void Preencherdados(){ //funcao para pre cadastrar dados no sistema
-        comprimidos[0] = new Comprimido("Concerta", "Pfizer", 10);
-        comprimidos[1] = new Comprimido("Predisinolona", "EMS", 5);
-        liquidos[0] = new Liquido("Paracetamol", "Paracetamol", 10);
-        liquidos[1] = new Liquido("Dipirona", "EMS", 10);
         
-        comprimidos[2] = new Comprimido("Ritalina", "Jassen", "3 vezes na semana", 2, 30);
-        liquidos[2] = new Liquido("Novalgina", "Jassen", "2 vezes na semana", 2, 50);
+        comprimidos[0] = new Comprimido("Ritalina", "Jassen", "3 vezes na semana", 2, 30);
+        liquidos[0] = new Liquido("Novalgina", "Jassen", "2 vezes na semana", 2, 50);
+        comprimidos[1] = new Comprimido("Vitamina C", "Industria Quimica", "1 vez por dia", 1, 60);
+        liquidos[1] = new Liquido("Calman", "OMS", "3 vezes na semana", 3, 150);
         telefones[0] = new Telefone(86, "999108399");
         telefones[1] = new Telefone(61, "999469112");
-        pacientes[0] = new Paciente("Diogenes Junior", "Masculino", "03 de agosto", "diogjunior10071@gmail.com", telefones[0], "Azul", comprimidos[2]);
-        pacientes[1] = new Paciente("Henrique Pucci", "Masculino", "04 de Agosto", "henriquepucci@gmail.com", telefones[1], "Vermelho", liquidos[2]);
+        pacientes[0] = new Paciente("Diogenes Junior", "Masculino", "03 de agosto", "diogjunior10071@gmail.com", telefones[0], "Azul", comprimidos[0]);
+        pacientes[1] = new Paciente("Henrique Pucci", "Masculino", "04 de Agosto", "henriquepucci@gmail.com", telefones[1], "Vermelho", liquidos[1]);
         
-        //qtdComprimidosPaciente = 2;
-        //qtdLiquidosPaciente = 2;
-        qtdComprimidos = 3;
-        qtdLiquidos = 3;
+        qtdComprimidos = 2;
+        qtdLiquidos = 2;
         qtdPacientes = 2;
         qtdTelefones = 2;
     }
@@ -106,13 +98,6 @@ public class Dados { // classe que amarzena todos arrays utilizados pelo sistema
         this.qtdComprimidos = qtdComprimidos;
     }
     
-    /*public int getQtdComprimidosPaciente() {
-        return qtdComprimidosPaciente;
-    }
-    public void setQtdComprimidosPaciente(int qtdComprimidosPaciente) {
-        this.qtdComprimidosPaciente = qtdComprimidosPaciente;
-    }*/
-    
     public Liquido[] getLiquidos() {
         return liquidos;
     }
@@ -126,13 +111,6 @@ public class Dados { // classe que amarzena todos arrays utilizados pelo sistema
     public void setQtdLiquidos(int qtdLiquidos) {
         this.qtdLiquidos = qtdLiquidos;
     }
-    
-    /*public int getQtdLiquidosPaciente() {
-        return qtdLiquidosPaciente;
-    }
-    public void setQtdLiquidosPaciente(int qtdLiquidosPaciente) {
-        this.qtdLiquidosPaciente = qtdLiquidosPaciente;
-    }*/
     
     public Horario[] getHorarios() {
         return horarios;
