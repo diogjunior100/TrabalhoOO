@@ -14,8 +14,10 @@ public class TelaDetalheMedicamento  implements ActionListener{
 	private JTextField valorNome;
 	private JLabel labelMarca = new JLabel("Marca: ");
 	private JTextField valorMarca;
-	private JLabel labelCT = new JLabel("Totais: ");
-	private JTextField valorCT;
+	private JLabel labelCT = new JLabel("Comprimidos Totais: ");
+	//private JTextField valorCT;
+	private JLabel labelLQ = new JLabel("Mls Totais: ");
+	private JTextField valorTotal;
 	private JButton excluirButton = new JButton("Excluir");
     private JButton salvarButton = new JButton("Salvar");
     private String[] dadosComprimido = new String[10];
@@ -36,20 +38,24 @@ public class TelaDetalheMedicamento  implements ActionListener{
             
             valorNome = new JTextField(dados.getComprimidos()[pos].getNome(), 200);
             valorMarca = new JTextField(dados.getComprimidos()[pos].getMarca(), 200);
-            valorCT = new JTextField(String.valueOf(dados.getComprimidos()[pos].getComprimidosTotal()), 200);
+            valorTotal = new JTextField(String.valueOf(dados.getComprimidos()[pos].getComprimidosTotal()), 200);
+            
+            labelCT.setBounds(30, 80, 150, 25);
+            
         } 
-        else if(op == 4){
+        else if(op == 4){ //se for edicao, preenche os campos com os dados do liquido
 
             valorNome = new JTextField(dados.getLiquidos()[pos].getNome(), 200);
             valorMarca = new JTextField(dados.getLiquidos()[pos].getMarca(), 200);
-            valorCT = new JTextField(String.valueOf(dados.getLiquidos()[pos].getMlsTotal()), 200);
-
+            valorTotal = new JTextField(String.valueOf(dados.getLiquidos()[pos].getMlsTotal()), 200);
+            
+            labelLQ.setBounds(30, 80, 150, 25);
         }
 
         else{
             valorNome = new JTextField(200);
             valorMarca = new JTextField(200);
-            valorCT = new JTextField(200);
+            valorTotal = new JTextField(200);
         }
 
         labelNome.setBounds(30, 20, 150, 25);
@@ -58,8 +64,8 @@ public class TelaDetalheMedicamento  implements ActionListener{
         labelMarca.setBounds(30, 50, 150, 25);
         valorMarca.setBounds(180, 50, 180, 25);
         
-        labelCT.setBounds(30, 80, 150, 25);
-        valorCT.setBounds(180, 80, 180, 25);
+        //labelCT.setBounds(30, 80, 150, 25);
+        valorTotal.setBounds(180, 80, 180, 25);
         
         salvarButton.setBounds(100, 200, 120, 30);
 		excluirButton.setBounds(230, 200, 120, 30);
@@ -69,7 +75,8 @@ public class TelaDetalheMedicamento  implements ActionListener{
         this.janela.add(labelMarca);
         this.janela.add(valorMarca);
         this.janela.add(labelCT);
-        this.janela.add(valorCT);
+        this.janela.add(labelLQ);
+        this.janela.add(valorTotal);
         this.janela.add(salvarButton);
         this.janela.add(excluirButton);
 
@@ -95,10 +102,17 @@ public class TelaDetalheMedicamento  implements ActionListener{
                     dadosComprimido[0] = Integer.toString(posicao);
                 }
                 
+                if(opcao == 3){
+                    dadosLiquido[0] = Integer.toString(dados.getQtdLiquidos());
+                } 
+                else{
+                    dadosLiquido[0] = Integer.toString(posicao);
+                }
+                
                 if(opcao == 1) {
                     dadosComprimido[1] = valorNome.getText();
                     dadosComprimido[2] = valorMarca.getText();
-                    dadosComprimido[3] = valorCT.getText();
+                    dadosComprimido[3] = valorTotal.getText();
                     
                     resultado = dados.inserirEditarComprimido(dadosComprimido);
                     mensagemCadastroConcluido();
@@ -106,9 +120,9 @@ public class TelaDetalheMedicamento  implements ActionListener{
                 else {
                 	dadosLiquido[1] = valorNome.getText();
                     dadosLiquido[2] = valorMarca.getText();
-                    dadosLiquido[3] = valorCT.getText();
+                    dadosLiquido[3] = valorTotal.getText();
                     
-                    resultado = dados.inserirEditarComprimido(dadosLiquido);
+                    resultado = dados.inserirEditarLiquido(dadosLiquido);
                     mensagemCadastroConcluido();
                 }
                 

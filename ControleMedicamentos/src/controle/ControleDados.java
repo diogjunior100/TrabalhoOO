@@ -59,31 +59,35 @@ public class ControleDados {
         return true;
     }
 
-    /*public boolean deletarComprimido(int i){
+    //public boolean deletarComprimido(int i){
+    	int qtdComprimidos = d.getQtdComprimidos();
+    	
+    	
+    //}
 
-    }*/
-
-    public boolean inserirEditarLiquido(String[] dadosLiquidos) { 
-        Liquido l = new Liquido(dadosLiquidos[1], dadosLiquidos[2], Float.parseFloat(dadosLiquidos[3]));
-        d.inserirEditarLiquido(l, Integer.parseInt(dadosLiquidos[0])); //passa o objeto e a posicao dele no vetor
+    public boolean inserirEditarLiquido(String[] dadosLiquidos) { //inseri ou edita um medicamento liquido gerais
+        Liquido l = new Liquido(dadosLiquidos[1], dadosLiquidos[2], Integer.parseInt(dadosLiquidos[3]));
+        d.inserirEditarLiquido(l, Integer.parseInt(dadosLiquidos[0])); 
         return true;
-        
     }
-    /*public boolean deletarLiquido(int i){
+    
 
-    }*/
+    //public boolean deletarLiquido(int i){
+    	
+    //}
 
     public boolean inserirEditarPaciente(String[] dadosPacientes){
-        //Paciente p = new Paciente(dadosPacientes[1], dadosPacientes[2], dadosPacientes[3], dadosPacientes[4], new Telefone(Integer.parseInt(dadosPacientes[5]), dadosPacientes[6]), 
-        //new Liquido(dadosPacientes[7],dadosPacientes[8], Float.parseFloat(dadosPacientes[9])), dadosPacientes[10]);
-        Paciente p = new Paciente(dadosPacientes[1], dadosPacientes[2], dadosPacientes[3], dadosPacientes[4], new Telefone(Integer.parseInt(dadosPacientes[5]), dadosPacientes[6]), dadosPacientes[7]);
-        d.inserirEditarPaciente(p, Integer.parseInt(dadosPacientes[0]));
+        Paciente p = new Paciente(dadosPacientes[1], dadosPacientes[2], dadosPacientes[3], dadosPacientes[4], 
+        		new Telefone(Integer.parseInt(dadosPacientes[5]), dadosPacientes[6]), dadosPacientes[7], 
+        		new Liquido(dadosPacientes[8], dadosPacientes[9], dadosPacientes[10], 
+        		Integer.parseInt(dadosPacientes[11]), Integer.parseInt(dadosPacientes[12])));
+        		d.inserirEditarPaciente(p, Integer.parseInt(dadosPacientes[0]));
         return true;
     }
 
-    /*public boolean deletarPaciente(){
-
-    }*/
+    //public boolean deletarPaciente(){
+    	
+    //}
     
 }
 

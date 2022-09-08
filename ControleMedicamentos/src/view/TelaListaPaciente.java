@@ -34,8 +34,8 @@ public class TelaListaPaciente implements ActionListener, ListSelectionListener 
         listaPacientesCadastrados.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         listaPacientesCadastrados.setVisibleRowCount(10);
 
-        cadastroPaciente.setBounds(120, 175, 115, 30);
-        refreshPaciente.setBounds(245, 175, 115, 30);
+        cadastroPaciente.setBounds(50, 175, 115, 30);
+        refreshPaciente.setBounds(180, 175, 115, 30);
         
         janela.setLayout(null);
 

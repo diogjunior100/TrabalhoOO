@@ -19,12 +19,23 @@ public class TelaDetalhePaciente implements ActionListener {
     private JLabel telefoneJLabel = new JLabel("Telefone: ");
     private JTextField dddPaciente;
     private JTextField digitosPaciente;
+    private JLabel nomeMedicamentoJLabel = new JLabel("Nome Medicamento: ");
+    private JTextField nomeMedicamento;
+    private JLabel marcaJLabel = new JLabel("Marca: ");
+    private JTextField marcaMedicamento;
+    private JLabel frequênciaJLabel = new JLabel("Frequência: ");
+    private JTextField frequenciaMedicamento;
+    private JLabel pordiaJLabel = new JLabel("Por dia: ");
+    private JTextField pordiaMedicamento;
+    private JLabel totalJLabel = new JLabel("Total: ");
+    private JTextField totalMedicamento;
     private JLabel corJLabel = new JLabel("Cor: ");
     private JTextField corPaciente;
+    private JButton selecionarMedicamentoButton = new JButton("Escolher Medicamento");
     private JButton excluirButton = new JButton("Excluir");
     private JButton salvarButton = new JButton("Salvar");
     private static ControleDados dados;
-    private  String[] dadosPaciente = new String[17];
+    private  String[] dadosPaciente = new String[24];
     private int posicao;
     private int opcao;
 
@@ -43,6 +54,8 @@ public class TelaDetalhePaciente implements ActionListener {
             emailPaciente = new JTextField(dados.getPacientes()[pos].getEmail(), 200);
             dddPaciente = new JTextField(String.valueOf(dados.getPacientes()[pos].getTelefone().getDdd()), 4);
             digitosPaciente = new JTextField(dados.getPacientes()[pos].getTelefone().getDigitos(), 200);
+            //nomeMedicamento = new JTextField(dados.getPacientes()[pos].getMedicamento()[pos].getNome(), 200);
+            //totalMedicamento = new JTextField(dados.getPacientes()[pos].getLiquido(), 200);
             corPaciente = new JTextField(dados.getPacientes()[pos].getCor(), 200);
         }
         else{
@@ -74,8 +87,9 @@ public class TelaDetalhePaciente implements ActionListener {
 		dddPaciente.setBounds(180, 170, 28, 25);
 		digitosPaciente.setBounds(215, 170, 146, 25);
 		
-		salvarButton.setBounds(100, 200, 120, 30);
-		excluirButton.setBounds(230, 200, 120, 30);
+		selecionarMedicamentoButton.setBounds(50, 200, 120, 30);
+		salvarButton.setBounds(180, 200, 120, 30);
+		excluirButton.setBounds(310, 200, 120, 30);
 
         this.janela.add(nomeJLabel);
         this.janela.add(nomePaciente);
@@ -91,6 +105,8 @@ public class TelaDetalhePaciente implements ActionListener {
         this.janela.add(dddPaciente);
         this.janela.add(digitosPaciente);
         this.janela.add(salvarButton);
+        this.janela.add(excluirButton);
+        this.janela.add(selecionarMedicamentoButton);
 
         this.janela.setLayout(null);
 
@@ -99,6 +115,7 @@ public class TelaDetalhePaciente implements ActionListener {
 
 		salvarButton.addActionListener(this);
 		excluirButton.addActionListener(this);
+		selecionarMedicamentoButton.addActionListener(this);
 
 
 
@@ -108,13 +125,13 @@ public class TelaDetalhePaciente implements ActionListener {
         Object src = e.getSource();
 
         if (src == salvarButton) {
-                boolean res;
-                if (opcao == 2) {
-                    dadosPaciente[0] = Integer.toString(dados.getQtdPacientes());
-                }
-                else {
-                	dadosPaciente[0] = Integer.toString(posicao);
-                }
+        	boolean resposta;
+            if (opcao == 2) {
+                dadosPaciente[0] = Integer.toString(dados.getQtdPacientes());
+            }
+            else {
+                dadosPaciente[0] = Integer.toString(posicao);
+            }
                 
                 dadosPaciente[1] = nomePaciente.getText();
                 dadosPaciente[2] = sexoPaciente.getText();
@@ -124,9 +141,22 @@ public class TelaDetalhePaciente implements ActionListener {
                 dadosPaciente[6] = digitosPaciente.getText();
                 dadosPaciente[7] = corPaciente.getText();
                 
-                res = dados.inserirEditarPaciente(dadosPaciente);
-                mensagemCadastroConcluido();
+                resposta = dados.inserirEditarPaciente(dadosPaciente);
                 
+                if(resposta == true) {
+                	mensagemCadastroConcluido();
+                }
+                else {
+                	mensagemCadastroErro();
+                }
+        }
+        
+        /*if(src == selecionarMedicamentoButton) {
+        	new TelaEscolhaMedicamento(2);
+        }*/
+        
+        if(src == excluirButton) {
+        	boolean resposta;
         }
     }
 
@@ -134,6 +164,10 @@ public class TelaDetalhePaciente implements ActionListener {
     public void mensagemCadastroConcluido(){
         JOptionPane.showMessageDialog(null, "Paciente Cadastrado");
         janela.dispose();
+    }
+    public void mensagemCadastroErro() {
+    	JOptionPane.showMessageDialog(null, "Erro no Cadastro");
+    	janela.dispose();
     }
     public void mensagemDeletarConcluido(){
         JOptionPane.showMessageDialog(null, "Paciente Excluido");
