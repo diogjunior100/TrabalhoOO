@@ -7,6 +7,8 @@ public class Paciente {
 	private String email;
 	private Telefone telefone;
 	private Medicamento medicamento;
+	private Liquido liquido;
+	private Comprimido comprimido;
 	private String cor;
 	
 	public Paciente(String nome, String sexo, String datadeNascimento, String email, Telefone telefone, String cor, Medicamento medicamento) {

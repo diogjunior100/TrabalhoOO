@@ -123,6 +123,10 @@ public class TelaDetalhePaciente implements ActionListener {
 
     public void actionPerformed(ActionEvent e){
         Object src = e.getSource();
+        
+        if(src == selecionarMedicamentoButton) {
+    	new TelaEscolhaMedicamento(2);
+    	}
 
         if (src == salvarButton) {
         	boolean resposta;
@@ -150,11 +154,7 @@ public class TelaDetalhePaciente implements ActionListener {
                 	mensagemCadastroErro();
                 }
         }
-        
-        /*if(src == selecionarMedicamentoButton) {
-        	new TelaEscolhaMedicamento(2);
-        }*/
-        
+           
         if(src == excluirButton) {
         	boolean resposta;
         }

@@ -36,7 +36,7 @@ public class TelaDetalheMedicamento  implements ActionListener{
 
         if(op == 2){ //se for edicao, preenche os campos com os dados do comprimido
             
-            valorNome = new JTextField(dados.getComprimidos()[pos].getNome(), 200);
+            valorNome = new JTextField(dados.getComprimidos()[pos].setNome(), 200);
             valorMarca = new JTextField(dados.getComprimidos()[pos].getMarca(), 200);
             valorTotal = new JTextField(String.valueOf(dados.getComprimidos()[pos].getComprimidosTotal()), 200);
             
