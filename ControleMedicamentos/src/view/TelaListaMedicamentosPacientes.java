@@ -8,7 +8,7 @@ import controle.*;
 import objetos.*;
 
 //apresenta os medicamentos cadastrados
-public class TelaListaMedicamentos implements ActionListener, ListSelectionListener {
+public class TelaListaMedicamentosPacientes implements ActionListener, ListSelectionListener {
     private JFrame janela;
 	private JLabel titulo;
     private JButton cadastroComprimido;
@@ -51,13 +51,13 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
 
             janela.add(titulo);
             janela.add(listaComprimidosCadastrados);
-            //janela.add(cadastroComprimido);
+            janela.add(cadastroComprimido);
             janela.add(refreshComprimido);
 
             janela.setSize(400, 250);
             janela.setVisible(true);
 
-            //cadastroComprimido.addActionListener(this);
+            cadastroComprimido.addActionListener(this);
             refreshComprimido.addActionListener(this);
             listaComprimidosCadastrados.addListSelectionListener(this);
         break;
@@ -76,7 +76,7 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
             listaLiquidosCadastrados.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
             listaLiquidosCadastrados.setVisibleRowCount(10);
 
-            //cadastroLiquido.setBounds(70, 177, 100, 30);
+            cadastroLiquido.setBounds(70, 177, 100, 30);
             refreshLiquido.setBounds(200, 177, 100, 30);
 
             janela.setLayout(null);
@@ -89,7 +89,7 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
             janela.setSize(400, 250);
             janela.setVisible(true);
 
-            //cadastroLiquido.addActionListener(this);
+            cadastroLiquido.addActionListener(this);
             refreshLiquido.addActionListener(this);
             listaLiquidosCadastrados.addListSelectionListener(this);
 		break;
@@ -104,10 +104,17 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
 
     public void actionPerformed(ActionEvent e) {
         Object src = e.getSource();
-
+        
+        if(src == cadastroComprimido) {
+        	new TelaDetalheMedicamento().inserirEditar(1, dados, this, 0);
+        }
         if (src == refreshComprimido){
         	listaComprimidosCadastrados.setListData(new ControleComprimido(dados).getNomeComprimido());			
 			listaComprimidosCadastrados.updateUI();
+        }
+        
+        if(src == cadastroLiquido) {
+        	new TelaDetalheMedicamento().inserirEditar(3, dados, this, 0);
         }
 
         if (src == refreshLiquido){
@@ -122,11 +129,11 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
         Object src = e.getSource();
         
         if(e.getValueIsAdjusting() && src == listaComprimidosCadastrados){
-            new TelaDetalheMedicamento();//.inserirEditar(2, dados, this, listaComprimidosCadastrados.getSelectedIndex());
+            new TelaDetalheMedicamento().inserirEditar(2, dados, this, listaComprimidosCadastrados.getSelectedIndex());
         }
 
         if (e.getValueIsAdjusting() && src == listaLiquidosCadastrados) {
-            new TelaDetalheMedicamento();//.inserirEditar(4, dados, this, listaLiquidosCadastrados.getSelectedIndex());
+            new TelaDetalheMedicamento().inserirEditar(4, dados, this, listaLiquidosCadastrados.getSelectedIndex());
         }
         
     }
@@ -136,10 +143,4 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
    
 
 }
-
-
-
-	
-
-
 

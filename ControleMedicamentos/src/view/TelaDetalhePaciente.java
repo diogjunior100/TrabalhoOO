@@ -125,7 +125,7 @@ public class TelaDetalhePaciente implements ActionListener {
         Object src = e.getSource();
         
         if(src == selecionarMedicamentoButton) {
-    	new TelaEscolhaMedicamento(2);
+        	new TelaEscolhaMedicamento(2);
     	}
 
         if (src == salvarButton) {
