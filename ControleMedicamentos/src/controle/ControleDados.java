@@ -58,6 +58,7 @@ public class ControleDados {
         d.inserirEditarComprimido(c, Integer.parseInt(dadosComprimidos[0])); //passa o objeto e a posicao dele no vetor
         return true;
     }
+    
 
     //public boolean deletarComprimido(int i){
     	int qtdComprimidos = d.getQtdComprimidos();
@@ -76,11 +77,11 @@ public class ControleDados {
     	
     //}
 
-    public boolean inserirEditarPaciente(String[] dadosPacientes){
+    public boolean inserirEditarPaciente(String[] dadosPacientes, String[] dadosMedicamentos){
         Paciente p = new Paciente(dadosPacientes[1], dadosPacientes[2], dadosPacientes[3], dadosPacientes[4], 
         		new Telefone(Integer.parseInt(dadosPacientes[5]), dadosPacientes[6]), dadosPacientes[7], 
-        		new Liquido(dadosPacientes[8], dadosPacientes[9], dadosPacientes[10], 
-        		Integer.parseInt(dadosPacientes[11]), Integer.parseInt(dadosPacientes[12])));
+        		new Liquido(dadosMedicamentos[8], dadosMedicamentos[9], dadosMedicamentos[10], 
+        		Integer.parseInt(dadosMedicamentos[11]), Integer.parseInt(dadosMedicamentos[12])));
         		d.inserirEditarPaciente(p, Integer.parseInt(dadosPacientes[0]));
         return true;
     }
