@@ -50,9 +50,9 @@ public class ControlePaciente {
 		return p[i].getTelefone();
 	}
 
-	/*public Medicamento getMedicamento(int i){
+	public Medicamento getMedicamento(int i){
 		return p[i].getMedicamento();
-	}*/
+	}
 
 	public String getCor(int i){
 		return p[i].getCor();

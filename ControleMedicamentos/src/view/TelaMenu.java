@@ -50,7 +50,7 @@ public class TelaMenu implements ActionListener {
 		}
 
 		if(src == medicamento) // chama a tela de escolha do tipo de medicamentos
-			new TelaEscolhaMedicamento();
+			new TelaEscolhaMedicamento(1);
 	}
 		
 }
