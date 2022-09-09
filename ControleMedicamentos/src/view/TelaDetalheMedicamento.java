@@ -27,7 +27,7 @@ public class TelaDetalheMedicamento  implements ActionListener{
     private int opcao;
     private String s;
 
-    public void inserirEditar(int op, ControleDados d, TelaListaMedicamentosPacientes l , int pos){
+    public void inserirEditar(int op, ControleDados d, TelaListaMedicamentos l , int pos){
 
         dados = d;
         posicao = pos;
@@ -114,16 +114,16 @@ public class TelaDetalheMedicamento  implements ActionListener{
                     dadosComprimido[2] = valorMarca.getText();
                     dadosComprimido[3] = valorTotal.getText();
                     
-                    resultado = dados.inserirEditarComprimido(dadosComprimido);
-                    mensagemCadastroConcluido();
+                    resultado = dados.inserirEditarComprimidoGerais(dadosComprimido);
+                    //mensagemCadastroConcluido();
                 }
                 else {
                 	dadosLiquido[1] = valorNome.getText();
                     dadosLiquido[2] = valorMarca.getText();
                     dadosLiquido[3] = valorTotal.getText();
                     
-                    resultado = dados.inserirEditarLiquido(dadosLiquido);
-                    mensagemCadastroConcluido();
+                    resultado = dados.inserirEditarLiquidoGerais(dadosLiquido);
+                    //mensagemCadastroConcluido();
                 }
                 
                 }

@@ -54,10 +54,17 @@ public class ControleDados {
 
 
     public boolean inserirEditarComprimido(String[] dadosComprimidos) { 
-        Comprimido c = new Comprimido(dadosComprimidos[1], dadosComprimidos[2], Integer.parseInt(dadosComprimidos[3]));
+        Comprimido c = new Comprimido(dadosComprimidos[1], dadosComprimidos[2], dadosComprimidos[3], Integer.parseInt(dadosComprimidos[4]), Integer.parseInt(dadosComprimidos[5]));
         d.inserirEditarComprimido(c, Integer.parseInt(dadosComprimidos[0])); //passa o objeto e a posicao dele no vetor
         return true;
     }
+    
+    public boolean inserirEditarComprimidoGerais(String[] dadosComprimidos) { 
+        Comprimido c = new Comprimido(dadosComprimidos[1], dadosComprimidos[2], Integer.parseInt(dadosComprimidos[5]));
+        d.inserirEditarComprimido(c, Integer.parseInt(dadosComprimidos[0])); //passa o objeto e a posicao dele no vetor
+        return true;
+    }
+    
     
 
     //public boolean deletarComprimido(int i){
@@ -67,8 +74,13 @@ public class ControleDados {
     //}
 
     public boolean inserirEditarLiquido(String[] dadosLiquidos) { //inseri ou edita um medicamento liquido gerais
-        Liquido l = new Liquido(dadosLiquidos[1], dadosLiquidos[2], Integer.parseInt(dadosLiquidos[3]));
+    	Liquido l = new Liquido(dadosLiquidos[1], dadosLiquidos[2], dadosLiquidos[3], Integer.parseInt(dadosLiquidos[4]), Integer.parseInt(dadosLiquidos[5]));
         d.inserirEditarLiquido(l, Integer.parseInt(dadosLiquidos[0])); 
+        return true;
+    }
+    public boolean inserirEditarLiquidoGerais(String[] dadosLiquidos) { 
+        Comprimido c = new Comprimido(dadosLiquidos[1], dadosLiquidos[2], Integer.parseInt(dadosLiquidos[3]));
+        d.inserirEditarComprimido(c, Integer.parseInt(dadosLiquidos[0])); //passa o objeto e a posicao dele no vetor
         return true;
     }
     
@@ -76,19 +88,42 @@ public class ControleDados {
     //public boolean deletarLiquido(int i){
     	
     //}
-
-    public boolean inserirEditarPaciente(String[] dadosPacientes, String[] dadosMedicamentos){
+    
+    public boolean inserirEditarPaciente(String[] dadosPacientes){
         Paciente p = new Paciente(dadosPacientes[1], dadosPacientes[2], dadosPacientes[3], dadosPacientes[4], 
         		new Telefone(Integer.parseInt(dadosPacientes[5]), dadosPacientes[6]), dadosPacientes[7], 
-        		new Liquido(dadosMedicamentos[8], dadosMedicamentos[9], dadosMedicamentos[10], 
-        		Integer.parseInt(dadosMedicamentos[11]), Integer.parseInt(dadosMedicamentos[12])));
+        		new Liquido(dadosPacientes[8], dadosPacientes[9], dadosPacientes[10], 
+        		Integer.parseInt(dadosPacientes[11]), Integer.parseInt(dadosPacientes[12])));
         		d.inserirEditarPaciente(p, Integer.parseInt(dadosPacientes[0]));
         return true;
     }
 
-    //public boolean deletarPaciente(){
-    	
-    //}
-    
+    public boolean deletarPaciente(int i) {
+		int qtdPacientes = d.getQtdPacientes();
+		String pacienteRemovido = d.getPacientes()[i].getNome();
+		String aux;
+		
+		
+		if(i == (d.getQtdPacientes() - 1)) { // O aluno a ser removido está no final do array
+			d.setQtdPacientes(d.getQtdPacientes() - 1);
+			d.getPacientes()[d.getQtdPacientes()] = null;
+			return true;
+			
+		} 
+		else { 
+			int cont = 0;
+			while(d.getPacientes()[cont].getNome().compareTo(pacienteRemovido) != 0) {
+				cont++;
+			}
+			//Rotina swap
+			for(int j = cont; j < d.getQtdPacientes() - 1; j++) {
+				d.getPacientes()[j] = null;
+				d.getPacientes()[j] = d.getPacientes()[j+1];
+			}
+			d.getPacientes()[d.getQtdPacientes()] = null;
+			d.setQtdPacientes(d.getQtdPacientes() - 1);
+			return true;
+		}
+	}
 }
 

@@ -18,11 +18,9 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
 	private static ControleDados dados;
 	private JList<String> listaComprimidosCadastrados;
 	private JList<String> listaLiquidosCadastrados;
-	//private JList<String> listaComprimidosPacienteCadastrados;
     private int opcao;
 	private String[] listaNomesComprimidos = new String[50];
     private String[] listaNomesLiquidos = new String[50];
-    //private String[] listaComprimidosPaciente = new String[50];
     
 
 	public void mostrarDados(ControleDados d, int op){
@@ -122,11 +120,13 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
         Object src = e.getSource();
         
         if(e.getValueIsAdjusting() && src == listaComprimidosCadastrados){
-            new TelaDetalheMedicamento();//.inserirEditar(2, dados, this, listaComprimidosCadastrados.getSelectedIndex());
+            new TelaDetalheMedicamento().inserirEditar(2, dados, this, listaComprimidosCadastrados.getSelectedIndex());
+            janela.dispose();
         }
 
         if (e.getValueIsAdjusting() && src == listaLiquidosCadastrados) {
-            new TelaDetalheMedicamento();//.inserirEditar(4, dados, this, listaLiquidosCadastrados.getSelectedIndex());
+            new TelaDetalheMedicamento().inserirEditar(4, dados, this, listaLiquidosCadastrados.getSelectedIndex());
+            janela.dispose();
         }
         
     }

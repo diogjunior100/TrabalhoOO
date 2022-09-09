@@ -34,9 +34,17 @@ public class ControleLiquido {
     public String getMarca(int i){
         return l[i].getMarca();
     }
+    
+    public String getFrequencia(int i) {
+    	return l[i].getFrequencia();
+    }
+    
+    public String getGotasPorDia(int i) {
+    	return Integer.toString(l[i].getGotasporDia());
+    }
 
     public String getLiquidosTotal(int i){
-        return Float.toString(l[i].getMlsTotal());
+        return Integer.toString(l[i].getMlsTotal());
     }
     
 }

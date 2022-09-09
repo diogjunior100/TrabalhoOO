@@ -13,7 +13,7 @@ public class ControlePaciente {
 		qtdPacientes = d.getQtdPacientes();
 	}
 
-	public String[] getNomePacinete() { //funcao que lista o nome dos pacientes
+	public String[] getNomePaciente() { //funcao que lista o nome dos pacientes
 		String[] nomePacientes = new String[qtdPacientes];
 		for(int i = 0; i < qtdPacientes; i++) {
 			nomePacientes[i] = p[i].getNome();
@@ -49,9 +49,15 @@ public class ControlePaciente {
 	public Telefone getTelefone(int i){
 		return p[i].getTelefone();
 	}
-
-	public Medicamento getMedicamento(int i){
+	public Medicamento getMedicamento(int i) {
 		return p[i].getMedicamento();
+	}
+	
+	public Liquido getLiquidos(int i){
+		return p[i].getLiquidos();
+	}
+	public Comprimido getComprimidos(int i) {
+		return p[i].getComprimidos();
 	}
 
 	public String getCor(int i){

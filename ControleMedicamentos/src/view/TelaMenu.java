@@ -47,10 +47,12 @@ public class TelaMenu implements ActionListener {
 		
 		if(src == paciente){
 			new TelaListaPaciente().mostrarDados(dados);
+			janela.dispose();
 		}
 
 		if(src == medicamento) // chama a tela de escolha do tipo de medicamentos
 			new TelaEscolhaMedicamento(1);
+			janela.dispose();
 	}
 		
 }

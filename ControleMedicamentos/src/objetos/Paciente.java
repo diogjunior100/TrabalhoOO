@@ -11,14 +11,24 @@ public class Paciente {
 	private Comprimido comprimido;
 	private String cor;
 	
-	public Paciente(String nome, String sexo, String datadeNascimento, String email, Telefone telefone, String cor, Medicamento medicamento) {
+	public Paciente(String nome, String sexo, String datadeNascimento, String email, Telefone telefone, String cor, Liquido liquido) {
 		this.nome = nome;
 		this.sexo = sexo;
 		this.datadeNascimento = datadeNascimento;
 		this.email = email;
 		this.telefone = telefone;
 		this.cor = cor;
-		this.medicamento = medicamento;
+		this.liquido = liquido;
+	}
+	
+	public Paciente(String nome, String sexo, String datadeNascimento, String email, Telefone telefone, String cor, Comprimido comprimido) {
+		this.nome = nome;
+		this.sexo = sexo;
+		this.datadeNascimento = datadeNascimento;
+		this.email = email;
+		this.telefone = telefone;
+		this.cor = cor;
+		this.comprimido = comprimido;
 	}
 
 	
@@ -63,6 +73,18 @@ public class Paciente {
 	}
 	public void setMedicamento(Medicamento medicamento) {
 		this.medicamento = medicamento;
+	}
+	public Liquido getLiquidos() {
+		return liquido;
+	}
+	public void setLiquidos(Liquido liquido) {
+		this.liquido = liquido;
+	}
+	public Comprimido getComprimidos() {
+		return comprimido;
+	}
+	public void setComprimidos(Comprimido comprimido) {
+		this.comprimido = comprimido;
 	}
 
 
