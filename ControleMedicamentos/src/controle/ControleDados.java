@@ -4,9 +4,10 @@ import objetos.*;
 
 public class ControleDados {
     private Dados d = new Dados(); //objetos.Dados
-
+    
     public ControleDados() {
-        d.Preencherdados(); //construtor que começa com os dados ja pré cadastrados;
+        d.PreencherDados();
+        d.PreencherDadosGerais(); //construtor que começa com os dados ja pré cadastrados;
     }
 
     public Dados getDados() {
@@ -59,16 +60,9 @@ public class ControleDados {
         return true;
     }
     
-    public boolean inserirEditarComprimidoGerais(String[] dadosComprimidos) { 
-        Comprimido c = new Comprimido(dadosComprimidos[1], dadosComprimidos[2], Integer.parseInt(dadosComprimidos[5]));
-        d.inserirEditarComprimido(c, Integer.parseInt(dadosComprimidos[0])); //passa o objeto e a posicao dele no vetor
-        return true;
-    }
-    
-    
 
     //public boolean deletarComprimido(int i){
-    	int qtdComprimidos = d.getQtdComprimidos();
+    	//int qtdComprimidos = d.getQtdComprimidos();
     	
     	
     //}
@@ -78,23 +72,26 @@ public class ControleDados {
         d.inserirEditarLiquido(l, Integer.parseInt(dadosLiquidos[0])); 
         return true;
     }
-    public boolean inserirEditarLiquidoGerais(String[] dadosLiquidos) { 
-        Comprimido c = new Comprimido(dadosLiquidos[1], dadosLiquidos[2], Integer.parseInt(dadosLiquidos[3]));
-        d.inserirEditarComprimido(c, Integer.parseInt(dadosLiquidos[0])); //passa o objeto e a posicao dele no vetor
-        return true;
-    }
     
-
     //public boolean deletarLiquido(int i){
     	
     //}
     
     public boolean inserirEditarPaciente(String[] dadosPacientes){
+    	Liquido l = new Liquido(dadosPacientes[8], dadosPacientes[9], dadosPacientes[10], 
+        		Integer.parseInt(dadosPacientes[11]), Integer.parseInt(dadosPacientes[12]));
+    	
+    	Comprimido c = new Comprimido(dadosPacientes[8], dadosPacientes[9], dadosPacientes[10], 
+    			Integer.parseInt(dadosPacientes[11]), Integer.parseInt(dadosPacientes[12]));
+       
+        
         Paciente p = new Paciente(dadosPacientes[1], dadosPacientes[2], dadosPacientes[3], dadosPacientes[4], 
-        		new Telefone(Integer.parseInt(dadosPacientes[5]), dadosPacientes[6]), dadosPacientes[7], 
-        		new Liquido(dadosPacientes[8], dadosPacientes[9], dadosPacientes[10], 
-        		Integer.parseInt(dadosPacientes[11]), Integer.parseInt(dadosPacientes[12])));
-        		d.inserirEditarPaciente(p, Integer.parseInt(dadosPacientes[0]));
+        		new Telefone(Integer.parseInt(dadosPacientes[5]), dadosPacientes[6]), dadosPacientes[7], l);
+
+        d.inserirEditarComprimidoPaciente(c, getQtdComprimidos());
+        d.inserirEditarLiquidoPaciente(l, getQtdLiquidos());
+        d.inserirEditarPaciente(p, Integer.parseInt(dadosPacientes[0]));
+        		
         return true;
     }
 

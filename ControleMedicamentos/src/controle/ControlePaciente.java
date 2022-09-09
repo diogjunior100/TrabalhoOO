@@ -18,9 +18,9 @@ public class ControlePaciente {
 		for(int i = 0; i < qtdPacientes; i++) {
 			nomePacientes[i] = p[i].getNome();
 		}
-		return nomePacientes;
-		
+		return nomePacientes;	
 	}
+	
 	
 	public int getQtd(){
 		return qtdPacientes;

@@ -13,15 +13,16 @@ public class TelaEscolhaMedicamento implements ActionListener {
 	private static JLabel titulo = new JLabel("Menu");
 	private static JButton comprimido = new JButton("Comprimido");
 	private static JButton liquido = new JButton("Líquido");
+	private static JButton comprimidoPacientes = new JButton("Comprimido");
+	private static JButton liquidoPacientes = new JButton("Líquido");
 	public static ControleDados dados = new ControleDados();
 	private int opcao;
 	
 	
 	public TelaEscolhaMedicamento(int op) {
-		opcao = op;
-		
-		switch(op) {
-		case 1:
+		 opcao = op;
+		 
+		 if(op == 1) {
 			titulo.setFont(new Font("Arial", Font.BOLD, 20));
 			titulo.setBounds(170, 10, 150, 30);
 
@@ -41,12 +42,28 @@ public class TelaEscolhaMedicamento implements ActionListener {
 
 			comprimido.addActionListener(this);
 			liquido.addActionListener(this);
-		break;
-		
-		default:
-			JOptionPane.showMessageDialog(null,"Opcao nao encontrada!", null, 
-					JOptionPane.ERROR_MESSAGE);
-		}
+		 }
+		 else {
+			 titulo.setFont(new Font("Arial", Font.BOLD, 20));
+			 titulo.setBounds(170, 10, 150, 30);
+
+			 comprimido.setBounds(220, 70, 140, 100);
+			 liquido.setBounds(20, 70, 140, 100);
+			
+			 janela.setLayout(null);
+			
+			 janela.add(titulo);
+			 janela.add(comprimido);
+			 janela.add(liquido);
+			
+			
+			 janela.setSize(400, 250);
+			 janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			 janela.setVisible(true);
+
+			comprimidoPacientes.addActionListener(this);
+			liquidoPacientes.addActionListener(this);
+		 }
 	}
 	
 	
