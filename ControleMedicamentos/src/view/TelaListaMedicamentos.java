@@ -105,7 +105,6 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
         
         if (src == cadastroComprimido) {
         	new TelaDetalheMedicamento().inserirEditar(1, dados, this, 0);
-        	janela.dispose();
         }
         if (src == refreshComprimido){
         	listaComprimidosCadastrados.setListData(new ControleComprimido(dados).getNomeComprimido());			
@@ -113,7 +112,6 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
         }
         if (src == cadastroLiquido) {
         	new TelaDetalheMedicamento().inserirEditar(3, dados, this, 0);
-        	janela.dispose();
         }
         
         if (src == refreshLiquido){

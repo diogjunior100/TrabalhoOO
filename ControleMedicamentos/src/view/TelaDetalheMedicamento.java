@@ -16,10 +16,9 @@ public class TelaDetalheMedicamento  implements ActionListener{
 	private JTextField valorMarca;
 	private JLabel frequenciaJLabel = new JLabel("Frequência: ");
 	private JTextField frequenciaMedicamento;
-	private JLabel gotasPorDiaJLabel = new JLabel("Gotas por Dia: ");
-	private JTextField gotasPorDiaMedicamento;
-	private JLabel comprimidosPorDiaJLabel = new JLabel("Comprimidos por Dia: ");
-	private JTextField comprimidosPorDiaMedicamento;
+	private JLabel gotasPorDiaJLabel = new JLabel("Gotas: ");
+	private JLabel comprimidosPorDiaJLabel = new JLabel("Por Dia: ");
+	private JTextField porDia;
 	private JLabel labelCT = new JLabel("Comprimidos Totais: ");
 	private JLabel labelLQ = new JLabel("Mls Totais: ");
 	private JTextField valorTotal;
@@ -30,7 +29,6 @@ public class TelaDetalheMedicamento  implements ActionListener{
     private static ControleDados dados;
     private int posicao;
     private int opcao;
-    private String s;
 
     public void inserirEditar(int op, ControleDados d, TelaListaMedicamentos l , int pos){
 
@@ -44,12 +42,10 @@ public class TelaDetalheMedicamento  implements ActionListener{
             valorNome = new JTextField(dados.getComprimidos()[pos].getNome(), 200);
             valorMarca = new JTextField(dados.getComprimidos()[pos].getMarca(), 200);
             frequenciaMedicamento = new JTextField(dados.getComprimidos()[pos].getFrequencia(), 200);
-            comprimidosPorDiaMedicamento = new JTextField(String.valueOf(dados.getComprimidos()[pos].getComprimidosporDia()), 200);
+            porDia = new JTextField(String.valueOf(dados.getComprimidos()[pos].getComprimidosporDia()), 200);
             valorTotal = new JTextField(String.valueOf(dados.getComprimidos()[pos].getComprimidosTotal()), 200);
             
             comprimidosPorDiaJLabel.setBounds(30, 110, 150, 25);
-            comprimidosPorDiaMedicamento.setBounds(30, 110, 250, 25);
-            
             labelCT.setBounds(30, 140, 150, 25);
             
         } 
@@ -58,12 +54,10 @@ public class TelaDetalheMedicamento  implements ActionListener{
             valorNome = new JTextField(dados.getLiquidos()[pos].getNome(), 200);
             valorMarca = new JTextField(dados.getLiquidos()[pos].getMarca(), 200);
             frequenciaMedicamento = new JTextField(dados.getLiquidos()[pos].getFrequencia(), 200);
-            gotasPorDiaMedicamento = new JTextField(String.valueOf(dados.getLiquidos()[pos].getGotasporDia()), 200);
+            porDia = new JTextField(String.valueOf(dados.getLiquidos()[pos].getGotasporDia()), 200);
             valorTotal = new JTextField(String.valueOf(dados.getLiquidos()[pos].getMlsTotal()), 200);
             
             gotasPorDiaJLabel.setBounds(30,110,150,25);
-            gotasPorDiaMedicamento.setBounds(30,110,150,25);
-            
             labelLQ.setBounds(30, 140, 150, 25);
         }
 
@@ -71,7 +65,7 @@ public class TelaDetalheMedicamento  implements ActionListener{
             valorNome = new JTextField(200);
             valorMarca = new JTextField(200);
             frequenciaMedicamento = new JTextField(200);
-            
+            porDia = new JTextField(200);
             valorTotal = new JTextField(200);
         }
 
@@ -84,6 +78,7 @@ public class TelaDetalheMedicamento  implements ActionListener{
         frequenciaJLabel.setBounds(30, 80,150,25);
         frequenciaMedicamento.setBounds(180, 80, 180,25);
         
+        porDia.setBounds(180, 110, 150, 25);
         valorTotal.setBounds(180, 140, 180, 25);
         
         salvarButton.setBounds(100, 200, 120, 30);
@@ -99,9 +94,8 @@ public class TelaDetalheMedicamento  implements ActionListener{
         this.janela.add(labelLQ);
         this.janela.add(valorTotal);
         this.janela.add(comprimidosPorDiaJLabel);
-        this.janela.add(comprimidosPorDiaMedicamento);
         this.janela.add(gotasPorDiaJLabel);
-        this.janela.add(gotasPorDiaMedicamento);
+        this.janela.add(porDia);
         this.janela.add(salvarButton);
         this.janela.add(excluirButton);
 
@@ -138,7 +132,7 @@ public class TelaDetalheMedicamento  implements ActionListener{
                     dadosComprimido[1] = valorNome.getText();
                     dadosComprimido[2] = valorMarca.getText();
                     dadosComprimido[3] = frequenciaMedicamento.getText();
-                    dadosComprimido[4] = comprimidosPorDiaMedicamento.getText();
+                    dadosComprimido[4] = porDia.getText();
                     dadosComprimido[5] = valorTotal.getText();
                     
                     resultado = dados.inserirEditarComprimido(dadosComprimido);
@@ -148,7 +142,7 @@ public class TelaDetalheMedicamento  implements ActionListener{
                 	dadosLiquido[1] = valorNome.getText();
                     dadosLiquido[2] = valorMarca.getText();
                     dadosLiquido[3] = frequenciaMedicamento.getText();
-                    dadosLiquido[4] = gotasPorDiaMedicamento.getText();
+                    dadosLiquido[4] = porDia.getText();
                     dadosLiquido[5] = valorTotal.getText();
                     
                     resultado = dados.inserirEditarLiquido(dadosLiquido);

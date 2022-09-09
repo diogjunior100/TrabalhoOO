@@ -9,32 +9,52 @@ public class Dados { // classe que amarzena todos arrays utilizados pelo sistema
     private int qtdComprimidos = 0;
     private Liquido[] liquidos = new Liquido[50];
     private int qtdLiquidos = 0;
+    private Comprimido[] comprimidosPacientes = new Comprimido[50];
+    //private int qtdComprimidosPacientes = 0;
+    private Liquido[] liquidosPacientes = new Liquido[50];
+    //private int qtdLiquidosPacientes = 0;
     private Horario[] horarios = new Horario[50];
     private int qtdHorarios = 0;
 
-    public void Preencherdados(){ //funcao para pre cadastrar dados no sistema
+    public void PreencherDados(){ //funcao para pre cadastrar dados no sistema
         
-        comprimidos[0] = new Comprimido("Ritalina", "Jassen", "3 vezes na semana", 2, 30);
-        liquidos[0] = new Liquido("Novalgina", "Jassen", "2 vezes na semana", 2, 50);
+        comprimidosPacientes[0] = new Comprimido("CPaciente0", "Jassen", "3 vezes na semana", 2, 30);
+        liquidosPacientes[0] = new Liquido("LPaciente1", "Jassen", "2 vezes na semana", 2, 50);
         
-        comprimidos[1] = new Comprimido("Vitamina C", "Industria Quimica", "1 vez por dia", 1, 60);
-        liquidos[1] = new Liquido("Calman", "OMS", "3 vezes na semana", 3, 150);
+        comprimidosPacientes[1] = new Comprimido("CPaciente1", "Industria Quimica", "1 vez por dia", 1, 60);
+        liquidosPacientes[1] = new Liquido("LPaciente0", "OMS", "3 vezes na semana", 3, 150);
         
         telefones[0] = new Telefone(86, "999108399");
         telefones[1] = new Telefone(61, "999469112");
         
-        pacientes[0] = new Paciente("Diogenes Junior", "Masculino", "03 de agosto", "diogjunior10071@gmail.com", telefones[0], "Azul", comprimidos[0]);
-        pacientes[1] = new Paciente("Henrique Pucci", "Masculino", "04 de Agosto", "henriquepucci@gmail.com", telefones[1], "Vermelho", liquidos[0]);
+        pacientes[0] = new Paciente("Diogenes Junior", "Masculino", "03 de agosto", "diogjunior10071@gmail.com", telefones[0], "Azul", comprimidosPacientes[0]);
+        pacientes[1] = new Paciente("Henrique Pucci", "Masculino", "04 de Agosto", "henriquepucci@gmail.com", telefones[1], "Vermelho", liquidosPacientes[0]);
         
         qtdComprimidos = 2;
         qtdLiquidos = 2;
         qtdPacientes = 2;
         qtdTelefones = 2;
     }
+    
+    public void PreencherDadosGerais() {
+    	comprimidos[0] = new Comprimido("Ritalina", "Jassen", "3 vezes na semana", 2, 30);
+        liquidos[0] = new Liquido("Novalgina", "Jassen", "2 vezes na semana", 2, 50);
+        
+        comprimidos[1] = new Comprimido("Vitamina C", "Industria Quimica", "1 vez por dia", 1, 60);
+        liquidos[1] = new Liquido("Calman", "OMS", "3 vezes na semana", 3, 150);
+        
+        qtdComprimidos = 2;
+        qtdLiquidos = 2;
+    }
 
     public void inserirEditarComprimido(Comprimido c, int pos){ // funcao de inserir comprimidos cadastrados por ControleDados
         this.comprimidos[pos] = c;
         if(pos == qtdComprimidos)
+            qtdComprimidos++;
+    }
+    public void inserirEditarComprimidoPaciente(Comprimido c, int pos){ // funcao de inserir comprimidos cadastrados por ControleDados
+        this.comprimidosPacientes[pos] = c;
+        if(pos == qtdComprimidos);
             qtdComprimidos++;
     }
 
@@ -43,7 +63,12 @@ public class Dados { // classe que amarzena todos arrays utilizados pelo sistema
         if(pos == qtdLiquidos)
             qtdLiquidos++;
     }
-
+    public void inserirEditarLiquidoPaciente(Liquido l, int pos){ // funcao de inserir liquidos cadastrados por ControleDados
+        this.liquidosPacientes[pos] = l;
+        if(pos == qtdLiquidos)
+            qtdLiquidos++;
+    }
+    
     public void inserirEditarPaciente(Paciente p, int pos){ // funcao de inserir pacientes cadastrados por ControleDados
         this.pacientes[pos] = p;
         if(pos == qtdPacientes){
@@ -128,5 +153,6 @@ public class Dados { // classe que amarzena todos arrays utilizados pelo sistema
     public void setQtdHorarios(int qtdHorarios) {
         this.qtdHorarios = qtdHorarios;
     }
+
     
 }

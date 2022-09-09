@@ -72,7 +72,7 @@ public class TelaListaPaciente implements ActionListener, ListSelectionListener 
         }
         
         if(src == medicamentosGerais) {
-        	new TelaEscolhaMedicamento(1);
+        	new TelaEscolhaMedicamento(2);
         	janela.dispose();
         }
 	
