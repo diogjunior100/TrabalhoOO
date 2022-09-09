@@ -4,7 +4,9 @@ import objetos.*;
 
 public class ControleDados {
     private Dados d = new Dados(); //objetos.Dados
-
+    private String[] dadosLiquidos = new String[50];
+    private int j = 1;
+    
     public ControleDados() {
         d.Preencherdados(); //construtor que começa com os dados ja pré cadastrados;
     }
@@ -59,16 +61,9 @@ public class ControleDados {
         return true;
     }
     
-    public boolean inserirEditarComprimidoGerais(String[] dadosComprimidos) { 
-        Comprimido c = new Comprimido(dadosComprimidos[1], dadosComprimidos[2], Integer.parseInt(dadosComprimidos[5]));
-        d.inserirEditarComprimido(c, Integer.parseInt(dadosComprimidos[0])); //passa o objeto e a posicao dele no vetor
-        return true;
-    }
-    
-    
 
     //public boolean deletarComprimido(int i){
-    	int qtdComprimidos = d.getQtdComprimidos();
+    	//int qtdComprimidos = d.getQtdComprimidos();
     	
     	
     //}
@@ -78,13 +73,7 @@ public class ControleDados {
         d.inserirEditarLiquido(l, Integer.parseInt(dadosLiquidos[0])); 
         return true;
     }
-    public boolean inserirEditarLiquidoGerais(String[] dadosLiquidos) { 
-        Comprimido c = new Comprimido(dadosLiquidos[1], dadosLiquidos[2], Integer.parseInt(dadosLiquidos[3]));
-        d.inserirEditarComprimido(c, Integer.parseInt(dadosLiquidos[0])); //passa o objeto e a posicao dele no vetor
-        return true;
-    }
     
-
     //public boolean deletarLiquido(int i){
     	
     //}
@@ -95,6 +84,7 @@ public class ControleDados {
         		new Liquido(dadosPacientes[8], dadosPacientes[9], dadosPacientes[10], 
         		Integer.parseInt(dadosPacientes[11]), Integer.parseInt(dadosPacientes[12])));
         		d.inserirEditarPaciente(p, Integer.parseInt(dadosPacientes[0]));
+        		
         return true;
     }
 

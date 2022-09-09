@@ -9,7 +9,6 @@ import controle.*;
 import objetos.*;
 
 public class TelaDetalhePaciente implements ActionListener{
-	public int count = 1;
     private JFrame janela = new JFrame("Cadastro Paciente");
     private JLabel nomeJLabel = new JLabel("Nome: ");
     private JTextField nomePaciente;
@@ -59,18 +58,18 @@ public class TelaDetalhePaciente implements ActionListener{
         if (op == 1) {
         	
         	
-        		nomePaciente = new JTextField(dados.getPacientes()[pos].getNome(), 200);
-            	sexoPaciente = new JTextField(dados.getPacientes()[pos].getSexo(), 200);
-            	dataPaciente = new JTextField(dados.getPacientes()[pos].getDatadeNascimento(), 200);
-            	emailPaciente = new JTextField(dados.getPacientes()[pos].getEmail(), 200);
-            	dddPaciente = new JTextField(String.valueOf(dados.getPacientes()[pos].getTelefone().getDdd()), 4);
-            	digitosPaciente = new JTextField(dados.getPacientes()[pos].getTelefone().getDigitos(), 200);
-            	corPaciente = new JTextField(dados.getPacientes()[pos].getCor(), 200);
-            	nomeMedicamento = new JTextField(dados.getPacientes()[pos].getLiquidos().getNome(), 200);
-            	marcaMedicamento = new JTextField(dados.getPacientes()[pos].getLiquidos().getMarca(), 200);
-            	frequenciaMedicamento = new JTextField(dados.getPacientes()[pos].getLiquidos().getFrequencia(), 200);
-            	pordiaMedicamento = new JTextField(String.valueOf(dados.getPacientes()[pos].getLiquidos().getGotasporDia()), 200);
-            	totalMedicamento = new JTextField(String.valueOf(dados.getPacientes()[pos].getLiquidos().getMlsTotal()), 200);
+        	nomePaciente = new JTextField(dados.getPacientes()[pos].getNome(), 200);
+            sexoPaciente = new JTextField(dados.getPacientes()[pos].getSexo(), 200);
+            dataPaciente = new JTextField(dados.getPacientes()[pos].getDatadeNascimento(), 200);
+            emailPaciente = new JTextField(dados.getPacientes()[pos].getEmail(), 200);
+            dddPaciente = new JTextField(String.valueOf(dados.getPacientes()[pos].getTelefone().getDdd()), 4);
+            digitosPaciente = new JTextField(dados.getPacientes()[pos].getTelefone().getDigitos(), 200);
+            corPaciente = new JTextField(dados.getPacientes()[pos].getCor(), 200);
+            nomeMedicamento = new JTextField(dados.getPacientes()[pos].getLiquidos().getNome(), 200);
+            marcaMedicamento = new JTextField(dados.getPacientes()[pos].getLiquidos().getMarca(), 200);
+            frequenciaMedicamento = new JTextField(dados.getPacientes()[pos].getLiquidos().getFrequencia(), 200);
+            pordiaMedicamento = new JTextField(String.valueOf(dados.getPacientes()[pos].getLiquidos().getGotasporDia()), 200);
+            totalMedicamento = new JTextField(String.valueOf(dados.getPacientes()[pos].getLiquidos().getMlsTotal()), 200);
             
         }
         else{
@@ -174,11 +173,9 @@ public class TelaDetalhePaciente implements ActionListener{
         	boolean resposta;
             if (opcao == 2) {
                 dadosPaciente[0] = Integer.toString(dados.getQtdPacientes());
-                dadosLiquido[0] = Integer.toString(dados.getQtdLiquidos());
             }
             else {
                 dadosPaciente[0] = Integer.toString(posicao);
-                dadosLiquido[0] = Integer.toString(posicao);
             }
                 
                 dadosPaciente[1] = nomePaciente.getText();
@@ -188,31 +185,15 @@ public class TelaDetalhePaciente implements ActionListener{
                 dadosPaciente[5] = dddPaciente.getText();
                 dadosPaciente[6] = digitosPaciente.getText();
                 dadosPaciente[7] = corPaciente.getText();
-                
                 dadosPaciente[8] = nomeMedicamento.getText();
-                
                 dadosPaciente[9] = marcaMedicamento.getText();
-                dadosLiquido[2] = marcaMedicamento.getText();
-                
                 dadosPaciente[10] = frequenciaMedicamento.getText();
-                dadosLiquido[3] = frequenciaMedicamento.getText();
-                
                 dadosPaciente[11] = pordiaMedicamento.getText();
-                dadosLiquido[4] = pordiaMedicamento.getText();
-                
                 dadosPaciente[12] = totalMedicamento.getText();
-                dadosLiquido[5] = totalMedicamento.getText();
-                
                 
                 resposta = dados.inserirEditarPaciente(dadosPaciente);
                 
-                
                 if(resposta == true) {
-                	for(int i = 8; i<13; i++) {
-                    	dadosLiquido[count] = dadosPaciente[i];
-                    	count++;
-                    }
-                	dados.inserirEditarLiquido(dadosLiquido);
                 	mensagemCadastroConcluido();
                 }
                 else {
@@ -225,7 +206,7 @@ public class TelaDetalhePaciente implements ActionListener{
         }
     }
     
-
+    
     public void mensagemCadastroConcluido(){
         JOptionPane.showMessageDialog(null, "Paciente Cadastrado");
         janela.dispose();

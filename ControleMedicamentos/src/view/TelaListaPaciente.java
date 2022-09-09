@@ -63,6 +63,7 @@ public class TelaListaPaciente implements ActionListener, ListSelectionListener 
         
         if (src == cadastroPaciente) {
             new TelaDetalhePaciente().inserirEditar(2, dados, this, 0);
+            janela.dispose();
         }
 
         if (src == refreshPaciente) {
@@ -72,6 +73,7 @@ public class TelaListaPaciente implements ActionListener, ListSelectionListener 
         
         if(src == medicamentosGerais) {
         	new TelaEscolhaMedicamento(1);
+        	janela.dispose();
         }
 	
 	}
