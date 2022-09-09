@@ -11,12 +11,36 @@ public class Liquido extends Medicamento{
 		this.mlsTotal = mlsT;
 		//this.horario = h;
 	}
-
-	public Liquido(String nome, String marca, int mlsT){ // construtor para cadastrar liquidos no sistema
+	
+	public Liquido(String nome, String marca, int mlsTotal) { // construtor para cadastrar comprimido em um paciente
 		super(nome, marca);
-		this.mlsTotal = mlsT;
+		this.mlsTotal = mlsTotal;
+		//this.horario = h;
+	}
+	
+	public String getNome() {
+		return nome;
 	}
 
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public String getFrequencia() {
+		return frequencia;
+	}
+
+	public void setFrequencia(String frequencia) {
+		this.frequencia = frequencia;
+	}
 	public int getGotasporDia() {
 		return gotasporDia;
 	}
@@ -44,11 +68,11 @@ public class Liquido extends Medicamento{
 	@Override
 	public String toString() {
 		return "\n" + "Liquido" + "\n" + 
-				"Gotas por Dia: " + gotasporDia + "\n" +
-				"Mls por Dia: " + mlsTotal + "\n" + 
 				"Nome: " + getNome() + "\n" +
 				"Marca: " + getMarca() + "\n" +
-				"Frequencia: " + getFrequencia() + "\n";
+				"Frequencia: " + getFrequencia() + "\n" + 
+		        "Gotas por Dia: " + gotasporDia + "\n" +
+		        "Mls por Dia: " + mlsTotal + "\n";
 	}
 
 	

@@ -25,14 +25,21 @@ public class ControleComprimido {
     public void setQtd(int qtd){
         this.qtdComprimidos = qtd;
     }
-
-
+    
     public String getNome(int i){
         return c[i].getNome();
     }
 
     public String getMarca(int i){
         return c[i].getMarca();
+    }
+    
+    public String getFrequencia(int i) {
+    	return c[i].getFrequencia();
+    }
+    
+    public String getComprimidosPorDia(int i) {
+    	return Integer.toString(c[i].getComprimidosporDia());
     }
 
     public String getComprimidosTotal(int i){
