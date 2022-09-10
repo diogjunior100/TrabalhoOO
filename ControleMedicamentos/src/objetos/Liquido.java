@@ -3,19 +3,19 @@ package objetos;
 public class Liquido extends Medicamento{
 	private int gotasporDia;
 	private int mlsTotal;
-	//private Horario horario;
+	private Horario horario;
 	
-	public Liquido(String nome, String marca, String frequencia, int gd, int mlsT) { // construtor para cadastrar liquido em um paciente
+	public Liquido(String nome, String marca, String frequencia, int gd, int mlsT, Horario h) { // construtor para cadastrar liquido em um paciente
 		super(nome, marca, frequencia);
 		this.gotasporDia = gd;
 		this.mlsTotal = mlsT;
-		//this.horario = h;
+		this.horario = h;
 	}
 	
-	public Liquido(String nome, String marca, int mlsTotal) { // construtor para cadastrar comprimido em um paciente
-		super(nome, marca);
+	public Liquido(String nome, String marca, String frequencia, int gd, int mlsTotal) { // construtor para cadastrar comprimido em um paciente
+		super(nome, marca, frequencia);
+		this.gotasporDia = gd;
 		this.mlsTotal = mlsTotal;
-		//this.horario = h;
 	}
 	
 	public String getNome() {
@@ -56,13 +56,13 @@ public class Liquido extends Medicamento{
 	public void setMlsTotal(int mlsT) {
 		this.mlsTotal = mlsT;
 	}
-	/*public Horario getHorario() {
+	public Horario getHorario() {
 		return horario;
 	}
 
 	public void setHorario(Horario horario) {
 		this.horario = horario;
-	}*/
+	}
 	
 	
 	@Override
@@ -77,6 +77,4 @@ public class Liquido extends Medicamento{
 
 	
 
-		
-	
 }

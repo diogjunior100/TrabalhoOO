@@ -6,17 +6,17 @@ public class Comprimido extends Medicamento{
 	private int comprimidosTotal;
 	private Horario horario;
 	
+	public Comprimido(String nome, String marca, String frequencia, int c, int ct, Horario h) { // construtor para cadastrar comprimido em um paciente
+		super(nome, marca, frequencia);
+		this.comprimidosporDia = c;
+		this.comprimidosTotal = ct;
+		this.horario = h;
+	}
+	
 	public Comprimido(String nome, String marca, String frequencia, int c, int ct) { // construtor para cadastrar comprimido em um paciente
 		super(nome, marca, frequencia);
 		this.comprimidosporDia = c;
 		this.comprimidosTotal = ct;
-		//this.horario = h;
-	}
-	
-	public Comprimido(String nome, String marca, int ct) { // construtor para cadastrar comprimido em um paciente
-		super(nome, marca);
-		this.comprimidosTotal = ct;
-		//this.horario = h;
 	}
 	
 	public String getNome() {
