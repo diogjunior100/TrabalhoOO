@@ -14,8 +14,6 @@ public class TelaMenu implements ActionListener {
 	private static JButton medicamento = new JButton("Medicamentos");
 	private static JButton paciente = new JButton("Pacientes");
 	public static ControleDados dados = new ControleDados();
-	//public static ArrayList <Paciente> pacienteTelaMenu = new ArrayList<Paciente>();
-	
 	
 	
 	public TelaMenu() { // layout do menu principal
