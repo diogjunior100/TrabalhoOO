@@ -12,13 +12,11 @@ public class TelaListaPaciente implements ActionListener, ListSelectionListener 
 
     private JFrame janela;
     private JLabel titulo;
-    private JTextField pesqPaciente;
     private JButton cadastroPaciente;
     private JButton refreshPaciente;
     private JButton medicamentosGerais;
     private static ControleDados dados;
     private JList<String> listaPacientesCadastrados;
-    private ArrayList<Paciente> pacientesTeste;
     private String[] listaPacientes = new String[50];
 	
 	public void mostrarDados(ControleDados d){
@@ -28,8 +26,7 @@ public class TelaListaPaciente implements ActionListener, ListSelectionListener 
         listaPacientesCadastrados = new JList<String>(listaPacientes);
         janela = new JFrame("Controle de Pacientes");
         titulo = new JLabel("Lista de Pacientes");
-        pesqPaciente = new JTextField("Pesquisar pelo nome");
-        
+       
         //buttons da tela
         cadastroPaciente = new JButton("Cadastrar");
         refreshPaciente = new JButton("Atualizar");
@@ -38,10 +35,6 @@ public class TelaListaPaciente implements ActionListener, ListSelectionListener 
         //layout da tela da lista dos pacientes
         titulo.setFont(new Font("Arial", Font.BOLD, 20));
         titulo.setBounds(230, 10, 600, 30);
-        
-        //layout pesquisa
-        pesqPaciente.setFont(new Font(Font.SANS_SERIF, Font.ITALIC, 20));
-        pesqPaciente.setBounds(150, 50, 350, 30);
         
         listaPacientesCadastrados.setBounds(150, 100, 350, 120);
         listaPacientesCadastrados.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
@@ -55,7 +48,6 @@ public class TelaListaPaciente implements ActionListener, ListSelectionListener 
 
         janela.add(titulo);
         janela.add(listaPacientesCadastrados);
-        janela.add(pesqPaciente);
         janela.add(cadastroPaciente);
         janela.add(refreshPaciente);
         janela.add(medicamentosGerais);
@@ -67,7 +59,6 @@ public class TelaListaPaciente implements ActionListener, ListSelectionListener 
         refreshPaciente.addActionListener(this);
         medicamentosGerais.addActionListener(this);
         listaPacientesCadastrados.addListSelectionListener(this);
-        pesqPaciente.addActionListener(this);
 
     }
 	
