@@ -31,7 +31,6 @@ public class TelaDetalhePaciente implements ActionListener {
     private JTextField pordiaMedicamento;
     private JLabel totalJLabel = new JLabel("Total: ");
     private JTextField totalMedicamento;
-    
     private JLabel horaJLabel = new JLabel("Horario: ");
     private JTextField hora;
     private JTextField minuto;
@@ -245,7 +244,12 @@ public class TelaDetalhePaciente implements ActionListener {
         }
            
         if(src == excluirButton) {
-        	boolean resposta;
+        	boolean resposta = false;
+        	
+        	resposta = dados.deletarPaciente(posicao);
+        	if(resposta == true) {
+        		mensagemDeletarConcluido();
+        	}
         }
         janela.dispose();
     }
