@@ -1,9 +1,11 @@
  package view;
 
 import java.awt.*;
+import java.util.*;
 import java.awt.event.*;
 import javax.swing.*;
 import controle.*;
+import objetos.*;
 
 public class TelaMenu implements ActionListener {
 	
@@ -12,6 +14,7 @@ public class TelaMenu implements ActionListener {
 	private static JButton medicamento = new JButton("Medicamentos");
 	private static JButton paciente = new JButton("Pacientes");
 	public static ControleDados dados = new ControleDados();
+	//public static ArrayList <Paciente> pacienteTelaMenu = new ArrayList<Paciente>();
 	
 	
 	
@@ -44,15 +47,16 @@ public class TelaMenu implements ActionListener {
 		Object src = e.getSource();
 		
 		if(src == paciente){
-			new TelaListaPaciente().mostrarDados(dados);
 			janela.dispose();
+			new TelaListaPaciente().mostrarDados(dados);
 			// chama a tela que lista os pacientes cadastrados
 		}
 
-		if(src == medicamento) 
-			new TelaEscolhaMedicamento();
+		if(src == medicamento) {
 			janela.dispose();
-			// chama a tela de escolha do tipo de medicamentos
+			new TelaEscolhaMedicamento();
+			
+		}	// chama a tela de escolha do tipo de medicamentos
 	}
 		
 }

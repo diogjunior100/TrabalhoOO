@@ -8,7 +8,7 @@ import javax.swing.event.*;
 import controle.*;
 
 //cadastrar novos medicamentos;
-public class TelaDetalheMedicamento  implements ActionListener{
+public class TelaDetalheMedicamentoLiquido implements ActionListener{
     private JFrame janela = new JFrame("Cadastro Medicamento");
 	private JLabel labelNome = new JLabel("Nome: ");
 	private JTextField valorNome;
@@ -16,13 +16,10 @@ public class TelaDetalheMedicamento  implements ActionListener{
 	private JTextField valorMarca;
 	private JLabel frequenciaJLabel = new JLabel("Frequência: ");
 	private JTextField frequenciaMedicamento;
-	private JLabel gotasPorDiaJLabel = new JLabel("Gotas: ");
-	private JLabel comprimidosPorDiaJLabel = new JLabel("Por Dia: ");
+	private JLabel gotasPorDiaJLabel = new JLabel("Gotas Dia: ");
 	private JTextField porDia;
-	private JLabel labelCT = new JLabel("Comprimidos Totais: ");
 	private JLabel labelLQ = new JLabel("Mls Totais: ");
 	private JTextField valorTotal;
-	private JButton excluirButtonComprimido = new JButton("Excluir");
 	private JButton excluirButtonLiquido = new JButton("Excluir");
     private JButton salvarButton = new JButton("Salvar");
     private String[] dadosMedicamento = new String[50];
@@ -37,31 +34,19 @@ public class TelaDetalheMedicamento  implements ActionListener{
         opcao = op;
 
 
-        if(op == 2){ //se for edicao, preenche os campos com os dados do comprimido
+        if(op == 2){ 
             
-            valorNome = new JTextField(dados.getComprimidos()[pos].getNome(), 200);
-            valorMarca = new JTextField(dados.getComprimidos()[pos].getMarca(), 200);
-            frequenciaMedicamento = new JTextField(dados.getComprimidos()[pos].getFrequencia(), 200);
-            porDia = new JTextField(String.valueOf(dados.getComprimidos()[pos].getComprimidosporDia()), 200);
-            valorTotal = new JTextField(String.valueOf(dados.getComprimidos()[pos].getComprimidosTotal()), 200);
-            
-            comprimidosPorDiaJLabel.setBounds(30, 110, 150, 25);
-            excluirButtonComprimido.setBounds(230, 200, 120, 30);
-            labelCT.setBounds(30, 140, 150, 25);
-            
-        } 
-        else if(op == 4){ //se for edicao, preenche os campos com os dados do liquido
-
             valorNome = new JTextField(dados.getLiquidos()[pos].getNome(), 200);
             valorMarca = new JTextField(dados.getLiquidos()[pos].getMarca(), 200);
             frequenciaMedicamento = new JTextField(dados.getLiquidos()[pos].getFrequencia(), 200);
             porDia = new JTextField(String.valueOf(dados.getLiquidos()[pos].getGotasporDia()), 200);
             valorTotal = new JTextField(String.valueOf(dados.getLiquidos()[pos].getMlsTotal()), 200);
             
-            gotasPorDiaJLabel.setBounds(30,110,150,25);
+            gotasPorDiaJLabel.setBounds(30, 110, 150, 25);
             excluirButtonLiquido.setBounds(230, 200, 120, 30);
             labelLQ.setBounds(30, 140, 150, 25);
-        }
+            
+        } 
 
         else{
             valorNome = new JTextField(200);
@@ -69,10 +54,9 @@ public class TelaDetalheMedicamento  implements ActionListener{
             frequenciaMedicamento = new JTextField(200);
             porDia = new JTextField(200);
             valorTotal = new JTextField(200);
-            comprimidosPorDiaJLabel.setBounds(30, 110, 150, 25);
-            labelCT.setBounds(30, 140, 150, 25);
-            excluirButtonLiquido.setBounds(230, 200, 120, 30);
+            gotasPorDiaJLabel.setBounds(30, 110, 150, 25);
             labelLQ.setBounds(30, 140, 150, 25);
+            excluirButtonLiquido.setBounds(230, 200, 120, 30);
             
         }
 
@@ -96,14 +80,11 @@ public class TelaDetalheMedicamento  implements ActionListener{
         this.janela.add(valorMarca);
         this.janela.add(frequenciaJLabel);
         this.janela.add(frequenciaMedicamento);
-        this.janela.add(labelCT);
         this.janela.add(labelLQ);
         this.janela.add(valorTotal);
-        this.janela.add(comprimidosPorDiaJLabel);
         this.janela.add(gotasPorDiaJLabel);
         this.janela.add(porDia);
         this.janela.add(salvarButton);
-        this.janela.add(excluirButtonComprimido);
         this.janela.add(excluirButtonLiquido);
 
         this.janela.setLayout(null);
@@ -112,7 +93,6 @@ public class TelaDetalheMedicamento  implements ActionListener{
 		this.janela.setVisible(true);
 
 		salvarButton.addActionListener(this);
-		excluirButtonComprimido.addActionListener(this);
 		excluirButtonLiquido.addActionListener(this);
 
     }
@@ -123,11 +103,8 @@ public class TelaDetalheMedicamento  implements ActionListener{
         if(src == salvarButton){ //se for salvar, salva os dados no comprimido
                 boolean resultado;
                 if(opcao == 1){
-                    dadosMedicamento[0] = Integer.toString(dados.getQtdComprimidos());
-                } 
-                else if(opcao == 3){
                     dadosMedicamento[0] = Integer.toString(dados.getQtdLiquidos());
-                } 
+                }  
                 else {
                 	dadosMedicamento[0] = Integer.toString(posicao);
                 }
@@ -139,28 +116,11 @@ public class TelaDetalheMedicamento  implements ActionListener{
                     dadosMedicamento[3] = frequenciaMedicamento.getText();
                     dadosMedicamento[4] = porDia.getText();
                     dadosMedicamento[5] = valorTotal.getText();
-                    resultado = dados.inserirEditarComprimido(dadosMedicamento);
-                    mensagemCadastroConcluido();
-                }
-                else if(opcao == 3 || opcao == 4){
-                	dadosMedicamento[1] = valorNome.getText();
-                    dadosMedicamento[2] = valorMarca.getText();
-                    dadosMedicamento[3] = frequenciaMedicamento.getText();
-                    dadosMedicamento[4] = porDia.getText();
-                    dadosMedicamento[5] = valorTotal.getText();
                     resultado = dados.inserirEditarLiquido(dadosMedicamento);
                     mensagemCadastroConcluido();
-                }   
-         }
+                }
         
-        if(src == excluirButtonComprimido) {
-        	boolean resposta = false;
-        	
-        	resposta = dados.deletarComprimido(posicao);
-        	if(resposta == true) {
-        		mensagemDeletarConcluido();
-        	}
-        }
+         }
         
         if(src == excluirButtonLiquido) {
         	boolean resposta = false;
@@ -170,7 +130,7 @@ public class TelaDetalheMedicamento  implements ActionListener{
         		mensagemDeletarConcluido();
         	}
         }
-      
+        
     }
 
     public void mensagemCadastroConcluido(){
@@ -184,4 +144,3 @@ public class TelaDetalheMedicamento  implements ActionListener{
     
     
 }
-

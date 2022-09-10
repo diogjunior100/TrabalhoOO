@@ -28,7 +28,7 @@ public class Dados { // classe que amarzena todos arrays utilizados pelo sistema
         telefones[0] = new Telefone(86, "999108399");
         telefones[1] = new Telefone(61, "999469112");
         
-        pacientes[0] = new Paciente("Diogenes Junior", "Masculino", "03 de agosto", "diogjunior10071@gmail.com", telefones[0], "Azul", comprimidosPacientes[0]);
+        pacientes[0] = new Paciente("Diogenes Junior", "Masculino", "03 de agosto", "diogjunior10071@gmail.com", telefones[0], "Azul", liquidosPacientes[0]);
         pacientes[1] = new Paciente("Henrique Pucci", "Masculino", "04 de Agosto", "henriquepucci@gmail.com", telefones[1], "Vermelho", liquidosPacientes[0]);
         
         qtdComprimidos = 2;
@@ -39,11 +39,11 @@ public class Dados { // classe que amarzena todos arrays utilizados pelo sistema
     }
     
     public void PreencherDadosGerais() {
-    	comprimidos[0] = new Comprimido("Ritalina", "Jassen", "3 vezes na semana", 2, 30);
-        liquidos[0] = new Liquido("Novalgina", "Jassen", "2 vezes na semana", 2, 50);
+    	comprimidos[0] = new Comprimido("Comprimido0", "Jassen", "3 vezes na semana", 2, 30);
+        liquidos[0] = new Liquido("Liquido0", "Jassen", "2 vezes na semana", 2, 50);
         
-        comprimidos[1] = new Comprimido("Vitamina C", "Industria Quimica", "1 vez por dia", 1, 60);
-        liquidos[1] = new Liquido("Calman", "OMS", "3 vezes na semana", 3, 150);
+        comprimidos[1] = new Comprimido("Comprimido1", "Industria Quimica", "1 vez por dia", 1, 60);
+        liquidos[1] = new Liquido("Liquido1", "OMS", "3 vezes na semana", 3, 150);
         
         qtdComprimidos = 2;
         qtdLiquidos = 2;

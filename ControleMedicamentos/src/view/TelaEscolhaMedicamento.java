@@ -2,8 +2,12 @@ package view;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+
 import javax.swing.*;
+import javax.swing.event.*;
 import controle.*;
+import objetos.*;
 
 public class TelaEscolhaMedicamento implements ActionListener {
 	
@@ -45,6 +49,7 @@ public class TelaEscolhaMedicamento implements ActionListener {
 		Object src = e.getSource();
 		
 		if(src == comprimido) { // chama tela lista de comprimidos
+			janela.dispose();
 			new TelaListaMedicamentos().mostrarDados(dados, 1);
 			
 		}

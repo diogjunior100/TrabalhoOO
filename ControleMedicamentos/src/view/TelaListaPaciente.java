@@ -5,26 +5,30 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 import controle.*;
+import objetos.*;
+import java.util.*;
 
 public class TelaListaPaciente implements ActionListener, ListSelectionListener {
 
     private JFrame janela;
     private JLabel titulo;
+    private JTextField pesqPaciente;
     private JButton cadastroPaciente;
     private JButton refreshPaciente;
     private JButton medicamentosGerais;
     private static ControleDados dados;
     private JList<String> listaPacientesCadastrados;
+    private ArrayList<Paciente> pacientesTeste;
     private String[] listaPacientes = new String[50];
 	
 	public void mostrarDados(ControleDados d){
         dados = d;
-
-        //mostrar pacientes cadastrados
-        listaPacientes = new ControlePaciente(dados).getNomePaciente(); //lista o nome dos pacientes cadastrados
+      
+        listaPacientes = new ControlePaciente(dados).getNomePaciente();
         listaPacientesCadastrados = new JList<String>(listaPacientes);
         janela = new JFrame("Controle de Pacientes");
         titulo = new JLabel("Lista de Pacientes");
+        pesqPaciente = new JTextField("Pesquisar pelo nome");
         
         //buttons da tela
         cadastroPaciente = new JButton("Cadastrar");
@@ -34,18 +38,24 @@ public class TelaListaPaciente implements ActionListener, ListSelectionListener 
         //layout da tela da lista dos pacientes
         titulo.setFont(new Font("Arial", Font.BOLD, 20));
         titulo.setBounds(230, 10, 600, 30);
-        listaPacientesCadastrados.setBounds(150, 50, 350, 120);
+        
+        //layout pesquisa
+        pesqPaciente.setFont(new Font(Font.SANS_SERIF, Font.ITALIC, 20));
+        pesqPaciente.setBounds(150, 50, 350, 30);
+        
+        listaPacientesCadastrados.setBounds(150, 100, 350, 120);
         listaPacientesCadastrados.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         listaPacientesCadastrados.setVisibleRowCount(10);
         
-        medicamentosGerais.setBounds(265, 225, 115, 30);
-        cadastroPaciente.setBounds(200, 175, 115, 30);
-        refreshPaciente.setBounds(340, 175, 115, 30);
+        medicamentosGerais.setBounds(265, 300, 115, 30);
+        cadastroPaciente.setBounds(200, 250, 115, 30);
+        refreshPaciente.setBounds(340, 250, 115, 30);
         
         janela.setLayout(null);
 
         janela.add(titulo);
         janela.add(listaPacientesCadastrados);
+        janela.add(pesqPaciente);
         janela.add(cadastroPaciente);
         janela.add(refreshPaciente);
         janela.add(medicamentosGerais);
@@ -57,6 +67,7 @@ public class TelaListaPaciente implements ActionListener, ListSelectionListener 
         refreshPaciente.addActionListener(this);
         medicamentosGerais.addActionListener(this);
         listaPacientesCadastrados.addListSelectionListener(this);
+        pesqPaciente.addActionListener(this);
 
     }
 	
