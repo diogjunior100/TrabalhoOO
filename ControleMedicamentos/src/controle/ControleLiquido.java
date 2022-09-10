@@ -46,5 +46,8 @@ public class ControleLiquido {
     public String getLiquidosTotal(int i){
         return Integer.toString(l[i].getMlsTotal());
     }
+    public Horario getHorario(int i) {
+    	return l[i].getHorario();
+    }
     
 }

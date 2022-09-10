@@ -1,12 +1,10 @@
 package view;
 
-import java.awt.*;
+
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
-
 import controle.*;
-import objetos.*;
+
 
 public class TelaDetalhePaciente implements ActionListener {
     private JFrame janela = new JFrame("Cadastro Paciente");
@@ -33,8 +31,16 @@ public class TelaDetalhePaciente implements ActionListener {
     private JTextField pordiaMedicamento;
     private JLabel totalJLabel = new JLabel("Total: ");
     private JTextField totalMedicamento;
+    
+    private JLabel horaJLabel = new JLabel("Horario: ");
+    private JTextField hora;
+    private JTextField minuto;
+    private JLabel diaJLabel = new JLabel("Dia: ");
+    private JTextField dia;
+    private JLabel detalheJLabel = new JLabel("Detalhe: ");
+    private JTextField detalhe;
     private JButton selecionarMedicamentoButton = new JButton("Escolher");
-    private JButton verTodosButton = new JButton("Todos");
+    private JButton verTodosButton = new JButton("Voltar");
     private JButton excluirButton = new JButton("Excluir");
     private JButton salvarButton = new JButton("Salvar");
     private static ControleDados dados;
@@ -49,12 +55,9 @@ public class TelaDetalhePaciente implements ActionListener {
         posicao = pos;
         dados = d;
         
-        
-
-        if(op == 1); //vizualizar paciente
-        if(op == 2); //cadastrar paciente
-
+     
         if (op == 1) {
+        	//dados Paciente
         	nomePaciente = new JTextField(dados.getPacientes()[pos].getNome(), 200);
             sexoPaciente = new JTextField(dados.getPacientes()[pos].getSexo(), 200);
             dataPaciente = new JTextField(dados.getPacientes()[pos].getDatadeNascimento(), 200);
@@ -62,11 +65,19 @@ public class TelaDetalhePaciente implements ActionListener {
             dddPaciente = new JTextField(String.valueOf(dados.getPacientes()[pos].getTelefone().getDdd()), 4);
             digitosPaciente = new JTextField(dados.getPacientes()[pos].getTelefone().getDigitos(), 200);
             corPaciente = new JTextField(dados.getPacientes()[pos].getCor(), 200);
+            
+            //medicamento
             nomeMedicamento = new JTextField(dados.getPacientes()[pos].getLiquidos().getNome(), 200);
             marcaMedicamento = new JTextField(dados.getPacientes()[pos].getLiquidos().getMarca(), 200);
             frequenciaMedicamento = new JTextField(dados.getPacientes()[pos].getLiquidos().getFrequencia(), 200);
             pordiaMedicamento = new JTextField(String.valueOf(dados.getPacientes()[pos].getLiquidos().getGotasporDia()), 200);
             totalMedicamento = new JTextField(String.valueOf(dados.getPacientes()[pos].getLiquidos().getMlsTotal()), 200);
+            
+            //horario
+            hora = new JTextField(String.valueOf(dados.getPacientes()[pos].getLiquidos().getHorario().getHora()), 200);
+            minuto = new JTextField(String.valueOf(dados.getPacientes()[pos].getLiquidos().getHorario().getMinuto()), 200);
+            dia = new JTextField(dados.getPacientes()[pos].getLiquidos().getHorario().getDiadaSemana(), 200);
+            detalhe = new JTextField(dados.getPacientes()[pos].getLiquidos().getHorario().getDetalhedoHorario(), 200);
             
         }
         else{
@@ -77,11 +88,17 @@ public class TelaDetalhePaciente implements ActionListener {
             dddPaciente = new JTextField(4);
             digitosPaciente = new JTextField(200);
             corPaciente = new JTextField(200);
+            
             nomeMedicamento = new JTextField(200);
             marcaMedicamento = new JTextField(200);
             frequenciaMedicamento = new JTextField(200);
             pordiaMedicamento = new JTextField(200);
             totalMedicamento = new JTextField(200);
+            
+            hora = new JTextField(200);
+            minuto = new JTextField(200);
+            dia = new JTextField(200);
+            detalhe = new JTextField(200);
         }
 
         nomeJLabel.setBounds(30, 20, 150, 25);
@@ -117,11 +134,24 @@ public class TelaDetalhePaciente implements ActionListener {
 
 		totalJLabel.setBounds(30, 320, 150, 25);
 		totalMedicamento.setBounds(180, 320, 180, 25);
-		
-		verTodosButton.setBounds(50, 350, 120, 30);
-		salvarButton.setBounds(180, 350, 120, 30);
-		excluirButton.setBounds(310, 350, 120, 30);
+	    
+		//horario
+		horaJLabel.setBounds(30, 350, 150, 25);
+		hora.setBounds(180, 350, 28, 25);
+		minuto.setBounds(215, 350, 28, 25);
 
+		diaJLabel.setBounds(30, 380, 150, 25);
+		dia.setBounds(180, 380, 180, 25);
+
+		detalheJLabel.setBounds(30, 410, 150, 25);
+		detalhe.setBounds(180, 410, 180, 25);
+		
+	
+		verTodosButton.setBounds(50, 500, 120, 30);
+		salvarButton.setBounds(180, 500, 120, 30);
+		excluirButton.setBounds(310, 500, 120, 30);
+		
+		//pacientes
         this.janela.add(nomeJLabel);
         this.janela.add(nomePaciente);
         this.janela.add(sexoJLabel);
@@ -135,6 +165,8 @@ public class TelaDetalhePaciente implements ActionListener {
         this.janela.add(telefoneJLabel);
         this.janela.add(dddPaciente);
         this.janela.add(digitosPaciente);
+        
+        //medicamento
         this.janela.add(nomeMedicamentoJLabel);
         this.janela.add(nomeMedicamento);
         this.janela.add(marcaJLabel);
@@ -145,6 +177,16 @@ public class TelaDetalhePaciente implements ActionListener {
         this.janela.add(pordiaMedicamento);
         this.janela.add(totalJLabel);
         this.janela.add(totalMedicamento);
+        
+        //horario
+        this.janela.add(horaJLabel);
+        this.janela.add(hora);
+        this.janela.add(minuto);
+        this.janela.add(diaJLabel);
+        this.janela.add(dia);
+        this.janela.add(detalheJLabel);
+        this.janela.add(detalhe);
+        
         this.janela.add(verTodosButton);
         this.janela.add(salvarButton);
         this.janela.add(excluirButton);
@@ -152,7 +194,7 @@ public class TelaDetalhePaciente implements ActionListener {
 
         this.janela.setLayout(null);
 
-        this.janela.setSize(1000, 800);
+        this.janela.setSize(1000, 700);
 		this.janela.setVisible(true);
 
 		salvarButton.addActionListener(this);
@@ -187,6 +229,10 @@ public class TelaDetalhePaciente implements ActionListener {
                 dadosPaciente[10] = frequenciaMedicamento.getText();
                 dadosPaciente[11] = pordiaMedicamento.getText();
                 dadosPaciente[12] = totalMedicamento.getText();
+                dadosPaciente[13] = hora.getText();
+                dadosPaciente[14] = minuto.getText();
+                dadosPaciente[15] = dia.getText();
+                dadosPaciente[16] = detalhe.getText();
                 
                 resposta = dados.inserirEditarPaciente(dadosPaciente);
                 
@@ -207,15 +253,15 @@ public class TelaDetalhePaciente implements ActionListener {
     
     public void mensagemCadastroConcluido(){
         JOptionPane.showMessageDialog(null, "Paciente Cadastrado");
-        janela.dispose();
+        //janela.dispose();
     }
     public void mensagemCadastroErro() {
     	JOptionPane.showMessageDialog(null, "Erro no Cadastro");
-    	janela.dispose();
+    	//janela.dispose();
     }
     public void mensagemDeletarConcluido(){
         JOptionPane.showMessageDialog(null, "Paciente Excluido");
-        janela.dispose();
+        //janela.dispose();
     }
 
 }

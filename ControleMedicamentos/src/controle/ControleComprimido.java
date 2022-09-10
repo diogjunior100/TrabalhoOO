@@ -45,5 +45,8 @@ public class ControleComprimido {
     public String getComprimidosTotal(int i){
         return Integer.toString(c[i].getComprimidosTotal());
     }
+    public Horario getHorario(int i) {
+    	return c[i].getHorario();
+    }
 }
 

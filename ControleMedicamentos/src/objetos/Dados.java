@@ -10,19 +10,20 @@ public class Dados { // classe que amarzena todos arrays utilizados pelo sistema
     private Liquido[] liquidos = new Liquido[50];
     private int qtdLiquidos = 0;
     private Comprimido[] comprimidosPacientes = new Comprimido[50];
-    //private int qtdComprimidosPacientes = 0;
     private Liquido[] liquidosPacientes = new Liquido[50];
-    //private int qtdLiquidosPacientes = 0;
     private Horario[] horarios = new Horario[50];
     private int qtdHorarios = 0;
 
     public void PreencherDados(){ //funcao para pre cadastrar dados no sistema
+    	
+    	horarios[0] = new Horario(10, 20, "Segunda", "Nao esquecer");
+    	horarios[1] = new Horario(20, 30, "Terca", "antes do almoco");
         
-        comprimidosPacientes[0] = new Comprimido("CPaciente0", "Jassen", "3 vezes na semana", 2, 30);
-        liquidosPacientes[0] = new Liquido("LPaciente1", "Jassen", "2 vezes na semana", 2, 50);
+        comprimidosPacientes[0] = new Comprimido("CPaciente0", "Jassen", "3 vezes na semana", 2, 30, horarios[0]);
+        liquidosPacientes[0] = new Liquido("LPaciente1", "Jassen", "2 vezes na semana", 2, 50, horarios[1]);
         
-        comprimidosPacientes[1] = new Comprimido("CPaciente1", "Industria Quimica", "1 vez por dia", 1, 60);
-        liquidosPacientes[1] = new Liquido("LPaciente0", "OMS", "3 vezes na semana", 3, 150);
+        comprimidosPacientes[1] = new Comprimido("CPaciente1", "Industria Quimica", "1 vez por dia", 1, 60, horarios[0]);
+        liquidosPacientes[1] = new Liquido("LPaciente0", "OMS", "3 vezes na semana", 3, 150, horarios[1]);
         
         telefones[0] = new Telefone(86, "999108399");
         telefones[1] = new Telefone(61, "999469112");
@@ -34,6 +35,7 @@ public class Dados { // classe que amarzena todos arrays utilizados pelo sistema
         qtdLiquidos = 2;
         qtdPacientes = 2;
         qtdTelefones = 2;
+        qtdHorarios = 2;
     }
     
     public void PreencherDadosGerais() {
@@ -73,13 +75,6 @@ public class Dados { // classe que amarzena todos arrays utilizados pelo sistema
         this.pacientes[pos] = p;
         if(pos == qtdPacientes){
             qtdPacientes++;
-        }
-    }
-
-    public void inserirEditarHorario(Horario h, int pos){
-        this.horarios[pos] = h;
-        if (pos == qtdHorarios) {
-            qtdHorarios++;
         }
     }
     

@@ -5,7 +5,6 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 import controle.*;
-import objetos.*;
 
 //apresenta os medicamentos cadastrados
 public class TelaListaMedicamentos implements ActionListener, ListSelectionListener {
@@ -37,13 +36,13 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
             refreshComprimido = new JButton("Atualizar");
             
             titulo.setFont(new Font("Arial", Font.BOLD, 20));
-            titulo.setBounds(90, 10, 250, 30);
-            listaComprimidosCadastrados.setBounds(20, 50, 350, 120);
+            titulo.setBounds(230, 10, 600, 30);
+            listaComprimidosCadastrados.setBounds(150, 50, 350, 120);
             listaComprimidosCadastrados.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
             listaComprimidosCadastrados.setVisibleRowCount(10);
             
-            cadastroComprimido.setBounds(70, 177, 100, 30);
-            refreshComprimido.setBounds(200, 177, 100, 30);
+            cadastroComprimido.setBounds(200, 175, 110, 30);
+            refreshComprimido.setBounds(340, 175, 110, 30);
             
             janela.setLayout(null);
 
@@ -52,7 +51,7 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
             janela.add(cadastroComprimido);
             janela.add(refreshComprimido);
 
-            janela.setSize(400, 250);
+            janela.setSize(700, 500);
             janela.setVisible(true);
 
             cadastroComprimido.addActionListener(this);
@@ -69,13 +68,15 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
             refreshLiquido = new JButton("Atualizar");
             
             titulo.setFont(new Font("Arial", Font.BOLD, 20));
-            titulo.setBounds(90, 10, 250, 30);
-            listaLiquidosCadastrados.setBounds(20, 50, 350, 120);
+            titulo.setBounds(230, 10, 600, 30);
+            listaLiquidosCadastrados.setBounds(150, 50, 350, 120);
             listaLiquidosCadastrados.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
             listaLiquidosCadastrados.setVisibleRowCount(10);
+            
 
-            cadastroLiquido.setBounds(70, 177, 100, 30);
-            refreshLiquido.setBounds(200, 177, 100, 30);
+            cadastroLiquido.setBounds(200, 175, 110, 30);
+            refreshLiquido.setBounds(340, 175, 110, 30);
+            
 
             janela.setLayout(null);
 
@@ -84,7 +85,7 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
             janela.add(cadastroLiquido);
             janela.add(refreshLiquido);
         
-            janela.setSize(400, 250);
+            janela.setSize(700, 500);
             janela.setVisible(true);
 
             cadastroLiquido.addActionListener(this);
@@ -127,12 +128,12 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
         
         if(e.getValueIsAdjusting() && src == listaComprimidosCadastrados){
             new TelaDetalheMedicamento().inserirEditar(2, dados, this, listaComprimidosCadastrados.getSelectedIndex());
-            janela.dispose();
+            //janela.dispose();
         }
 
         if (e.getValueIsAdjusting() && src == listaLiquidosCadastrados) {
             new TelaDetalheMedicamento().inserirEditar(4, dados, this, listaLiquidosCadastrados.getSelectedIndex());
-            janela.dispose();
+            //janela.dispose();
         }
         
     }

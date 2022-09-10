@@ -3,9 +3,7 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
 import controle.*;
-import objetos.*;
 
 public class TelaEscolhaMedicamento implements ActionListener {
 	
@@ -13,57 +11,32 @@ public class TelaEscolhaMedicamento implements ActionListener {
 	private static JLabel titulo = new JLabel("Menu");
 	private static JButton comprimido = new JButton("Comprimido");
 	private static JButton liquido = new JButton("Líquido");
-	private static JButton comprimidoPacientes = new JButton("Comprimido");
-	private static JButton liquidoPacientes = new JButton("Líquido");
 	public static ControleDados dados = new ControleDados();
 	private int opcao;
 	
 	
-	public TelaEscolhaMedicamento(int op) {
-		 opcao = op;
+	public TelaEscolhaMedicamento() {
 		 
-		 if(op == 1) {
-			titulo.setFont(new Font("Arial", Font.BOLD, 20));
-			titulo.setBounds(170, 10, 150, 30);
+		titulo.setFont(new Font("Arial", Font.BOLD, 30));
+		titulo.setBounds(285, 10, 600, 30);
 
-			comprimido.setBounds(220, 70, 140, 100);
-			liquido.setBounds(20, 70, 140, 100);
+		comprimido.setBounds(355, 70, 140, 100);
+		liquido.setBounds(170, 70, 140, 100);
 		
-			janela.setLayout(null);
+		janela.setLayout(null);
 		
-			janela.add(titulo);
-			janela.add(comprimido);
-			janela.add(liquido);
+		janela.add(titulo);
+		janela.add(comprimido);
+		janela.add(liquido);
 		
 		
-			janela.setSize(400, 250);
-			janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			janela.setVisible(true);
+		janela.setSize(700, 500);
+		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		janela.setVisible(true);
 
-			comprimido.addActionListener(this);
-			liquido.addActionListener(this);
-		 }
-		 else {
-			 titulo.setFont(new Font("Arial", Font.BOLD, 20));
-			 titulo.setBounds(170, 10, 150, 30);
-
-			 comprimido.setBounds(220, 70, 140, 100);
-			 liquido.setBounds(20, 70, 140, 100);
-			
-			 janela.setLayout(null);
-			
-			 janela.add(titulo);
-			 janela.add(comprimido);
-			 janela.add(liquido);
-			
-			
-			 janela.setSize(400, 250);
-			 janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			 janela.setVisible(true);
-
-			comprimidoPacientes.addActionListener(this);
-			liquidoPacientes.addActionListener(this);
-		 }
+		comprimido.addActionListener(this);
+		liquido.addActionListener(this);
+		 
 	}
 	
 	
@@ -73,11 +46,11 @@ public class TelaEscolhaMedicamento implements ActionListener {
 		
 		if(src == comprimido) { // chama tela lista de comprimidos
 			new TelaListaMedicamentos().mostrarDados(dados, 1);
-			janela.dispose();
+			
 		}
 		if(src == liquido) { // chama tela lista de comprimidos
 			new TelaListaMedicamentos().mostrarDados(dados, 2);
-			janela.dispose();
+			
 		}
 		
 	}

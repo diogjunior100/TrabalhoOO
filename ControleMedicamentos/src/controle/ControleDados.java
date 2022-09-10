@@ -61,34 +61,22 @@ public class ControleDados {
     }
     
 
-    //public boolean deletarComprimido(int i){
-    	//int qtdComprimidos = d.getQtdComprimidos();
-    	
-    	
-    //}
-
     public boolean inserirEditarLiquido(String[] dadosLiquidos) { //inseri ou edita um medicamento liquido gerais
     	Liquido l = new Liquido(dadosLiquidos[1], dadosLiquidos[2], dadosLiquidos[3], Integer.parseInt(dadosLiquidos[4]), Integer.parseInt(dadosLiquidos[5]));
         d.inserirEditarLiquido(l, Integer.parseInt(dadosLiquidos[0])); 
         return true;
     }
     
-    //public boolean deletarLiquido(int i){
-    	
-    //}
-    
+  
     public boolean inserirEditarPaciente(String[] dadosPacientes){
     	Liquido l = new Liquido(dadosPacientes[8], dadosPacientes[9], dadosPacientes[10], 
-        		Integer.parseInt(dadosPacientes[11]), Integer.parseInt(dadosPacientes[12]));
-    	
-    	Comprimido c = new Comprimido(dadosPacientes[8], dadosPacientes[9], dadosPacientes[10], 
-    			Integer.parseInt(dadosPacientes[11]), Integer.parseInt(dadosPacientes[12]));
-       
-        
+        		Integer.parseInt(dadosPacientes[11]), Integer.parseInt(dadosPacientes[12]),
+        		new Horario(Integer.parseInt(dadosPacientes[13]), Integer.parseInt(dadosPacientes[14]), 
+        				dadosPacientes[15],dadosPacientes[16]));
+    	    
         Paciente p = new Paciente(dadosPacientes[1], dadosPacientes[2], dadosPacientes[3], dadosPacientes[4], 
         		new Telefone(Integer.parseInt(dadosPacientes[5]), dadosPacientes[6]), dadosPacientes[7], l);
 
-        d.inserirEditarComprimidoPaciente(c, getQtdComprimidos());
         d.inserirEditarLiquidoPaciente(l, getQtdLiquidos());
         d.inserirEditarPaciente(p, Integer.parseInt(dadosPacientes[0]));
         		

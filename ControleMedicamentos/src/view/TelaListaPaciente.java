@@ -5,7 +5,6 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 import controle.*;
-import objetos.*;
 
 public class TelaListaPaciente implements ActionListener, ListSelectionListener {
 
@@ -22,23 +21,26 @@ public class TelaListaPaciente implements ActionListener, ListSelectionListener 
         dados = d;
 
         //mostrar pacientes cadastrados
-        listaPacientes = new ControlePaciente(dados).getNomePaciente();
+        listaPacientes = new ControlePaciente(dados).getNomePaciente(); //lista o nome dos pacientes cadastrados
         listaPacientesCadastrados = new JList<String>(listaPacientes);
         janela = new JFrame("Controle de Pacientes");
         titulo = new JLabel("Lista de Pacientes");
+        
+        //buttons da tela
         cadastroPaciente = new JButton("Cadastrar");
         refreshPaciente = new JButton("Atualizar");
         medicamentosGerais = new JButton("Medicamentos");
 
+        //layout da tela da lista dos pacientes
         titulo.setFont(new Font("Arial", Font.BOLD, 20));
-        titulo.setBounds(90, 10, 250, 30);
-        listaPacientesCadastrados.setBounds(20, 50, 350, 120);
+        titulo.setBounds(230, 10, 600, 30);
+        listaPacientesCadastrados.setBounds(150, 50, 350, 120);
         listaPacientesCadastrados.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         listaPacientesCadastrados.setVisibleRowCount(10);
         
-        medicamentosGerais.setBounds(50, 175, 115, 30);
-        cadastroPaciente.setBounds(210, 175, 115, 30);
-        refreshPaciente.setBounds(400, 175, 115, 30);
+        medicamentosGerais.setBounds(265, 225, 115, 30);
+        cadastroPaciente.setBounds(200, 175, 115, 30);
+        refreshPaciente.setBounds(340, 175, 115, 30);
         
         janela.setLayout(null);
 
@@ -48,7 +50,7 @@ public class TelaListaPaciente implements ActionListener, ListSelectionListener 
         janela.add(refreshPaciente);
         janela.add(medicamentosGerais);
 
-        janela.setSize(1000, 800);
+        janela.setSize(700, 500);
         janela.setVisible(true);
 
         cadastroPaciente.addActionListener(this);
@@ -61,18 +63,20 @@ public class TelaListaPaciente implements ActionListener, ListSelectionListener 
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
         
+		//se o button cadastroPaciente for ativado, chama a tela de cadastra o paciente
         if (src == cadastroPaciente) {
             new TelaDetalhePaciente().inserirEditar(2, dados, this, 0);
-            janela.dispose();
         }
-
+        
+        //atualiza a lista dos Pacientes cadastrados
         if (src == refreshPaciente) {
             listaPacientesCadastrados.setListData(new ControlePaciente(dados).getNomePaciente());			
 			listaPacientesCadastrados.updateUI();
         }
         
+        //vai para telaEscolhaMedicamento para mostrar os medicamentos gerais
         if(src == medicamentosGerais) {
-        	new TelaEscolhaMedicamento(2);
+        	new TelaEscolhaMedicamento();
         	janela.dispose();
         }
 	

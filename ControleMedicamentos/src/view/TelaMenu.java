@@ -3,9 +3,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
 import controle.*;
-import objetos.*;
 
 public class TelaMenu implements ActionListener {
 	
@@ -17,11 +15,11 @@ public class TelaMenu implements ActionListener {
 	
 	
 	
-	public TelaMenu() { // menu principal
+	public TelaMenu() { // layout do menu principal
 		titulo.setFont(new Font("Arial", Font.BOLD, 30));
-		titulo.setBounds(150, 10, 150, 30);
-		medicamento.setBounds(220, 70, 140, 100);
-		paciente.setBounds(20, 70, 140, 100);
+		titulo.setBounds(285, 10, 600, 30);
+		medicamento.setBounds(355, 70, 140, 100);
+		paciente.setBounds(170, 70, 140, 100);
 		
 		janela.setLayout(null);
 		
@@ -30,7 +28,7 @@ public class TelaMenu implements ActionListener {
 		janela.add(medicamento);
 		
 		
-		janela.setSize(400, 250);
+		janela.setSize(700, 500);
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		janela.setVisible(true);
 	}
@@ -47,12 +45,14 @@ public class TelaMenu implements ActionListener {
 		
 		if(src == paciente){
 			new TelaListaPaciente().mostrarDados(dados);
-		
+			janela.dispose();
+			// chama a tela que lista os pacientes cadastrados
 		}
 
-		if(src == medicamento) // chama a tela de escolha do tipo de medicamentos
-			new TelaEscolhaMedicamento(1);
-			
+		if(src == medicamento) 
+			new TelaEscolhaMedicamento();
+			janela.dispose();
+			// chama a tela de escolha do tipo de medicamentos
 	}
 		
 }

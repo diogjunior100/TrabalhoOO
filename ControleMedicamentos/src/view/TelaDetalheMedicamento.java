@@ -78,7 +78,7 @@ public class TelaDetalheMedicamento  implements ActionListener{
         frequenciaJLabel.setBounds(30, 80,150,25);
         frequenciaMedicamento.setBounds(180, 80, 180,25);
         
-        porDia.setBounds(180, 110, 150, 25);
+        porDia.setBounds(180, 110, 180, 25);
         valorTotal.setBounds(180, 140, 180, 25);
         
         salvarButton.setBounds(100, 200, 120, 30);
@@ -101,7 +101,7 @@ public class TelaDetalheMedicamento  implements ActionListener{
 
         this.janela.setLayout(null);
 
-        this.janela.setSize(1000, 800);
+        this.janela.setSize(700, 500);
 		this.janela.setVisible(true);
 
 		salvarButton.addActionListener(this);
@@ -149,7 +149,7 @@ public class TelaDetalheMedicamento  implements ActionListener{
                     mensagemCadastroConcluido();
                 }
                 
-                }
+               }
       
     		}
 
