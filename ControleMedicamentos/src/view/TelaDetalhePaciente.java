@@ -39,7 +39,6 @@ public class TelaDetalhePaciente implements ActionListener {
     private JLabel detalheJLabel = new JLabel("Detalhe: ");
     private JTextField detalhe;
     private JButton selecionarMedicamentoButton = new JButton("Escolher");
-    private JButton verTodosButton = new JButton("Voltar");
     private JButton excluirButton = new JButton("Excluir");
     private JButton salvarButton = new JButton("Salvar");
     private static ControleDados dados;
@@ -146,7 +145,6 @@ public class TelaDetalhePaciente implements ActionListener {
 		detalhe.setBounds(180, 410, 180, 25);
 		
 	
-		verTodosButton.setBounds(50, 500, 120, 30);
 		salvarButton.setBounds(180, 500, 120, 30);
 		excluirButton.setBounds(310, 500, 120, 30);
 		
@@ -186,7 +184,7 @@ public class TelaDetalhePaciente implements ActionListener {
         this.janela.add(detalheJLabel);
         this.janela.add(detalhe);
         
-        this.janela.add(verTodosButton);
+  
         this.janela.add(salvarButton);
         this.janela.add(excluirButton);
         this.janela.add(selecionarMedicamentoButton);
@@ -198,7 +196,6 @@ public class TelaDetalhePaciente implements ActionListener {
 
 		salvarButton.addActionListener(this);
 		excluirButton.addActionListener(this);
-		verTodosButton.addActionListener(this);
 
     }
     

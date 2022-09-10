@@ -61,7 +61,7 @@ public class ControleDados {
     }
     
     public boolean deletarComprimido(int i) {
-		//int qtdComprimidos = d.getQtdComprimidos();
+		int qtdComprimidos = d.getQtdComprimidos();
 		String comprimidoRemovido = d.getComprimidos()[i].getNome();
 		
 		if(i == (d.getQtdComprimidos() - 1)) { 
@@ -93,26 +93,26 @@ public class ControleDados {
     }
     
     public boolean deletarLiquido(int i) {
-		//int qtdLiquidos = d.getQtdLiquidos();
+		int qtdLiquidos = d.getQtdLiquidos();
 		String liquidoRemovido = d.getLiquidos()[i].getNome();
 		
 		if(i == (d.getQtdLiquidos() - 1)) { // O aluno a ser removido está no final do array
 			d.setQtdLiquidos(d.getQtdLiquidos() - 1);
-			d.getPacientes()[d.getQtdLiquidos()] = null;
+			d.getLiquidos()[d.getQtdLiquidos()] = null;
 			return true;
 			
 		} 
 		else { 
 			int posicao = 0;
-			while(d.getPacientes()[posicao].getNome().compareTo(liquidoRemovido) != 0) {
+			while(d.getLiquidos()[posicao].getNome().compareTo(liquidoRemovido) != 0) {
 				posicao++;
 			}
 			
 			for(int j = posicao; j < d.getQtdPacientes() - 1; j++) {
 				d.getLiquidos()[j] = d.getLiquidos()[j+1];
 			}
-			d.getPacientes()[d.getQtdPacientes()] = null;
-			d.setQtdPacientes(d.getQtdPacientes() - 1);
+			d.getLiquidos()[d.getQtdLiquidos()] = null;
+			d.setQtdLiquidos(d.getQtdLiquidos() - 1);
 			return true;
 		}
 	}
@@ -134,8 +134,8 @@ public class ControleDados {
     }
 
     public boolean deletarPaciente(int i) {
-		//int qtdPacientes = d.getQtdPacientes();
-    	String pacienteRemovido = d.getLiquidos()[i].getNome();
+		int qtdPacientes = d.getQtdPacientes();
+    	String pacienteRemovido = d.getPacientes()[i].getNome();
     	
 		if(i == (d.getQtdPacientes() - 1)) { 
 			d.getPacientes()[d.getQtdPacientes()] = null;
