@@ -1,6 +1,7 @@
 package controle;
 
 import objetos.*;
+import testesjunit.*;
 
 /**
  * Classe responsável pelo controle de adicionar e excluir os dados do sistema.
@@ -72,6 +73,7 @@ public class ControleDados {
         d.inserirEditarComprimido(c, Integer.parseInt(dadosComprimidos[0])); //Criando novo objeto comprimido
         return true;
     }
+    
     
 	/**
 	 * Método responsável por excluir algum objeto comprimido escolhido
@@ -164,6 +166,15 @@ public class ControleDados {
         d.inserirEditarPaciente(p, Integer.parseInt(dadosPacientes[0]));
         		
         return true;
+    }
+    
+    public static boolean testeNome(String nome) {
+    	if(nome.equals(null)) {
+    		return false;
+    	}
+    	else {
+    		return true;
+    	}
     }
 
 	/**
