@@ -73,6 +73,7 @@ public class ControleDados {
         return true;
     }
     
+    
 	/**
 	 * Método responsável por excluir algum objeto comprimido escolhido
 	 * @param i posição do comprimido no vetor
@@ -164,6 +165,15 @@ public class ControleDados {
         d.inserirEditarPaciente(p, Integer.parseInt(dadosPacientes[0]));
         		
         return true;
+    }
+    
+    public static boolean testeNome(String nome) {
+    	if(nome.equals("")) {
+    		return false;
+    	}
+    	else {
+    		return true;
+    	}
     }
 
 	/**
