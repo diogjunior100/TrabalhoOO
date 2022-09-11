@@ -11,7 +11,7 @@ class TesteValidador {
 	
 	@Test
 	//teste se o nome do paciente não é null;
-	void testeNomePaciente() {
+	public void testeNomePaciente() {
 		String nomeCorreto;
 		nomeCorreto = "Henrique";
 		assertTrue(ControleDados.testeNome(nomeCorreto));
