@@ -1,7 +1,6 @@
 package controle;
 
 import objetos.*;
-import testesjunit.*;
 
 /**
  * Classe responsável pelo controle de adicionar e excluir os dados do sistema.
@@ -169,7 +168,7 @@ public class ControleDados {
     }
     
     public static boolean testeNome(String nome) {
-    	if(nome.equals(null)) {
+    	if(nome.equals("")) {
     		return false;
     	}
     	else {
