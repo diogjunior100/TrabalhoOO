@@ -9,6 +9,12 @@ import javax.swing.event.*;
 import controle.*;
 import objetos.*;
 
+/**
+ * Classe referente a criação da tela de escolha de medicamento
+ * @author Henrique Pucci
+ * @since 2022
+ *
+ */
 public class TelaEscolhaMedicamento implements ActionListener {
 	
 	private static JFrame janela = new JFrame("Controle de Medicamento");
@@ -18,7 +24,10 @@ public class TelaEscolhaMedicamento implements ActionListener {
 	public static ControleDados dados = new ControleDados();
 	private int opcao;
 	
-	
+	/**
+	 * Método que adiciona todos elementos visuais referentes a TelaEscolhaMedicamento
+	 * 
+	 */
 	public TelaEscolhaMedicamento() {
 		 
 		titulo.setFont(new Font("Arial", Font.BOLD, 30));
@@ -43,8 +52,12 @@ public class TelaEscolhaMedicamento implements ActionListener {
 		 
 	}
 	
-	
-	
+	/**
+	 * Método de ativação da ação nos botões presentes
+	 * @param e evento de clique
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 *
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
@@ -53,7 +66,7 @@ public class TelaEscolhaMedicamento implements ActionListener {
 			new TelaListaMedicamentos().mostrarDados(dados, 1);
 			
 		}
-		if(src == liquido) { // chama tela lista de comprimidos
+		if(src == liquido) { // chama tela lista de liquidos
 			new TelaListaMedicamentos().mostrarDados(dados, 2);
 			
 		}

@@ -6,7 +6,12 @@ import javax.swing.*;
 import javax.swing.event.*;
 import controle.*;
 
-//apresenta os medicamentos cadastrados
+/**
+ * Classe referente a Tela de listagem dos medicamentos cadastrados
+ * @author Henrique Pucci
+ * @since 2022
+ * 
+ */
 public class TelaListaMedicamentos implements ActionListener, ListSelectionListener {
     private JFrame janela;
 	private JLabel titulo;
@@ -21,7 +26,12 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
 	private String[] listaNomesComprimidos = new String[50];
     private String[] listaNomesLiquidos = new String[50];
     
-
+    /**
+     * Método para listagem de todos medicamentos cadastrados no sistema
+     * @param d dados referentes a classe ControleDados
+     * @param op opção de medicamento escolhida pelo usuário
+     * 
+     */
 	public void mostrarDados(ControleDados d, int op){
 		dados = d;
         opcao = op;
@@ -101,37 +111,48 @@ public class TelaListaMedicamentos implements ActionListener, ListSelectionListe
     
 	}
 
+    /**
+     * Método para ação de botões
+     * @param e evento de clique do botão
+     * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+     *
+     */
     public void actionPerformed(ActionEvent e) {
         Object src = e.getSource();
         
-        if (src == cadastroComprimido) {
+        if (src == cadastroComprimido) { // botao cadastra comprimido
         	new TelaDetalheMedicamentoComprimido().inserirEditar(1, dados, 0);
         }
-        if (src == refreshComprimido){
+        if (src == refreshComprimido){ // botao atualiza comprimido
         	listaComprimidosCadastrados.setListData(new ControleComprimido(dados).getNomeComprimido());			
 			listaComprimidosCadastrados.updateUI();
         }
-        if (src == cadastroLiquido) {
+        if (src == cadastroLiquido) { // botao cadastra liquido
         	new TelaDetalheMedicamentoLiquido().inserirEditar(1, dados, 0);
         }
         
-        if (src == refreshLiquido){
+        if (src == refreshLiquido){  // botao atualiza liquido
         	listaLiquidosCadastrados.setListData(new ControleLiquido(dados).getNomeLiquido());			
 			listaLiquidosCadastrados.updateUI();
         }
         
     }
 
-    @Override
+    /**
+     * Método para ação de seleção de item da lista
+     * @param e evento de seleção de item da lista
+     * @see javax.swing.event.ListSelectionListener#valueChanged(javax.swing.event.ListSelectionEvent)
+     * 
+     */
     public void valueChanged(ListSelectionEvent e) {
         Object src = e.getSource();
         
-        if(e.getValueIsAdjusting() && src == listaComprimidosCadastrados){
+        if(e.getValueIsAdjusting() && src == listaComprimidosCadastrados){ // seleciona comprimido
             new TelaDetalheMedicamentoComprimido().inserirEditar(2, dados, listaComprimidosCadastrados.getSelectedIndex());
             //janela.dispose();
         }
 
-        if (e.getValueIsAdjusting() && src == listaLiquidosCadastrados) {
+        if (e.getValueIsAdjusting() && src == listaLiquidosCadastrados) { // seleciona liquido
             new TelaDetalheMedicamentoLiquido().inserirEditar(2, dados, listaLiquidosCadastrados.getSelectedIndex());
             //janela.dispose();
         }

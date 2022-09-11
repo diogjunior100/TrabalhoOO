@@ -1,12 +1,23 @@
 package objetos;
 
-
+/**
+ * Classe responsável pelo objeto Horário
+ * @author Diógenes Júnior
+ * @since 2022
+ */
 public class Horario {
 	private int hora;
 	private int minuto;
 	private String diadaSemana;
 	private String detalhedoHorario;
 	
+	/**
+	 * Construtor da classe Horario
+	 * @param hora
+	 * @param minuto
+	 * @param diadaSemana
+	 * @param detalhedoHorario
+	 */
 	public Horario(int hora, int minuto, String diadaSemana, String detalhedoHorario) {
 		this.hora = hora;
 		this.minuto = minuto;

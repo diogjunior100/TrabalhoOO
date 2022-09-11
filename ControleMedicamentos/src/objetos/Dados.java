@@ -1,5 +1,11 @@
 package objetos;
 
+/**
+ * Classe referente ao amarzenamento de todas instâncias dos 
+ * Objetos no sistema.
+ * @author Henrique Pucci
+ *
+ */
 public class Dados { // classe que amarzena todos arrays utilizados pelo sistema
     private Paciente[] pacientes = new Paciente[50];
 	private int qtdPacientes = 0;
@@ -14,6 +20,10 @@ public class Dados { // classe que amarzena todos arrays utilizados pelo sistema
     private Horario[] horarios = new Horario[50];
     private int qtdHorarios = 0;
 
+    /**
+     * Método de pré-cadastro de dados dos pacientes no sistema.
+     * 
+     */
     public void PreencherDados(){ //funcao para pre cadastrar dados no sistema
     	
     	horarios[0] = new Horario(10, 20, "Segunda", "Nao esquecer");
@@ -38,6 +48,9 @@ public class Dados { // classe que amarzena todos arrays utilizados pelo sistema
         qtdHorarios = 2;
     }
     
+    /**
+     * Método de pré-cadastro de dados gerais no sistema.
+     */
     public void PreencherDadosGerais() {
     	comprimidos[0] = new Comprimido("Comprimido0", "Jassen", "3 vezes na semana", 2, 30);
         liquidos[0] = new Liquido("Liquido0", "Jassen", "2 vezes na semana", 2, 50);
@@ -49,28 +62,60 @@ public class Dados { // classe que amarzena todos arrays utilizados pelo sistema
         qtdLiquidos = 2;
     }
 
+    /**
+     * Método de adição de um comprimido
+     * @param c objeto comprimido
+     * @param pos posição do array
+     *
+     */
     public void inserirEditarComprimido(Comprimido c, int pos){ // funcao de inserir comprimidos cadastrados por ControleDados
         this.comprimidos[pos] = c;
         if(pos == qtdComprimidos)
             qtdComprimidos++;
     }
+
+    /**
+     * Método de adição de um comprimido de um paciente
+     * @param c obejto comprimido
+     * @param pos posição do array
+     *
+     */
     public void inserirEditarComprimidoPaciente(Comprimido c, int pos){ // funcao de inserir comprimidos cadastrados por ControleDados
         this.comprimidosPacientes[pos] = c;
         if(pos == qtdComprimidos);
             qtdComprimidos++;
     }
 
+    /**
+     * Método de adição de um liquido
+     * @param l objeto liquido
+     * @param pos posição do array
+     *
+     */
     public void inserirEditarLiquido(Liquido l, int pos){ // funcao de inserir liquidos cadastrados por ControleDados
         this.liquidos[pos] = l;
         if(pos == qtdLiquidos)
             qtdLiquidos++;
     }
+
+    /**
+     * Método de adição de um liquido de um paciente
+     * @param l objeto liquido
+     * @param pos posição do array
+     *
+     */
     public void inserirEditarLiquidoPaciente(Liquido l, int pos){ // funcao de inserir liquidos cadastrados por ControleDados
         this.liquidosPacientes[pos] = l;
         if(pos == qtdLiquidos)
             qtdLiquidos++;
     }
     
+    /**
+     * Método de adição de um paciente
+     * @param p objeto paciente
+     * @param pos posição do array
+     *
+     */
     public void inserirEditarPaciente(Paciente p, int pos){ // funcao de inserir pacientes cadastrados por ControleDados
         this.pacientes[pos] = p;
         if(pos == qtdPacientes){

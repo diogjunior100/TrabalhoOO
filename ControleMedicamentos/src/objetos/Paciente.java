@@ -1,5 +1,11 @@
 package objetos;
 
+/**
+ * Classe responsável pelo objeto paciente
+ * @author Henrique Pucci
+ * @since 2022
+ * 
+ */
 public class Paciente {
 	private String datadeNascimento;
 	private String sexo;
@@ -11,6 +17,19 @@ public class Paciente {
 	private Comprimido comprimido;
 	private String cor;
 	
+	/**
+	 * Construtor da classe Paciente
+	 * @param nome
+	 * @param email
+	 * @param telefone
+	 * @param datadeNascimento
+	 * @param sexo
+	 * @param medicamento
+	 * @param liquido
+	 * @param comprimido
+	 * @param cor
+	 * 
+	 */
 	public Paciente(String nome, String sexo, String datadeNascimento, String email, Telefone telefone, String cor, Liquido liquido) {
 		this.nome = nome;
 		this.sexo = sexo;

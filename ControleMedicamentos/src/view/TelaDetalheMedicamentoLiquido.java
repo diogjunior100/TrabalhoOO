@@ -7,7 +7,12 @@ import javax.swing.event.*;
 
 import controle.*;
 
-//cadastrar novos medicamentos;
+/**
+ * Classe referente a tela de detalhes de medicamento liquido cadastrados
+ * @author Henrique Pucci
+ * @since 2022
+ * 
+ */
 public class TelaDetalheMedicamentoLiquido implements ActionListener{
     private JFrame janela = new JFrame("Cadastro Medicamento");
 	private JLabel labelNome = new JLabel("Nome: ");
@@ -27,6 +32,14 @@ public class TelaDetalheMedicamentoLiquido implements ActionListener{
     private int posicao;
     private int opcao;
 
+    /**
+     * Método que mostrará tela com detalhes de medicamentos para serem editados em medicamentos cadastrados
+     * @param op escolha entre edição ou cadastro de liquidos
+     * @param d dados referentes a classe ControleDados
+     * @param l referente a classe de TelaListaMedicamento
+     * @param pos posição ocupada pelo dado requisitado
+     * 
+     */
     public void inserirEditar(int op, ControleDados d, int pos){
 
         dados = d;
@@ -34,7 +47,7 @@ public class TelaDetalheMedicamentoLiquido implements ActionListener{
         opcao = op;
 
 
-        if(op == 2){ 
+        if(op == 2){ //se for edicao, preenche os campos com os dados do liquido
             
             valorNome = new JTextField(dados.getLiquidos()[pos].getNome(), 200);
             valorMarca = new JTextField(dados.getLiquidos()[pos].getMarca(), 200);
@@ -48,7 +61,7 @@ public class TelaDetalheMedicamentoLiquido implements ActionListener{
             
         } 
 
-        else{
+        else{ //se for cadastro, cria campos vazios
             valorNome = new JTextField(200);
             valorMarca = new JTextField(200);
             frequenciaMedicamento = new JTextField(200);
@@ -97,15 +110,21 @@ public class TelaDetalheMedicamentoLiquido implements ActionListener{
 
     }
     
-    public void actionPerformed(ActionEvent e) { //metodo que executa a acao do botao 
+    /**
+     * Método de ação dos botões da tela
+     * @param e evento de clique
+     * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+     * 
+     */
+    public void actionPerformed(ActionEvent e) {  
         Object src = e.getSource();
 
         if(src == salvarButton){ //se for salvar, salva os dados no comprimido
                 boolean resultado;
-                if(opcao == 1){
+                if(opcao == 1){ //se for cadastro, cria um novo liquido
                     dadosMedicamento[0] = Integer.toString(dados.getQtdLiquidos());
                 }  
-                else {
+                else { //se for edicao, pega os dados do liquido
                 	dadosMedicamento[0] = Integer.toString(posicao);
                 }
                 
@@ -122,7 +141,7 @@ public class TelaDetalheMedicamentoLiquido implements ActionListener{
         
          }
         
-        if(src == excluirButtonLiquido) {
+        if(src == excluirButtonLiquido) { //se for excluir, exclui o liquido
         	boolean resposta = false;
         	
         	resposta = dados.deletarLiquido(posicao);

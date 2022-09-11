@@ -8,6 +8,12 @@ import controle.*;
 import objetos.*;
 import java.util.*;
 
+/**
+ * Classe referente a criação da tela de listagem de pacientes
+ * @author Diógenes Júnior	
+ * @since 2022
+ *
+ */
 public class TelaListaPaciente implements ActionListener, ListSelectionListener {
 
     private JFrame janela;
@@ -19,11 +25,16 @@ public class TelaListaPaciente implements ActionListener, ListSelectionListener 
     private JList<String> listaPacientesCadastrados;
     private String[] listaPacientes = new String[50];
 	
+    /**
+     * Método que adiciona todos elementos visuais referentes a TelaListaPaciente
+     * @param d dados referentes a ControleDados
+     * 
+     */
 	public void mostrarDados(ControleDados d){
         dados = d;
       
-        listaPacientes = new ControlePaciente(dados).getNomePaciente();
-        listaPacientesCadastrados = new JList<String>(listaPacientes);
+        listaPacientes = new ControlePaciente(dados).getNomePaciente(); // pega os nomes dos pacientes cadastrados
+        listaPacientesCadastrados = new JList<String>(listaPacientes); // adiciona os nomes dos pacientes cadastrados na lista
         janela = new JFrame("Controle de Pacientes");
         titulo = new JLabel("Lista de Pacientes");
        
@@ -62,33 +73,44 @@ public class TelaListaPaciente implements ActionListener, ListSelectionListener 
 
     }
 	
+    /**
+     * Método que adiciona ações aos botões da tela
+     * @param e evento referente ao botão
+     * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+     *  
+     */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
         
-		//se o button cadastroPaciente for ativado, chama a tela de cadastra o paciente
-        if (src == cadastroPaciente) {
+		
+        if (src == cadastroPaciente) { // se o botão cadastroPaciente for ativado, chama a tela de cadastra o paciente
             new TelaDetalhePaciente().inserirEditar(2, dados, this, 0);
         }
         
-        //atualiza a lista dos Pacientes cadastrados
-        if (src == refreshPaciente) {
+        
+        if (src == refreshPaciente) { // se o botão refreshPaciente for ativado, atualiza a lista de pacientes
             listaPacientesCadastrados.setListData(new ControlePaciente(dados).getNomePaciente());			
 			listaPacientesCadastrados.updateUI();
         }
         
-        //vai para telaEscolhaMedicamento para mostrar os medicamentos gerais
-        if(src == medicamentosGerais) {
+        
+        if(src == medicamentosGerais) { // se o botão medicamentosGerais for ativado, chama a tela de medicamentos gerais
         	new TelaEscolhaMedicamento();
         	janela.dispose();
         }
 	
 	}
 
-    @Override
+    /**
+     * Método que adiciona ações a lista de pacientes
+     * @param e evento referente a lista de pacientes
+     * @see javax.swing.event.ListSelectionListener#valueChanged(javax.swing.event.ListSelectionEvent)
+     *  
+     */
     public void valueChanged(ListSelectionEvent e) {
         Object src = e.getSource();
 
-        if (e.getValueIsAdjusting() && src == listaPacientesCadastrados) {
+        if (e.getValueIsAdjusting() && src == listaPacientesCadastrados) { // seleciona um paciente
         	new TelaDetalhePaciente().inserirEditar(1, dados, this, listaPacientesCadastrados.getSelectedIndex());
         }
         

@@ -7,7 +7,13 @@ import javax.swing.event.*;
 
 import controle.*;
 
-//cadastrar novos medicamentos;
+/**
+ * Classe referente a tela de detalhes de medicamentos comprimidos já cadastrados ou 
+ * que serão cadastrados 
+ * @author Diógenes Júnior
+ * @since 2022
+ *
+ */
 public class TelaDetalheMedicamentoComprimido  implements ActionListener{
     private JFrame janela = new JFrame("Cadastro Medicamento");
 	private JLabel labelNome = new JLabel("Nome: ");
@@ -28,6 +34,14 @@ public class TelaDetalheMedicamentoComprimido  implements ActionListener{
     private int posicao;
     private int opcao;
 
+    /**
+     * Método que mostrará tela com detalhes de medicamentos para serem editados em medicamentos cadastrados
+     * @param op escolha entre edição ou cadastro de comprimidos
+     * @param d dados referentes a classe ControleDados
+     * @param l referente a classe de TelaListaMedicamento
+     * @param pos posição ocupada pelo dado requisitado
+     * 
+     */
     public void inserirEditar(int op, ControleDados d, int pos){
 
         dados = d;
@@ -49,7 +63,7 @@ public class TelaDetalheMedicamentoComprimido  implements ActionListener{
             
         } 
 
-        else{
+        else{ // senão, aparece com campos vazios para cadastro de comprimidos
             valorNome = new JTextField(200);
             valorMarca = new JTextField(200);
             frequenciaMedicamento = new JTextField(200);
@@ -100,20 +114,26 @@ public class TelaDetalheMedicamentoComprimido  implements ActionListener{
 
     }
     
-    public void actionPerformed(ActionEvent e) { //metodo que executa a acao do botao 
+    /**
+     * Método de ativação de botões
+     * @param e evento de clique
+     * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+     *
+     */
+    public void actionPerformed(ActionEvent e) {  
         Object src = e.getSource();
 
         if(src == salvarButton){ //se for salvar, salva os dados no comprimido
                 boolean resultado;
-                if(opcao == 1){
+                if(opcao == 1){ //se for cadastro, cria um novo comprimido
                     dadosMedicamento[0] = Integer.toString(dados.getQtdComprimidos());
                 }  
-                else {
+                else { //se for edição, pega os dados do comprimido
                 	dadosMedicamento[0] = Integer.toString(posicao);
                 }
                 
                 
-                if(opcao == 1 || opcao == 2) {
+                if(opcao == 1 || opcao == 2) { //
                 	dadosMedicamento[1] = valorNome.getText();
                     dadosMedicamento[2] = valorMarca.getText();
                     dadosMedicamento[3] = frequenciaMedicamento.getText();
@@ -125,7 +145,7 @@ public class TelaDetalheMedicamentoComprimido  implements ActionListener{
         
          }
         
-        if(src == excluirButtonComprimido) {
+        if(src == excluirButtonComprimido) { //se for excluir, exclui o comprimido
         	boolean resposta = false;
         	
         	resposta = dados.deletarComprimido(posicao);

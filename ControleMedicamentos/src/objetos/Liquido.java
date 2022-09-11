@@ -1,10 +1,25 @@
 package objetos;
 
+/**
+ * Classe responsável pelo objeto líquido que herda de Medicamento.
+ * @author Henrique Pucci
+ * @since 2022
+ * 
+ */
 public class Liquido extends Medicamento{
 	private int gotasporDia;
 	private int mlsTotal;
 	private Horario horario;
 	
+	/**
+	 * Construtor da classe Liquido
+	 * @param nome
+	 * @param marca
+	 * @param frequencia
+	 * @param gd
+	 * @param mlsT
+	 * @param h
+	 */
 	public Liquido(String nome, String marca, String frequencia, int gd, int mlsT, Horario h) { // construtor para cadastrar liquido em um paciente
 		super(nome, marca, frequencia);
 		this.gotasporDia = gd;

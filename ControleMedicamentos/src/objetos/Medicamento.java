@@ -1,10 +1,23 @@
 package objetos;
 
+/**
+ * Classe responsável pelo objeto abstrato Medicamento
+ * @author Diógenes Júnior
+ * @since 2022
+ * 
+ */
 public abstract class Medicamento {
 	protected String nome;
 	protected String marca;
 	protected String frequencia;
 	
+	/**
+	 * Construtor da classe Medicamento
+	 * @param nome
+	 * @param marca
+	 * @param frequencia
+	 * 
+	 */
 	public Medicamento(String nome, String marca, String frequencia) {
 		//super();
 		this.nome = nome;

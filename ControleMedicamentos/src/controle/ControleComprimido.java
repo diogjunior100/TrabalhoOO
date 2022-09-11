@@ -1,6 +1,12 @@
 package controle;
 import objetos.*;
 
+/**
+ * Classe responsável pelo controle de comprimidos.
+ * @author Henrique Pucci
+ * @since 2022
+ *
+ */
 public class ControleComprimido {
     private Comprimido[] c;
     private int qtdComprimidos;
@@ -10,10 +16,15 @@ public class ControleComprimido {
         qtdComprimidos = d.getQtdComprimidos();
     }
 
-    public String[] getNomeComprimido() { //funcao que listara o nome de comprimidos cadastrados 
+    /**
+     * Método responsável pelo listamento de comprimidos pelos seus nomes
+     * @return String com os nomes dos comprimidos
+     *
+     */
+    public String[] getNomeComprimido() { 
         String[] comprimidos = new String[qtdComprimidos];
         for(int i = 0; i < qtdComprimidos; i++) {
-            comprimidos[i] = c[i].getNome();
+            comprimidos[i] = c[i].getNome(); //adiciona o nome do comprimido no vetor
         }
         return comprimidos;  
     }

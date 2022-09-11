@@ -5,7 +5,12 @@ import java.awt.event.*;
 import javax.swing.*;
 import controle.*;
 
-
+/**
+ * Classe referente a crição da tela de detalhes do paciente
+ * @author Diógenes Júnior
+ * @since 2022
+ * 
+ */
 public class TelaDetalhePaciente implements ActionListener {
     private JFrame janela = new JFrame("Cadastro Paciente");
     private JLabel nomeJLabel = new JLabel("Nome: ");
@@ -47,14 +52,19 @@ public class TelaDetalhePaciente implements ActionListener {
     private int posicao;
     private int opcao;
     
-
+    /**
+     * Método que adiciona todos elementos visuais referentes a TelaDetalhePaciente
+     * @param d dados referentes a ControleDados
+     * @param op opção de escolha entre cadastro ou edição de um paciente
+     * @param posicao posição referente a qual paciente será aberto
+     */
     public void inserirEditar(int op, ControleDados d, TelaListaPaciente p, int pos){
         opcao = op;
         posicao = pos;
         dados = d;
         
      
-        if (op == 1) {
+        if (op == 1) { //se for edicao, preenche os campos com os dados do paciente
         	//dados Paciente
         	nomePaciente = new JTextField(dados.getPacientes()[pos].getNome(), 200);
             sexoPaciente = new JTextField(dados.getPacientes()[pos].getSexo(), 200);
@@ -78,7 +88,7 @@ public class TelaDetalhePaciente implements ActionListener {
             detalhe = new JTextField(dados.getPacientes()[pos].getLiquidos().getHorario().getDetalhedoHorario(), 200);
             
         }
-        else{
+        else{ //se for cadastro, cria campos vazios
             nomePaciente = new JTextField(200);
             sexoPaciente = new JTextField(200);
             dataPaciente = new JTextField(200);
@@ -199,17 +209,22 @@ public class TelaDetalhePaciente implements ActionListener {
 
     }
     
-   
+    /**
+     * Método que trata os eventos dos botões
+     * @param e eventos relacionados aos botões
+     * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+     *
+     */
     public void actionPerformed(ActionEvent e){
         Object src = e.getSource();
         
 
-        if (src == salvarButton) {
+        if (src == salvarButton) { //se for salvar, salva os dados no comprimido
         	boolean resposta;
-            if (opcao == 2) {
+            if (opcao == 2) { // se for cadastro, cria um novo comprimido
                 dadosPaciente[0] = Integer.toString(dados.getQtdPacientes());
             }
-            else {
+            else { // se for alteração, pega a posicao do comprimido
                 dadosPaciente[0] = Integer.toString(posicao);
             }
                 

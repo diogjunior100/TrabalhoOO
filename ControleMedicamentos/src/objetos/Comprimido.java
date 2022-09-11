@@ -1,11 +1,27 @@
 package objetos;
 
+/**
+ * Classe responsável pelo objeto Comprimido que herda de Medicamento.
+ * @author Henrique Pucci
+ * @since 2022
+ * 
+ */
 public class Comprimido extends Medicamento{
 	
 	private int comprimidosporDia;
 	private int comprimidosTotal;
 	private Horario horario;
 	
+	/**
+	 * Construtor da classe Comprimido
+	 * @param nome
+	 * @param marca
+	 * @param frequencia
+	 * @param c
+	 * @param ct
+	 * @param h
+	 * 
+	 */
 	public Comprimido(String nome, String marca, String frequencia, int c, int ct, Horario h) { // construtor para cadastrar comprimido em um paciente
 		super(nome, marca, frequencia);
 		this.comprimidosporDia = c;

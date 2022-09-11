@@ -4,6 +4,12 @@ import objetos.*;
 import view.*;
 import controle.*;
 
+/**
+ * Classe responsável pelo controle de comprimidos.
+ * @author Diógenes Júnior
+ * @since 2022
+ * 
+ */
 public class ControlePaciente {
 	private Paciente[] p;
 	private int qtdPacientes;
@@ -13,6 +19,11 @@ public class ControlePaciente {
 		qtdPacientes = d.getQtdPacientes();
 	}
 
+	/**
+	 * Método responsável pelo listamento de pacientes pelos seus nomes
+	 * @return String com os nomes dos pacientes
+	 * 
+	 */
 	public String[] getNomePaciente() { //funcao que lista o nome dos pacientes
 		String[] nomePacientes = new String[qtdPacientes];
 		for(int i = 0; i < qtdPacientes; i++) {

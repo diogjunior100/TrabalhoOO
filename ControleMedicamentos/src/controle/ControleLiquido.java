@@ -1,18 +1,30 @@
 package controle;
 import objetos.*;
 
+/**
+ * Classe responsável pelo controle de comprimidos.
+ * @author Henrique Pucci
+ * @since 2022
+ * 
+ */
 public class ControleLiquido {
     private Liquido[] l;
     private int qtdLiquidos;
+    
     
     public ControleLiquido(ControleDados d) {
         l = d.getLiquidos();
         qtdLiquidos = d.getQtdLiquidos();
     }
     
+    /**
+     * Método responsável pelo listamento de líquidos pelos seus nomes
+     * @return String com os nomes dos líquidos
+     * 
+     */
     public String[] getNomeLiquido() {
-        String[] liquidos = new String[qtdLiquidos];
-        for(int i = 0; i < qtdLiquidos; i++) {
+        String[] liquidos = new String[qtdLiquidos]; 
+        for(int i = 0; i < qtdLiquidos; i++) { 
             liquidos[i] = l[i].getNome();
         } 
         return liquidos;
