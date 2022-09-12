@@ -1,6 +1,7 @@
 package controle;
 
 import objetos.*;
+import testeJUnit.*;
 
 /**
  * Classe responsável pelo controle de adicionar e excluir os dados do sistema.
@@ -73,6 +74,10 @@ public class ControleDados {
         return true;
     }
     
+    public static boolean testeComprimido(String[] dadosComprimidos) { 
+    	Comprimido c = new Comprimido(dadosComprimidos[1], dadosComprimidos[2], dadosComprimidos[3], Integer.parseInt(dadosComprimidos[4]), Integer.parseInt(dadosComprimidos[5]));
+        return true;
+    }
     
 	/**
 	 * Método responsável por excluir algum objeto comprimido escolhido
@@ -115,6 +120,11 @@ public class ControleDados {
         d.inserirEditarLiquido(l, Integer.parseInt(dadosLiquidos[0])); // Criando novo objeto liquido
         return true;
     }
+    
+    public static boolean testeLiquido(String[] dadosLiquidos) { 
+    	Liquido l = new Liquido(dadosLiquidos[1], dadosLiquidos[2], dadosLiquidos[3], Integer.parseInt(dadosLiquidos[4]), Integer.parseInt(dadosLiquidos[5]));
+        return true;
+    }
      /**
 	  * Método responsável por excluir algum objeto líquido escolhido	
 	  * @param i posição do líquido no vetor
@@ -146,6 +156,7 @@ public class ControleDados {
 		}
 	}
     
+    
 	/**
 	 * Método responsável por adicionar novos dados de pacientes.
 	 * @param dadosPacientes dados de cada atributo de um paciente
@@ -167,14 +178,6 @@ public class ControleDados {
         return true;
     }
     
-    public static boolean testeNome(String nome) {
-    	if(nome.equals("")) {
-    		return false;
-    	}
-    	else {
-    		return true;
-    	}
-    }
 
 	/**
 	 * Método responsável por excluir algum objeto paciente escolhido
