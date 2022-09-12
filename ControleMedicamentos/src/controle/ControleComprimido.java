@@ -28,6 +28,7 @@ public class ControleComprimido {
         }
         return comprimidos;  
     }
+    
 
     public int getQtd(){
         return qtdComprimidos;

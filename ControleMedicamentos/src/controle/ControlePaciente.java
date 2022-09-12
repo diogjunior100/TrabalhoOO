@@ -31,7 +31,7 @@ public class ControlePaciente {
 		}
 		return nomePacientes;	
 	}
-	
+		
 	
 	public int getQtd(){
 		return qtdPacientes;

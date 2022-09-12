@@ -33,6 +33,7 @@ public class Liquido extends Medicamento{
 		this.mlsTotal = mlsTotal;
 	}
 	
+	
 	public String getNome() {
 		return nome;
 	}

@@ -48,6 +48,7 @@ public class Dados { // classe que amarzena todos arrays utilizados pelo sistema
         qtdHorarios = 2;
     }
     
+    
     /**
      * Método de pré-cadastro de dados gerais no sistema.
      */
@@ -73,6 +74,7 @@ public class Dados { // classe que amarzena todos arrays utilizados pelo sistema
         if(pos == qtdComprimidos)
             qtdComprimidos++;
     }
+    
 
     /**
      * Método de adição de um comprimido de um paciente
@@ -123,6 +125,17 @@ public class Dados { // classe que amarzena todos arrays utilizados pelo sistema
         }
     }
     
+    public static boolean testeInserirEditarPaciente(int posTeste, int qtdPacienteTeste){ // funcao de inserir pacientes cadastrados por ControleDados
+        if(posTeste == qtdPacienteTeste){
+            qtdPacienteTeste++;
+        }
+        if(qtdPacienteTeste == 3) {
+        	return true;
+        }
+        else {
+        	return false;
+        }
+    }
     //getters e setters
     public Paciente[] getPacientes() {
         return pacientes;

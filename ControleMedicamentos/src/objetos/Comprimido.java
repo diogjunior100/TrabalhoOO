@@ -35,6 +35,8 @@ public class Comprimido extends Medicamento{
 		this.comprimidosTotal = ct;
 	}
 	
+	
+
 	public String getNome() {
 		return nome;
 	}
