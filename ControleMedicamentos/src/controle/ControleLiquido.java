@@ -27,8 +27,15 @@ public class ControleLiquido {
         for(int i = 0; i < qtdLiquidos; i++) { 
             liquidos[i] = l[i].getNome();
         } 
-        return liquidos;
-        
+        return liquidos;  
+    }
+
+    public static int getQtdMlsTotal(int qtdLiquidos) {
+        int qtdTotalMls = 0;
+        for(int i = 0; i < qtdLiquidos; i++) { 
+            qtdTotalMls = qtdLiquidos * 100;
+        } 
+        return qtdTotalMls;  
     }
     
     public int getQtd(){

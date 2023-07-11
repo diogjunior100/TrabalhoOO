@@ -29,6 +29,14 @@ public class ControleComprimido {
         return comprimidos;  
     }
     
+    public static int getQtdCompTotal(int qtdCadaCaixa, int qtdComprimidos) {
+        int qtdTotalComp = 1;
+
+        for(int i = 0; i < qtdComprimidos; i++) { 
+            qtdTotalComp = qtdComprimidos * qtdCadaCaixa;
+        } 
+        return qtdTotalComp; 
+    }
 
     public int getQtd(){
         return qtdComprimidos;

@@ -46,6 +46,30 @@ public class TesteValidador {
 		assertTrue(ControleDados.testeComprimido(dadosTeste));
 		
 	}
+
+	@Test
+	public void testeQtdCompTotal(){;
+		int qtdCadaCaixa = 30;
+		int qtdComprimidos = 5;
+		int expectedQtdTotalComp = qtdComprimidos * qtdCadaCaixa;
+
+		int actualQtdTotalComp = ControleComprimido.getQtdCompTotal(qtdComprimidos, qtdCadaCaixa);
+
+        assertEquals(expectedQtdTotalComp, actualQtdTotalComp);
+
+	}
+
+	@Test
+	public void testeQtdMlsTotal(){;
+        
+        int qtdCaixas = 5;
+        int expectedQtdTotalComp = qtdCaixas * 100;
+        
+        int actualQtdTotalComp = ControleLiquido.getQtdMlsTotal(qtdCaixas);
+        
+        assertEquals(expectedQtdTotalComp, actualQtdTotalComp);
+
+	}
 	
 	
 	
