@@ -29,12 +29,13 @@ public class ControleComprimido {
         return comprimidos;  
     }
     
-    public int getQntdeMCompTotal() {
-        int qtdTotalComp = 0;
+    public static int getQtdCompTotal(int qtdCadaCaixa, int qtdComprimidos) {
+        int qtdTotalComp = 1;
+
         for(int i = 0; i < qtdComprimidos; i++) { 
-            qtdTotalComp = qtdComprimidos * 10;
+            qtdTotalComp = qtdComprimidos * qtdCadaCaixa;
         } 
-        return qtdTotalComp;  
+        return qtdTotalComp; 
     }
 
     public int getQtd(){

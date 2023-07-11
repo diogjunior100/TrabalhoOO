@@ -30,7 +30,7 @@ public class ControleLiquido {
         return liquidos;  
     }
 
-    public int getQntdeMlsTotal() {
+    public static int getQtdMlsTotal(int qtdLiquidos) {
         int qtdTotalMls = 0;
         for(int i = 0; i < qtdLiquidos; i++) { 
             qtdTotalMls = qtdLiquidos * 100;
